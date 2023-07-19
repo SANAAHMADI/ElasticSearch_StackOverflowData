@@ -1,0 +1,296 @@
+Id,PostTypeId,AcceptedAnswerId,ParentId,CreationDate,DeletionDate,Score,ViewCount,Body,OwnerUserId,OwnerDisplayName,LastEditorUserId,LastEditorDisplayName,LastEditDate,LastActivityDate,Title,Tags,AnswerCount,CommentCount,FavoriteCount,ClosedDate,CommunityOwnedDate,ContentLicense
+"34571","1","34658","","2008-08-29 16:11:09","","3135","1167657","<p>How do I use JUnit to test a class that has internal private methods, fields or nested classes?</p>
+<p>It seems bad to change the access modifier for a method just to be able to run a test.</p>
+","3098","MattGrommes","6296561","Philippe ","2021-10-19 20:41:15","2022-12-08 02:00:52","How do I test a class that has private methods, fields or inner classes?","<java><unit-testing><junit><tdd>","58","8","0","","2013-04-10 20:46:28","CC BY-SA 3.0"
+"156503","1","156528","","2008-10-01 06:56:08","","2234","1726027","<p>How can I use JUnit idiomatically to test that some code throws an exception?</p>
+<p>While I can certainly do something like this:</p>
+<pre><code>@Test
+public void testFooThrowsIndexOutOfBoundsException() {
+  boolean thrown = false;
+
+  try {
+    foo.doStuff();
+  } catch (IndexOutOfBoundsException e) {
+    thrown = true;
+  }
+
+  assertTrue(thrown);
+}
+</code></pre>
+<p>I recall that there is an annotation or an Assert.xyz or <em>something</em> that is far less kludgy and far more in-the-spirit of JUnit for these sorts of situations.</p>
+","1666","SCdF","1615903","","2022-06-30 03:57:04","2022-10-26 06:27:36","How do you assert that a certain exception is thrown in JUnit tests?","<java><exception><junit><junit4><assert>","34","5","0","","","CC BY-SA 4.0"
+"12862659","1","12863072","","2012-10-12 15:44:46","","851","537840","<p>How to verify that a method is <strong>not</strong> called on an object's dependency?</p>
+
+<p>For example:</p>
+
+<pre><code>public interface Dependency {
+    void someMethod();
+}
+
+public class Foo {
+    public bar(final Dependency d) {
+        ...
+    }
+}
+</code></pre>
+
+<p>With the Foo test:</p>
+
+<pre><code>public class FooTest {
+    @Test
+    public void dependencyIsNotCalled() {
+        final Foo foo = new Foo(...);
+        final Dependency dependency = mock(Dependency.class);
+        foo.bar(dependency);
+        **// verify here that someMethod was not called??**
+    }
+}
+</code></pre>
+","614800","","12785994","","2021-10-27 16:16:01","2022-09-29 19:04:11","How to verify that a specific method was not called using Mockito?","<java><unit-testing><junit><mockito><tdd>","6","0","0","","","CC BY-SA 4.0"
+"6178583","1","6178629","","2011-05-30 16:20:33","","517","415113","<p>I have a maven program, it compiles fine.  When I run <code>mvn test</code> it does not run any tests (under TESTs header says <code>There are no tests to run.</code>).  </p>
+
+<p>I've recreated this problem with a super simple setup which I will include below as well as the output when run with <code>-X</code>.</p>
+
+<p>The unit tests run fine from eclipse (both with its default junit package and when I instead include the junit.jar downloaded by maven).  Also mvn <code>test-compile</code> correctly creates the class under test-classes.  I am running this on OSX 10.6.7 with Maven 3.0.2 and java 1.6.0_24.</p>
+
+<p>Here is the directory structure:</p>
+
+<pre><code>/my_program/pom.xml
+/my_program/src/main/java/ClassUnderTest.java
+/my_program/src/test/java/ClassUnderTestTests.java
+</code></pre>
+
+<p><strong>pom.xml:</strong></p>
+
+<pre><code>&lt;?xml version=""1.0"" encoding=""UTF-8""?&gt;
+&lt;project xmlns=""http://maven.apache.org/POM/4.0.0"" xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xsi:schemaLocation=""http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd""&gt;
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+    &lt;groupId&gt;my_group&lt;/groupId&gt;
+    &lt;artifactId&gt;my_program&lt;/artifactId&gt;
+    &lt;packaging&gt;jar&lt;/packaging&gt;
+    &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
+    &lt;name&gt;My Program&lt;/name&gt;
+    &lt;dependencies&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;junit&lt;/groupId&gt;
+            &lt;artifactId&gt;junit&lt;/artifactId&gt;
+            &lt;version&gt;4.8.1&lt;/version&gt;
+            &lt;scope&gt;test&lt;/scope&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+    &lt;build&gt;
+        &lt;plugins&gt;
+            &lt;plugin&gt;
+                &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+                &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;
+                &lt;configuration&gt;
+                    &lt;source&gt;1.5&lt;/source&gt;
+                    &lt;target&gt;1.5&lt;/target&gt;
+                &lt;/configuration&gt;
+            &lt;/plugin&gt;
+        &lt;/plugins&gt;
+    &lt;/build&gt;
+&lt;/project&gt;
+</code></pre>
+
+<p><strong>ClassUnderTest.java:</strong></p>
+
+<pre><code>public class ClassUnderTest {
+
+    public int functionUnderTest(int n) {
+        return n;
+    }
+
+}
+</code></pre>
+
+<p><strong>ClassUnderTestTests.java:</strong></p>
+
+<pre><code>import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+
+public class ClassUnderTestTests {
+
+    private ClassUnderTest o;
+
+    @Before
+    public void setUp() {
+        o = new ClassUnderTest();
+    }
+
+    @Test
+    public void testFunctionUnderTest_testCase1() {
+        Assert.assertEquals(1, o.functionUnderTest(1));
+    }
+
+    @Test
+    public void testFunctionUnderTest_testCase2() {
+        Assert.assertEquals(2, o.functionUnderTest(2));
+    }
+}
+</code></pre>
+
+<p><strong>End of mvn -X test:</strong></p>
+
+<pre><code>[DEBUG] Configuring mojo org.apache.maven.plugins:maven-surefire-plugin:2.7.1:test from plugin realm ClassRealm[plugin&gt;org.apache.maven.plugins:maven-surefire-plugin:2.7.1, parent: sun.misc.Launcher$AppClassLoader@5224ee]
+[DEBUG] Configuring mojo 'org.apache.maven.plugins:maven-surefire-plugin:2.7.1:test' with basic configurator --&gt;
+[DEBUG]   (s) basedir = /Users/aaron/Programs/my_program
+[DEBUG]   (s) childDelegation = false
+[DEBUG]   (s) classesDirectory = /Users/aaron/Programs/my_program/target/classes
+[DEBUG]   (s) disableXmlReport = false
+[DEBUG]   (s) enableAssertions = true
+[DEBUG]   (s) forkMode = once
+[DEBUG]   (s) junitArtifactName = junit:junit
+[DEBUG]   (s) localRepository =        id: local
+      url: file:///Users/aaron/.m2/repository/
+   layout: none
+
+[DEBUG]   (f) parallelMavenExecution = false
+[DEBUG]   (s) pluginArtifactMap = {org.apache.maven.plugins:maven-surefire-plugin=org.apache.maven.plugins:maven-surefire-plugin:maven-plugin:2.7.1:, org.apache.maven.surefire:surefire-booter=org.apache.maven.surefire:surefire-booter:jar:2.7.1:compile, org.apache.maven.surefire:surefire-api=org.apache.maven.surefire:surefire-api:jar:2.7.1:compile, org.apache.maven.surefire:maven-surefire-common=org.apache.maven.surefire:maven-surefire-common:jar:2.7.1:compile, org.apache.maven.shared:maven-common-artifact-filters=org.apache.maven.shared:maven-common-artifact-filters:jar:1.3:compile, org.codehaus.plexus:plexus-utils=org.codehaus.plexus:plexus-utils:jar:2.0.5:compile, junit:junit=junit:junit:jar:3.8.1:compile, org.apache.maven.reporting:maven-reporting-api=org.apache.maven.reporting:maven-reporting-api:jar:2.0.9:compile}
+[DEBUG]   (s) printSummary = true
+[DEBUG]   (s) project = MavenProject: my_group:my_program:1.0-SNAPSHOT @ /Users/aaron/Programs/my_program/pom.xml
+[DEBUG]   (s) projectArtifactMap = {junit:junit=junit:junit:jar:4.8.1:test}
+[DEBUG]   (s) redirectTestOutputToFile = false
+[DEBUG]   (s) remoteRepositories = [       id: central
+      url: http://repo1.maven.org/maven2
+   layout: default
+snapshots: [enabled =&gt; false, update =&gt; daily]
+ releases: [enabled =&gt; true, update =&gt; never]
+]
+[DEBUG]   (s) reportFormat = brief
+[DEBUG]   (s) reportsDirectory = /Users/aaron/Programs/my_program/target/surefire-reports
+[DEBUG]   (s) session = org.apache.maven.execution.MavenSession@dfbb43
+[DEBUG]   (s) skip = false
+[DEBUG]   (s) skipTests = false
+[DEBUG]   (s) testClassesDirectory = /Users/aaron/Programs/my_program/target/test-classes
+[DEBUG]   (s) testFailureIgnore = false
+[DEBUG]   (s) testNGArtifactName = org.testng:testng
+[DEBUG]   (s) testSourceDirectory = /Users/aaron/Programs/my_program/src/test/java
+[DEBUG]   (s) trimStackTrace = true
+[DEBUG]   (s) useFile = true
+[DEBUG]   (s) useManifestOnlyJar = true
+[DEBUG]   (s) workingDirectory = /Users/aaron/Programs/my_program
+[DEBUG] -- end configuration --
+[INFO] Surefire report directory: /Users/aaron/Programs/my_program/target/surefire-reports
+[DEBUG] Setting system property [user.dir]=[/Users/aaron/Programs/my_program]
+[DEBUG] Setting system property [localRepository]=[/Users/aaron/.m2/repository]
+[DEBUG] Setting system property [basedir]=[/Users/aaron/Programs/my_program]
+[DEBUG] Using JVM: /System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/bin/java
+[DEBUG] Using manager EnhancedLocalRepositoryManager with priority 10 for /Users/aaron/.m2/repository
+[DEBUG] dummy:dummy:jar:1.0 (selected for null)
+[DEBUG]   org.apache.maven.surefire:surefire-booter:jar:2.7.1:compile (selected for compile)
+[DEBUG]     org.apache.maven.surefire:surefire-api:jar:2.7.1:compile (selected for compile)
+[DEBUG] Adding to surefire booter test classpath: /Users/aaron/.m2/repository/org/apache/maven/surefire/surefire-booter/2.7.1/surefire-booter-2.7.1.jar Scope: compile
+[DEBUG] Adding to surefire booter test classpath: /Users/aaron/.m2/repository/org/apache/maven/surefire/surefire-api/2.7.1/surefire-api-2.7.1.jar Scope: compile
+[DEBUG] Using manager EnhancedLocalRepositoryManager with priority 10 for /Users/aaron/.m2/repository
+[DEBUG] dummy:dummy:jar:1.0 (selected for null)
+[DEBUG]   org.apache.maven.surefire:surefire-junit4:jar:2.7.1:test (selected for test)
+[DEBUG]     org.apache.maven.surefire:surefire-api:jar:2.7.1:test (selected for test)
+[DEBUG] Adding to surefire test classpath: /Users/aaron/.m2/repository/org/apache/maven/surefire/surefire-junit4/2.7.1/surefire-junit4-2.7.1.jar Scope: test
+[DEBUG] Adding to surefire test classpath: /Users/aaron/.m2/repository/org/apache/maven/surefire/surefire-api/2.7.1/surefire-api-2.7.1.jar Scope: test
+[DEBUG] Test Classpath :
+[DEBUG]   /Users/aaron/Programs/my_program/target/test-classes
+[DEBUG]   /Users/aaron/Programs/my_program/target/classes
+[DEBUG]   /Users/aaron/.m2/repository/junit/junit/4.8.1/junit-4.8.1.jar
+[DEBUG] Using manager EnhancedLocalRepositoryManager with priority 10 for /Users/aaron/.m2/repository
+[DEBUG] dummy:dummy:jar:1.0 (selected for null)
+[DEBUG]   org.apache.maven.surefire:surefire-booter:jar:2.7.1:compile (selected for compile)
+[DEBUG]     org.apache.maven.surefire:surefire-api:jar:2.7.1:compile (selected for compile)
+[DEBUG] Adding to surefire booter test classpath: /Users/aaron/.m2/repository/org/apache/maven/surefire/surefire-booter/2.7.1/surefire-booter-2.7.1.jar Scope: compile
+[DEBUG] Adding to surefire booter test classpath: /Users/aaron/.m2/repository/org/apache/maven/surefire/surefire-api/2.7.1/surefire-api-2.7.1.jar Scope: compile
+Forking command line: /bin/sh -c cd /Users/aaron/Programs/my_program &amp;&amp; /System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/bin/java -jar /Users/aaron/Programs/my_program/target/surefire/surefirebooter6118081963679415631.jar /Users/aaron/Programs/my_program/target/surefire/surefire4887918564882595612tmp /Users/aaron/Programs/my_program/target/surefire/surefire9012255138269731406tmp
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+There are no tests to run.
+
+Results :
+
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 2.089s
+[INFO] Finished at: Mon May 30 12:03:09 EDT 2011
+[INFO] Final Memory: 7M/62M
+[INFO] ------------------------------------------------------------------------
+</code></pre>
+","26197","","545127","","2020-08-14 09:58:13","2022-10-27 09:25:48","Maven does not find JUnit tests to run","<java><maven><junit>","34","3","0","","","CC BY-SA 3.0"
+"20295578","1","20295618","","2013-11-30 01:43:17","","497","350071","<p>What is the main difference between</p>
+
+<ul>
+<li><code>@Before</code> and <code>@BeforeClass</code>
+
+<ul>
+<li>and in JUnit 5 <code>@BeforeEach</code> and <code>@BeforeAll</code></li>
+</ul></li>
+<li><code>@After</code> and <code>@AfterClass</code></li>
+</ul>
+
+<p>According to the <a href=""http://junit.sourceforge.net/javadoc/"" rel=""noreferrer"">JUnit Api</a> <code>@Before</code> is used in the following case:</p>
+
+<blockquote>
+  <p>When writing tests, it is common to find that several tests need similar objects created before they can run. </p>
+</blockquote>
+
+<p>Whereas <code>@BeforeClass</code> can be used to establish a database connection. But couldn't <code>@Before</code> do the same?</p>
+","982865","","986160","","2016-12-27 09:06:53","2022-09-15 16:18:59","Difference between @Before, @BeforeClass, @BeforeEach and @BeforeAll","<java><junit><annotations><junit4><junit5>","7","0","0","","","CC BY-SA 3.0"
+"11620103","1","11620196","","2012-07-23 20:35:02","","474","325532","<p>I'm using Mockito 1.9.0.  I want mock the behaviour for a single method of a class in a JUnit test, so I have</p>
+
+<pre><code>final MyClass myClassSpy = Mockito.spy(myInstance);
+Mockito.when(myClassSpy.method1()).thenReturn(myResults);
+</code></pre>
+
+<p>The problem is, in the second line, <code>myClassSpy.method1()</code> is actually getting called, resulting in an exception.  The only reason I'm using mocks is so that later, whenever <code>myClassSpy.method1()</code> is called, the real method won't be called and the <code>myResults</code> object will be returned.  </p>
+
+<p><code>MyClass</code> is an interface and <code>myInstance</code> is an implementation of that, if that matters.</p>
+
+<p>What do I need to do to correct this spying behaviour?</p>
+","1235929","","211176","","2016-03-03 23:07:21","2021-11-30 14:43:43","Mockito: Trying to spy on method is calling the original method","<java><junit><mockito>","10","1","0","","","CC BY-SA 3.0"
+"3693626","1","3693706","","2010-09-12 03:35:26","","462","462696","<p>I want to execute test methods which are annotated by <code>@Test</code> in specific order.</p>
+
+<p>For example:</p>
+
+<pre><code>public class MyTest {
+    @Test public void test1(){}
+    @Test public void test2(){}
+}
+</code></pre>
+
+<p>I want to ensure to run <code>test1()</code> before <code>test2()</code> each time I run <code>MyTest</code>, but I couldn't find annotation like <code>@Test(order=xx)</code>.</p>
+
+<p>I think it's quite important feature for JUnit, if author of JUnit doesn't want the <strong>order feature</strong>, why?</p>
+","290629","","3885376","","2014-10-28 10:59:19","2022-10-27 19:02:17","How to run test methods in specific order in JUnit4?","<java><unit-testing><junit><junit4>","23","13","0","","","CC BY-SA 3.0"
+"9841623","1","9841929","","2012-03-23 15:09:31","","453","820146","<p>I am new to Mockito.</p>
+
+<p>Given the class below, how can I use Mockito to verify that <code>someMethod</code> was invoked exactly once after <code>foo</code> was invoked?</p>
+
+<pre><code>public class Foo
+{
+    public void foo(){
+        Bar bar = new Bar();
+        bar.someMethod();
+    }
+}
+</code></pre>
+
+<p>I would like to make the following verification call,</p>
+
+<pre><code>verify(bar, times(1)).someMethod();
+</code></pre>
+
+<p>where <code>bar</code> is a mocked instance of <code>Bar</code>.</p>
+","584862","","","","","2022-03-10 09:34:59","Mockito : how to verify method was called on an object created within a method?","<java><unit-testing><junit><mockito>","8","3","0","","","CC BY-SA 3.0"
+"1096650","1","1464411","","2009-07-08 07:46:43","","445","194440","<p>Does anybody know why JUnit 4 provides <code>assertEquals(foo,bar)</code> but not <code>assertNotEqual(foo,bar)</code> methods? </p>
+
+<p>It provides <code>assertNotSame</code> (corresponding to <code>assertSame</code>) and <code>assertFalse</code> (corresponding to <code>assertTrue</code>), so it seems strange that they didn't bother including <code>assertNotEqual</code>.</p>
+
+<p>By the way, I know that JUnit-addons provides the methods I'm looking for. I'm just asking out of curiosity.</p>
+","110856","","40342","","2013-01-15 16:08:05","2020-03-18 09:22:47","Why doesn't JUnit provide assertNotEquals methods?","<java><junit><assert>","11","2","0","","","CC BY-SA 2.5"
+"40268446","1","40268447","","2016-10-26 17:19:17","","431","515970","<p>Is there a better way to assert that a method throws an exception in JUnit 5?</p>
+
+<p>Currently, I have to use an @Rule in order to verify that my test throws an exception, but this doesn't work for the cases where I expect multiple methods to throw exceptions in my test.</p>
+","1150995","","3601487","","2018-09-22 23:51:11","2022-12-09 17:48:00","JUnit 5: How to assert an exception is thrown?","<java><junit><junit5><junit-jupiter>","11","3","0","","","CC BY-SA 3.0"

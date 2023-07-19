@@ -1,0 +1,322 @@
+Id,PostTypeId,AcceptedAnswerId,ParentId,CreationDate,DeletionDate,Score,ViewCount,Body,OwnerUserId,OwnerDisplayName,LastEditorUserId,LastEditorDisplayName,LastEditDate,LastActivityDate,Title,Tags,AnswerCount,CommentCount,FavoriteCount,ClosedDate,CommunityOwnedDate,ContentLicense
+"21674874","1","","","2014-02-10 10:39:45","","-11","294","<p>I cannot understand for whom Dart style-guide was written?</p>
+
+<p><a href=""https://www.dartlang.org/articles/style-guide/"" rel=""nofollow"">Dart Style Guide</a></p>
+
+<p>Term <code>PREFER</code> form this guide:</p>
+
+<p><strong>""PREFER guidelines are practices that you should follow. However, there may be circumstances where it makes sense to do otherwise. Just make sure you understand the full implications of ignoring the guideline when you do""</strong></p>
+
+<p>Now one of the main practices that often discussed and, of course, we should follow it:</p>
+
+<p><a href=""https://www.dartlang.org/articles/style-guide/#prefer-using-var-without-a-type-annotation-for-local-variables"" rel=""nofollow"">PREFER using var without a type annotation for local variables.</a></p>
+
+<p>In short words, use type annotation in function body not recommended (except some very specific situations).</p>
+
+<p>But when I look into source code of the Dart SDK I often see just the opposite.</p>
+
+<p>Just one sample from many other similar.</p>
+
+<p><a href=""https://code.google.com/p/dart/source/browse/branches/bleeding_edge/dart/runtime/lib/collection_patch.dart"" rel=""nofollow"">runtime/lib/collection_patch.dart</a></p>
+
+<p>Example:</p>
+
+<pre class=""lang-dart prettyprint-override""><code>void operator []=(K key, V value) {
+    int hashCode = key.hashCode; 
+    List buckets = _buckets; 
+    int length = buckets.length; 
+    int index = hashCode &amp; (length - 1); 
+    _HashMapEntry entry = buckets[index]; 
+    while(entry != null) {
+      if (hashCode == entry.hashCode &amp;&amp; entry.key == key) {
+        entry.value = value; 
+        return; 
+      }
+      entry = entry.next; 
+    }
+    _addEntry(buckets, index, length, key, value, hashCode); 
+  }
+</code></pre>
+
+<p>Why Dart team used type annotations for local variables instead of <code>var</code>?</p>
+","1737201","","1737201","","2014-02-16 05:20:57","2014-02-16 05:20:57","Why Dart Team does not follow their own style-guide? Or we all also must follow this guide?","<dart><anti-patterns><dart-sdk>","1","9","","2014-02-10 13:01:16","","CC BY-SA 3.0"
+"69334503","1","","","2021-09-26 11:34:57","","-8","97","<p>I have Two Class in same page first Class name (Colords) and second Class
+name(ColorDott) I want to pass value from second Class to first class use InkWell
+onTap</p>
+<p>//Pass value from here</p>
+<p>and retrieve the value in the Class Colords extends StatefulWidget{</p>
+<p>// receive value here
+}
+... I made a lot of attempts, but unfortunately it was unsuccessful ,All attempts were
+showing me a phrase null.</p>
+<pre><code> class Body extends StatefulWidget{
+ final Product product;
+
+  Body({Key key,  this.product}) : super(key: key);
+  @override
+  Sa createState() =&gt; Sa();
+  }
+  class Sa extends State&lt;Body&gt; {
+  @override
+  Widget build(BuildContext context) {
+  return ListView(
+  children: [
+    ProductImages(product: widget.product),
+    TopRoundedContainer(
+      color: Colors.white,
+      child: Column(
+        children: [
+          ProductDescription(
+            product: widget.product,
+            pressOnSeeMore: () {},
+          ),
+          TopRoundedContainer(
+            color: Color(0xFFF6F7F9),
+            child: Column(
+              children: [
+               
+                Colords(product: widget.product),
+             
+              ],
+            ),
+          ),
+        ],
+      ),
+      ),
+      ],
+      );
+    }
+
+    }
+</code></pre>
+<p>.Colords class</p>
+<pre><code>   class Colords extends StatefulWidget{
+   final Product product;
+   //retrieve value here
+
+  Colords({Key key,this.product}) : super(key: key);
+  @override
+  Colr createState() =&gt; Colr();
+   }
+ class Colr extends State&lt;Colords&gt; {
+ final FirebaseAuth  firebaseAuth = FirebaseAuth.instance;
+ int numOfItems = 1;
+ @override
+ Widget build(BuildContext context) {
+
+  return Padding(
+  padding:
+  EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
+
+   child:Column(
+     children:[   Row(
+   children: [
+   ...List.generate(
+     widget.product.colors.length,
+         (index) =&gt; ColorDott(
+       color: widget.product.colors[index],
+       //  isSelected: index == selectedColor,
+
+       count:index ,
+
+     ),
+   ),
+  Spacer(),
+  RoundedIconBtn(
+    icon: Icons.remove,
+    press: () {
+      if (numOfItems &gt; 1) {
+        setState(() {
+          numOfItems--;
+        });
+      }
+    },
+  ),
+  //SizedBox(width: getProportionateScreenWidth(7)),
+  Padding(
+    padding: const EdgeInsets.symmetric(horizontal: 10.0 / 2),
+    child: Text(
+      numOfItems.toString().padLeft(2, &quot;0&quot;),
+      style: Theme.of(context).textTheme.headline6,
+    ),
+  ),
+  RoundedIconBtn(
+    icon: Icons.add,
+    showShadow: true,
+    press: () {
+      setState(() {
+        numOfItems++;
+      });
+    },
+    ),
+    ],
+   ),
+ // Expanded(),
+    Row(
+    children: [
+    Expanded(
+     child:TopRoundedContainer(
+       color: Colors.white,
+       child: Padding(
+         padding: EdgeInsets.only(
+           left: SizeConfig.screenWidth * 0.15,
+           right: SizeConfig.screenWidth * 0.15,
+           bottom: getProportionateScreenWidth(40),
+           top: getProportionateScreenWidth(15),
+
+         ),
+
+         child: DefaultButton(
+           text: &quot;Add To Cart&quot;,
+           press: () {
+             setState(() {
+              // widget.message='hgjh';
+               print(widget.message.toString());
+             });
+
+           },
+         ),
+       ),
+     ),
+   )
+  ],
+),
+     ]
+   ),
+);
+}
+
+}
+</code></pre>
+<p>ColorDott class</p>
+<pre><code>class ColorDott extends StatefulWidget{
+
+@override
+Colre createState() =&gt; Colre();
+}
+class Colre extends State&lt;ColorDott&gt; {
+@override
+Widget build(BuildContext context) {
+return InkWell(
+    onTap: () {
+      setState(() {
+    //send value
+      });
+    },
+      );
+ }
+
+}
+</code></pre>
+<p>thank you.</p>
+","11661052","","11661052","","2021-09-26 16:15:01","2021-09-26 19:35:48","How can send value from class to main class flutter?","<flutter><dart>","1","2","","","","CC BY-SA 4.0"
+"65602519","1","","","2021-01-06 19:50:13","","-7","64","<p>1.const GreenFrog({ Key key }) : super(key: key);
+2.@override
+3.Widget build(BuildContext context)
+what does these three things mean in here?</p>
+<pre><code>class GreenFrog extends StatelessWidget {
+  const GreenFrog({ Key key }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(color: const Color(0xFF2DBD3A));
+  }
+}
+</code></pre>
+<p>i can't understand this is hebrew for me</p>
+","14954339","","","","","2021-01-06 20:02:29","What does it mean in Flutter?","<flutter><dart>","1","2","0","2021-01-07 09:01:23","","CC BY-SA 4.0"
+"66833604","1","66834372","","2021-03-27 16:28:09","","-6","109","<p>I am trying to get a data in firestore like this:
+<a href=""https://i.stack.imgur.com/FhiOD.png"" rel=""nofollow noreferrer""><img src=""https://i.stack.imgur.com/FhiOD.png"" alt=""enter image description here"" /></a></p>
+<p>am trying to get <code>FCMToken</code> from a user document
+And be able to immediately use it as a string inside a <strong>streambuilder</strong></p>
+<pre><code>FirebaseFirestore.instance.collection(&quot;usersToken&quot;)
+.doc(snapshot.data.docs[index].data()['userId'].toString())
+.get();
+//I don't know what to do from here on to be able to get it as a string
+</code></pre>
+<p>How do I do it?</p>
+","14650702","","13250142","","2021-03-28 00:41:56","2021-03-28 00:41:56","How to get specific document data from firebase and return as a string","<firebase><flutter><dart><google-cloud-firestore>","1","1","","","","CC BY-SA 4.0"
+"67136820","1","","","2021-04-17 09:51:49","","-6","75","<p>I need your Help Regarding an Issue that is Scratching my Head, Here I Got a Material Button, there is a Variable in it, that I want to Use in the Text Widget.</p>
+<pre><code>                   MaterialButton(
+                         onPressed: () {
+                          // My Random Code Goes Here. (Never Mind)
+
+                           var currentEmoji = ...;
+                         },
+</code></pre>
+<p>As you can see, I got a Material Button and Inside there is a big code, and the thing which I need to show you is the &quot;currentEmoji&quot; Variable.</p>
+<p>I need to use this Variable in this Text Widget, which sits Just below this bit of Code,</p>
+<pre><code>                       child: Text(
+                          *currentEmoji*,
+                          textScaleFactor: 2,
+                        ),
+</code></pre>
+<ol>
+<li>I have a Material Button</li>
+<li>I have an On Pressed Function in it.</li>
+<li>In that Function there is a Variable <code>currentEmoji</code></li>
+<li>I want to Display this Variable inside the Text Widget</li>
+<li>How to use <code>currentEmoji</code> Variable Outside the onPressed Function.</li>
+</ol>
+<p>I want to Seek Your Help at this.</p>
+","15657482","","965146","","2021-05-04 08:48:37","2021-05-04 08:48:37","How to Access a Variable that is Associated with other Widget in Flutter?","<flutter><dart><flutter-layout><flutter-dependencies><flutter-test>","2","5","","2021-04-19 04:49:57","","CC BY-SA 4.0"
+"67120778","1","","","2021-04-16 07:19:42","","-6","203","<p><a href=""https://i.stack.imgur.com/oFKrz.jpg"" rel=""nofollow noreferrer"">plz solve this the red score under child</a></p>
+<p>plzzz solve this<a href=""https://i.stack.imgur.com/2eje8.png"" rel=""nofollow noreferrer"">the red line under child name</a></p>
+","14881653","","","","","2021-10-14 02:51:38","Error: No named parameter with the name 'child'","<flutter><dart>","2","2","","","","CC BY-SA 4.0"
+"70947231","1","","","2022-02-01 20:40:54","","-6","1566","<p>How can i handle the following code</p>
+<pre><code>List books = ['book1', book2]
+
+String getTextWidget() {
+     return // here i need to only return the element which is 'book1'   such as if books.contains('book1') return this element as String  ;
+  }
+</code></pre>
+<p>the i need to put it in Text Widget like so</p>
+<pre><code>Container(
+child Text(getTextWidget())
+)
+</code></pre>
+<p>i tried the following code , it is work but it does not accept String Widget</p>
+<pre><code> getTextWidget() {
+    books .forEach((element) {
+      if(element.contains('book1')){
+        'book1'
+      }
+    });
+  }
+</code></pre>
+","17949763","","17949763","","2022-02-01 21:19:19","2022-02-01 21:47:30","how can i return String value from list by it's name value in dart list","<string><flutter><dart><widget><return>","2","6","","","","CC BY-SA 4.0"
+"68170127","1","","","2021-06-28 21:18:15","","-6","51","<p>I want to generate this newvoucherlist inside listviewbuilder. How can I do that?
+<img src=""https://i.stack.imgur.com/TI8KK.jpg"" alt="""" /></p>
+","9072559","","12349734","","2021-06-28 21:34:32","2021-06-28 22:24:53","Flutter: How can I show list using listviewbuilder?","<flutter><dart>","1","1","","","","CC BY-SA 4.0"
+"54143975","1","54144005","","2019-01-11 09:48:29","","-6","300","<p>suppose there exist a form and has two button ,i want one button to get disabled until all parameter is filled by user while other Enabled,for users to navigate to back panel.Is there exist a function to assign unique id to buttons?  </p>
+
+<pre><code>Edit1:  Tried to disable one of the button,until all the text-form field in the page is touched by users,once user enters all the required parameters ,then the button gets enabled!
+</code></pre>
+","9603922","","9603922","","2019-01-15 11:44:50","2019-01-15 11:44:50","assigning a unique id for button","<android><button><dart><flutter><boolean>","1","0","","2019-01-11 11:28:57","","CC BY-SA 4.0"
+"40171324","1","40171599","","2016-10-21 08:01:38","","-5","749","<p>I compile my .dart file with dart2js, but compiled .js file contain code that I did not expect to see. How does dart compiles into javascript? </p>
+
+<p>dart code:</p>
+
+<pre><code>import 'dart:html';
+
+
+void main() {
+  querySelector(""#answer"").onClick.listen(check);
+}
+
+void check(MouseEvent event){
+  var answer;
+  answer = (querySelector(""#text_answer"") as InputElement).value;
+  answer = answer.toUpperCase();
+
+  if (answer == ""CHOCOLATE"") {
+    querySelector(""#text"").text = ""Smells like... you are right! Well, try to find somthing round, made of glass;)"";
+    return;
+  } else {
+    querySelector(""#text"").text = ""No, No, No. Try one more time. There’s white and milk and dark. These three types you might eat. As a type of candy, it really can’t be beat"";
+  }
+}
+</code></pre>
+
+<p>compiled .js code has more than 7000 lines(without comments).</p>
+","6831682","","6831682","","2016-10-21 08:11:43","2016-10-21 08:16:49","how is dart compiled into javascript?","<javascript><dart>","1","3","","2016-10-21 08:54:12","","CC BY-SA 3.0"

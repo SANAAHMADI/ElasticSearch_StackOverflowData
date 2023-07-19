@@ -1,0 +1,312 @@
+Id,PostTypeId,AcceptedAnswerId,ParentId,CreationDate,DeletionDate,Score,ViewCount,Body,OwnerUserId,OwnerDisplayName,LastEditorUserId,LastEditorDisplayName,LastEditDate,LastActivityDate,Title,Tags,AnswerCount,CommentCount,FavoriteCount,ClosedDate,CommunityOwnedDate,ContentLicense
+"29701573","1","","","2015-04-17 14:08:25","","245","155063","<p>I have a C# ASP.NET WebAPI application with API documentation being automatically generated using <a href=""https://github.com/domaindrivendev/Swashbuckle"" rel=""noreferrer""><strong>Swashbuckle</strong></a>.  I want to be able to <strong>omit certain methods</strong> from the documentation but I can't seem to work out how to tell Swagger not to include them in the Swagger UI output.</p>
+<p>I sense it is something to do with <strong>adding a model or schema filter</strong> but it isn't obvious what to do and the documentation only seems to provide examples of how to modify the output for a method, not remove it completely from the output.</p>
+","359204","","12299000","","2021-08-11 23:28:58","2022-03-04 16:47:18","How to omit methods from Swagger documentation on WebAPI using Swashbuckle","<c#><asp.net><.net><swagger>","11","0","0","","","CC BY-SA 4.0"
+"36452468","1","","","2016-04-06 13:22:03","","219","193608","<p>Is there a way to display all enums as their string value in swagger instead of their int value? </p>
+
+<p>I want to be able to submit POST actions and put enums according to their string value without having to look at the enum every time. </p>
+
+<p>I tried <code>DescribeAllEnumsAsStrings</code> but the server then receives strings instead of the enum value which is not what we're looking for. </p>
+
+<p>Has anyone solved this?</p>
+
+<p>Edit:</p>
+
+<pre><code>public class Letter 
+{
+    [Required]
+    public string Content {get; set;}
+
+    [Required]
+    [EnumDataType(typeof(Priority))]
+    public Priority Priority {get; set;}
+}
+
+
+public class LettersController : ApiController
+{
+    [HttpPost]
+    public IHttpActionResult SendLetter(Letter letter)
+    {
+        // Validation not passing when using DescribeEnumsAsStrings
+        if (!ModelState.IsValid)
+            return BadRequest(""Not valid"")
+
+        ..
+    }
+
+    // In the documentation for this request I want to see the string values of the enum before submitting: Low, Medium, High. Instead of 0, 1, 2
+    [HttpGet]
+    public IHttpActionResult GetByPriority (Priority priority)
+    {
+
+    }
+}
+
+
+public enum Priority
+{
+    Low, 
+    Medium,
+    High
+}
+</code></pre>
+","","user5326354","","user5326354","2016-12-13 19:51:57","2022-11-15 13:45:21","Swagger UI Web Api documentation Present enums as strings?","<c#><asp.net-web-api><asp.net-web-api2><swagger-ui><swashbuckle>","29","5","0","","","CC BY-SA 3.0"
+"39072216","1","39072519","","2016-08-22 05:58:36","","202","224497","<p>Recently I wrote restful APIs with <em>SpringMvc</em> and swagger-ui(v2). I noticed the Import function in Postman:</p>
+
+<p><a href=""https://i.stack.imgur.com/d2ss7.png"" rel=""noreferrer""><img src=""https://i.stack.imgur.com/d2ss7.png"" alt=""enter image description here""></a></p>
+
+<p>So my question is how to create the file which Postman needed?</p>
+
+<p>I am not familiar with Swagger.</p>
+","6228266","","1182207","","2020-03-28 14:48:31","2022-11-25 10:10:39","How to import Swagger APIs into Postman?","<swagger><postman>","7","1","0","","","CC BY-SA 4.0"
+"32910065","1","32995636","","2015-10-02 14:57:42","","157","251387","<p>I am trying to convey that the authentication/security scheme requires setting a header as follows:</p>
+<pre><code>Authorization: Bearer &lt;token&gt;
+</code></pre>
+<p>This is what I have based on the <a href=""https://github.com/swagger-api/swagger-spec/blob/master/versions/2.0.md#securityDefinitionsObject"" rel=""noreferrer"">swagger documentation</a>:</p>
+<pre class=""lang-yaml prettyprint-override""><code>securityDefinitions:
+  APIKey:
+    type: apiKey
+    name: Authorization
+    in: header
+security:
+  - APIKey: []
+</code></pre>
+","1538597","","113116","","2022-11-15 20:43:37","2022-11-15 20:43:37","How can I represent 'Authorization: Bearer <token>' in a Swagger Spec (swagger.json)","<swagger><openapi><swagger-2.0><swagger-editor>","7","0","0","","","CC BY-SA 4.0"
+"43447688","1","","","2017-04-17 08:11:08","","147","194358","<p>I have a Web API (ASP.NET Core) and I am trying to adjust the swagger to make the calls from it.
+The calls must contains the Authorization header and I am using Bearer authentication.
+The calls from third party apps like Postman, etc. go fine.
+But I am having the issue with setting up the headers for swagger (for some reason I don't receive the headers). This is how it looks like now:</p>
+
+<pre><code>  ""host"": ""localhost:50352"",
+  ""basePath"": ""/"" ,
+  ""schemes"": [
+    ""http"",
+    ""https""
+  ],
+ ""securityDefinitions"":  {
+    ""Bearer"": {
+      ""name"": ""Authorization"",
+      ""in"": ""header"",
+      ""type"": ""apiKey"",
+      ""description"": ""HTTP/HTTPS Bearer""
+    }
+  },
+  ""paths"": { 
+    ""/v1/{subAccountId}/test1"": {
+      ""post"": {
+        ""tags"": [
+          ""auth""
+        ],
+        ""operationId"": ""op1"",
+        ""consumes"": [""application/json"", ""application/html""],
+        ""produces"": [""application/json"", ""application/html""],
+        ""parameters"": [
+          {
+            ""name"": ""subAccountId"",
+            ""in"": ""path"",
+            ""required"": true,
+            ""type"": ""string""
+          }
+        ],
+        ""security"":[{
+          ""Bearer"": []
+        }],
+        ""responses"": {
+          ""204"": {
+            ""description"": ""No Content""
+          },
+          ""400"": {
+            ""description"": ""BadRequest"",
+            ""schema"": {
+              ""$ref"": ""#/definitions/ErrorResponse""
+            }
+          },
+          ""401"": {
+            ""description"": ""Unauthorized"",
+            ""schema"": {
+              ""$ref"": ""#/definitions/ErrorResponse""
+            }
+          },
+          ""500"": {
+            ""description"": ""InternalServerError"",
+            ""schema"": {
+              ""$ref"": ""#/definitions/ErrorResponse""
+            }
+          }
+        },
+        ""deprecated"": false
+      }
+    },
+</code></pre>
+","7877566","","","","","2022-12-24 03:02:07","Setting up Swagger (ASP.NET Core) using the Authorization headers (Bearer)","<c#><asp.net-core><swagger-ui>","7","1","0","","","CC BY-SA 3.0"
+"48111459","1","48114322","","2018-01-05 10:17:52","","135","100745","<p>I have JSON schema file where one of the properties is defined as either <code>string</code> or <code>null</code>:</p>
+
+<pre><code>""type"":[""string"", ""null""]
+</code></pre>
+
+<p>When converted to YAML (for use with OpenAPI/Swagger), it becomes:</p>
+
+<pre class=""lang-yaml prettyprint-override""><code>type:
+  - 'null'
+  - string
+</code></pre>
+
+<p>but the Swagger Editor shows an error:</p>
+
+<blockquote>
+  <p>Schema ""type"" key must be a string</p>
+</blockquote>
+
+<p>What is the correct way to define a nullable property in OpenAPI?</p>
+","6827572","","113116","","2018-01-05 13:23:15","2021-02-16 19:53:28","How to define a property that can be string or null in OpenAPI (Swagger)?","<swagger><openapi>","1","1","0","","","CC BY-SA 3.0"
+"37671125","1","37683455","","2016-06-07 05:25:16","","125","229425","<p>My project has Spring Security. 
+Main issue: Not able to access swagger URL at <a href=""http://localhost:8080/api/v2/api-docs"" rel=""noreferrer"">http://localhost:8080/api/v2/api-docs</a>. It says Missing or invalid Authorization header.</p>
+
+<p><a href=""https://i.stack.imgur.com/z8Hl1.png"" rel=""noreferrer"">Screenshot of the browser window</a>
+My pom.xml has the following entries</p>
+
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;io.springfox&lt;/groupId&gt;
+    &lt;artifactId&gt;springfox-swagger2&lt;/artifactId&gt;
+    &lt;version&gt;2.4.0&lt;/version&gt;
+&lt;/dependency&gt;
+
+&lt;dependency&gt;
+    &lt;groupId&gt;io.springfox&lt;/groupId&gt;
+    &lt;artifactId&gt;springfox-swagger-ui&lt;/artifactId&gt;
+    &lt;version&gt;2.4.0&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<p>SwaggerConfig :</p>
+
+<pre><code>@Configuration
+@EnableSwagger2
+public class SwaggerConfig {
+
+@Bean
+public Docket api() {
+    return new Docket(DocumentationType.SWAGGER_2).select()
+            .apis(RequestHandlerSelectors.any())
+            .paths(PathSelectors.any())
+            .build()
+            .apiInfo(apiInfo());
+}
+
+private ApiInfo apiInfo() {
+    ApiInfo apiInfo = new ApiInfo(""My REST API"", ""Some custom description of API."", ""API TOS"", ""Terms of service"", ""myeaddress@company.com"", ""License of API"", ""API license URL"");
+    return apiInfo;
+}
+</code></pre>
+
+<p>AppConfig:</p>
+
+<pre><code>@Configuration
+@EnableWebMvc
+@ComponentScan(basePackages = { ""com.musigma.esp2"" })
+@Import(SwaggerConfig.class)
+public class AppConfig extends WebMvcConfigurerAdapter {
+
+// ========= Overrides ===========
+
+@Override
+public void addInterceptors(InterceptorRegistry registry) {
+    registry.addInterceptor(new LocaleChangeInterceptor());
+}
+
+@Override
+public void addResourceHandlers(ResourceHandlerRegistry registry) {
+    registry.addResourceHandler(""swagger-ui.html"")
+      .addResourceLocations(""classpath:/META-INF/resources/"");
+
+    registry.addResourceHandler(""/webjars/**"")
+      .addResourceLocations(""classpath:/META-INF/resources/webjars/"");
+}
+</code></pre>
+
+<p>web.xml entries:</p>
+
+<pre><code>&lt;context-param&gt;
+    &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+    &lt;param-value&gt;
+        com.musigma.esp2.configuration.AppConfig
+        com.musigma.esp2.configuration.WebSecurityConfiguration
+        com.musigma.esp2.configuration.PersistenceConfig
+        com.musigma.esp2.configuration.ACLConfig
+        com.musigma.esp2.configuration.SwaggerConfig
+    &lt;/param-value&gt;
+&lt;/context-param&gt;
+</code></pre>
+
+<p>WebSecurityConfig:</p>
+
+<pre><code>@Configuration
+@EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true)
+@ComponentScan(basePackages = { ""com.musigma.esp2.service"", ""com.musigma.esp2.security"" })
+public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
+@Override
+    protected void configure(HttpSecurity httpSecurity) throws Exception {
+        httpSecurity
+        .csrf()
+            .disable()
+        .exceptionHandling()
+            .authenticationEntryPoint(this.unauthorizedHandler)
+            .and()
+        .sessionManagement()
+            .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+            .and()
+        .authorizeRequests()
+            .antMatchers(""/auth/login"", ""/auth/logout"").permitAll()
+            .antMatchers(""/api/**"").authenticated()
+            .anyRequest().authenticated();
+
+        // custom JSON based authentication by POST of {""username"":""&lt;name&gt;"",""password"":""&lt;password&gt;""} which sets the token header upon authentication
+        httpSecurity.addFilterBefore(loginFilter(), UsernamePasswordAuthenticationFilter.class);
+
+        // custom Token based authentication based on the header previously given to the client
+        httpSecurity.addFilterBefore(new StatelessTokenAuthenticationFilter(tokenAuthenticationService), UsernamePasswordAuthenticationFilter.class);
+    }
+}
+</code></pre>
+","6433359","","2564509","","2019-06-21 20:09:31","2022-10-23 11:10:39","How to configure Spring Security to allow Swagger URL to be accessed without authentication","<spring-mvc><swagger><swagger-ui><swagger-2.0><springfox>","14","0","0","","","CC BY-SA 4.0"
+"41180615","1","41186819","","2016-12-16 09:01:54","","123","234492","<p>I have some endpoints in the API - <code>/user/login</code>, <code>/products</code>.</p>
+
+<p>In Swagger UI I post <code>email</code> and <code>password</code> to <code>/user/login</code> and as a response I receive a <code>token</code> string.</p>
+
+<p>Then, I can copy the token from the response and want to use it as <code>Authorization</code> header value in requests to all urls if it's present, and to <code>/products</code> as an example.</p>
+
+<p>Should I create a text input manually somewhere on the Swagger UI page, then put the token there and somehow inject in the requests or are there tools to manage it in a better way?</p>
+","135829","","776186","","2016-12-16 18:23:05","2022-11-22 16:56:03","How to send custom headers with requests in Swagger UI?","<api><authorization><swagger><swagger-ui>","14","0","0","","","CC BY-SA 3.0"
+"49379006","1","49379235","","2018-03-20 08:00:06","","119","194926","<p>What is the correct way to declare a date in a swagger-file object? I would think it is:</p>
+
+<pre><code>  startDate:
+    type: string
+    description: Start date
+    example: ""2017-01-01""
+    format: date
+</code></pre>
+
+<p>But I see a lot of declarations like these:</p>
+
+<pre><code>  startDate:
+    type: string
+    description: Start date
+    example: ""2017-01-01""
+    format: date
+    pattern: ""YYYY-MM-DD""
+    minLength: 0
+    maxLength: 10
+</code></pre>
+
+<p>Thanks.</p>
+","1199612","","11578013","","2019-09-27 09:24:22","2022-12-16 10:14:00","What is the correct way to declare a date in an OpenAPI / Swagger-file?","<swagger><openapi>","5","0","0","","","CC BY-SA 4.0"
+"25800493","1","31096794","","2014-09-12 03:57:56","","111","181876","<p>For some REST APIs written in PHP, I was asked to create <a href=""http://swagger.io"" rel=""noreferrer"">Swagger</a> documentation, and since I was not aware of any easy way of adding annotations to those existing APIs and create such a documentation, I used <a href=""http://editor.swagger.io/"" rel=""noreferrer"">this editor</a> to generate some for now.</p>
+
+<p>I saved the JSON and YAML files created using that editor, and now I need to create the final interactive Swagger documentation (this statement might sound naive and vague).</p>
+
+<p>Can someone please let me know how I can convert the Swagger JSON specification file to actual Swagger documentation? </p>
+
+<p>I am on the Windows platform and do not know anything about Ant/Maven.</p>
+","541484","","631803","","2018-06-22 16:26:58","2022-11-07 19:04:33","Converting Swagger specification JSON to HTML documentation","<yaml><swagger><swagger-php>","12","1","0","","","CC BY-SA 4.0"

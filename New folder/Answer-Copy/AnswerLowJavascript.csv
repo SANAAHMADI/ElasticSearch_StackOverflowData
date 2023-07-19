@@ -1,0 +1,11 @@
+Id,PostId,Score,Text,CreationDate,UserDisplayName,UserId,ContentLicense
+"98154921","55738442","0","Well, you simply make sure `display()` sits inside `render()`, and `this.state.allProductsDummy` inside `display()`","2019-04-18 03:35:53","","3617380","CC BY-SA 4.0"
+"98154940","55738705","0","Why are the variable names important to you?","2019-04-18 03:38:55","","218196","CC BY-SA 4.0"
+"98154907","55738472","0","instead of having the same state for both checkboxes, you'll need separate states for this. can you try adding states `checked1` and `checked2`, arranging them accordingly to their respective checkboxes?","2019-04-18 03:34:19","","5557220","CC BY-SA 4.0"
+"98155023","55737701","0","You need to return the result at the end","2019-04-18 03:46:17","","3617380","CC BY-SA 4.0"
+"98154932","55738442","0","Do you know that `render()` is auto called for you everytime `state` changed?","2019-04-18 03:37:44","","3617380","CC BY-SA 4.0"
+"98154936","55738472","0","Hello, thanks for your reply. I actually tried that but when I did that, when I click, it doesn't check any :( I'll update the code to show you what I did @kenmistry","2019-04-18 03:38:33","","11093049","CC BY-SA 4.0"
+"98154937","55738102","0","Yes my JavaScript works fine. And I think the js error won’t effect my native button’s functionality. I am still so confused","2019-04-18 03:38:47","","8534227","CC BY-SA 4.0"
+"98155033","55730461","0","@Nandy, why not re-render the same html page in your post route. It's the simplest i could think","2019-04-18 03:47:25","","7185241","CC BY-SA 4.0"
+"98154953","55721892","0","Ok, I tested on Google API console, it did worked for me though.","2019-04-18 03:40:30","","2298362","CC BY-SA 4.0"
+"98154984","55738355","0","Please add your complete html code?","2019-04-18 03:43:21","","4862133","CC BY-SA 4.0"

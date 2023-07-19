@@ -1,0 +1,6 @@
+نیازمندی ها:
+
+elasticsearch-7.13.1
+kibana-7.13.1
+logstash-7.13.1
+ParsiAnalyzer-7.13.1

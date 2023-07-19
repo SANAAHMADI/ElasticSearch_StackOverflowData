@@ -1,0 +1,387 @@
+Id,PostTypeId,AcceptedAnswerId,ParentId,CreationDate,DeletionDate,Score,ViewCount,Body,OwnerUserId,OwnerDisplayName,LastEditorUserId,LastEditorDisplayName,LastEditDate,LastActivityDate,Title,Tags,AnswerCount,CommentCount,FavoriteCount,ClosedDate,CommunityOwnedDate,ContentLicense
+"44899821","1","44900290","","2017-07-04 07:39:23","","-45","752","<p>I am trying to fetch data from Android to Custom ListView but  I am not able to Fetch! Please help</p>
+
+<p>MY JSON:_</p>
+
+<pre><code>{  
+   ""College"":[  
+      {  
+         ""Name"":""NITK"",
+         ""Logo"":""http:\/\/192.168.43.164\\Webapp\\Collegelogos\\nitk.jpg""
+      },
+      {  
+         ""Name"":""IITR"",
+         ""Logo"":""http:\/\/192.168.43.164\\Webapp\\Collegelogos\\iitr.jpg""
+      },
+      {  
+         ""Name"":""NITT"",
+         ""Logo"":""http:\/\/192.168.43.164\\Webapp\\Collegelogos\\nitt.jpg""
+      },
+      {  
+         ""Name"":""IITB"",
+         ""Logo"":""http:\/\/192.168.43.164\\Webapp\\Collegelogos\\iitb.png""
+      },
+      {  
+         ""Name"":""IITG"",
+         ""Logo"":""http:\/\/192.168.43.164\\Webapp\\Collegelogos\\iitg.png""
+      },
+      {  
+         ""Name"":""IITD"",
+         ""Logo"":""http:\/\/192.168.43.164\\Webapp\\Collegelogos\\iitd.png""
+      },
+      {  
+         ""Name"":""BITS"",
+         ""Logo"":""http:\/\/192.168.43.164\\Webapp\\Collegelogos\\bits.png""
+      }
+   ]
+}
+</code></pre>
+
+<p>CODE:-</p>
+
+<pre><code>public class MainActivity extends AppCompatActivity {
+    private List&lt;College&gt; listcollege;
+
+    //Creating Views
+    private RecyclerView recyclerView;
+    private RecyclerView.LayoutManager layoutManager;
+    private RecyclerView.Adapter adapter;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        //Initializing Views
+        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        recyclerView.setHasFixedSize(true);
+        layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+
+        listcollege = new ArrayList&lt;&gt;();
+        getData();
+
+    }
+
+    private void getData(){
+        //Showing a progress dialog
+        final ProgressDialog loading = ProgressDialog.show(this,""Loading Data"", ""Please wait..."",false,false);
+
+        //Creating a json array request
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Config.DATA_URL,
+                new Response.Listener&lt;JSONArray&gt;() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        //Dismissing progress dialog
+                        Toast.makeText(MainActivity.this, ""sachin"", Toast.LENGTH_SHORT).show();
+                        loading.dismiss();
+
+                        //calling method to parse json array
+                        parseData(response);
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                });
+
+        //Creating request queue
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+
+        //Adding request to the queue
+        requestQueue.add(jsonArrayRequest);
+    }
+    public  void parseData(JSONArray array) {
+        for (int i = 0; i &lt; array.length(); i++) {
+            College college = new College();
+            JSONObject json = null;
+            try {
+                json = array.getJSONObject(i);
+                college.setImageUrl(json.getString(Config.TAG_IMAGE_URL));
+               String s = (json.getString(Config.TAG_NAME));
+                Toast.makeText(this, s, Toast.LENGTH_SHORT).show();
+                college.setName(s);
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            listcollege.add(college);
+
+        }
+            adapter = new CardAdapter(this, listcollege);
+            recyclerView.setAdapter(adapter);
+      //  adapter.notifyDataSetChanged();
+
+    }
+
+
+}
+</code></pre>
+
+<p>LOG :- ANDROID MONITOR</p>
+
+<pre><code>07-04 13:02:42.289 16225-16256/com.example.sachin.volleyrecycle I/OpenGLRenderer: Initialized EGL, version 1.4
+07-04 13:02:42.289 16225-16256/com.example.sachin.volleyrecycle D/OpenGLRenderer: Swap behavior 1
+07-04 13:02:42.289 16225-16256/com.example.sachin.volleyrecycle W/OpenGLRenderer: Failed to choose config with EGL_SWAP_BEHAVIOR_PRESERVED, retrying without...
+07-04 13:02:42.289 16225-16256/com.example.sachin.volleyrecycle D/OpenGLRenderer: Swap behavior 0
+07-04 13:02:42.702 16225-16225/com.example.sachin.volleyrecycle E/RecyclerView: No adapter attached; skipping layout
+07-04 13:02:42.946 16225-16225/com.example.sachin.volleyrecycle W/art: Before Android 4.1, method int android.support.v7.widget.ListViewCompat.lookForSelectablePosition(int, boolean) would have incorrectly overridden the package-private method in android.widget.ListView
+</code></pre>
+","7800558","","4826457","","2017-07-04 09:58:45","2017-07-04 09:58:45","No response from jsonArray request","<java><android><json>","1","4","0","2021-04-17 10:16:40","","CC BY-SA 3.0"
+"32004289","1","","","2015-08-14 07:12:14","","-27","1869","<blockquote>
+  <p><strong>Apologize :-</strong> 
+  due to my mistake,  because last time i didn't asked this Question properly  and that's why most of the answers posted below are related to  <strong>""this""</strong> keyword and  that's the reason i got that much down votes. <strong>So i updated this Question, because i don't want to misguide anyone.</strong> </p>
+</blockquote>
+
+<p>. </p>
+
+<blockquote>
+  <p><strong>EDIT-1 :</strong></p>
+  
+  <p><strong>Question-1</strong>  My question was that why we pass <strong>""this""</strong> (Object of current class or MainActivity) twice in the <strong>GestureDetectorCompact()</strong> Constructor</p>
+
+<pre><code> new GestureDetectorCompat(this,this);
+</code></pre>
+</blockquote>
+
+<p>Rest of the block of code is given below,</p>
+
+<pre><code>public class MainActivity extends ActionBarActivity implements GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
+  protected void onCreate(){
+      private GestureDetectorCompat gestureDetector;
+      this.gestureDetector = new GestureDetectorCompat(this,this);
+      gestureDetector.setOnDoubleTapListener(this);
+
+   }
+}
+</code></pre>
+
+<blockquote>
+  <p><strong>EDIT-2 : for quite close answer</strong> you can click at following link</p>
+  
+  <p><a href=""https://stackoverflow.com/a/32004370/5013940"">EpicPandaForce</a> 
+  <strong>'s answer</strong> is very close to my question and it is helpful as well.</p>
+</blockquote>
+","5013940","","5013940","","2018-12-19 11:25:37","2018-12-19 11:25:37","Parameters of GestureDetectorCompat constructor","<android><gesturedetector><this>","6","4","","","","CC BY-SA 4.0"
+"15602391","1","","","2013-03-24 18:35:08","","-23","466","<p>I am trying to check if text in editText is equal to some string.
+This is my if (it comes every time i press a button):</p>
+
+<p><code>if(tx.getText().toString()==""bla"")</code></p>
+
+<p>this is tx:
+<code>tx=(EditText)findViewById(R.id.editText1);</code></p>
+
+<p>I don't know why but the if is never true, I tried to check it by toast this way:</p>
+
+<pre><code>Toast.makeText(getApplicationContext(),tx.getText().toString(), Toast.LENGTH_LONG).show();
+</code></pre>
+
+<p>and it is ""bla"" but still its false, why?</p>
+","","user2157119","5047627","","2015-09-25 09:22:16","2015-09-25 09:22:16","editText.toString==""something"" always false","<java><android><android-edittext>","3","1","","2013-03-24 18:42:50","","CC BY-SA 3.0"
+"53386540","1","53386701","","2018-11-20 05:06:04","","-22","1081","<p>What is the <strong>shortcut</strong> to create a new line in Android Studio editor (like <kbd>ctrl</kbd>+<kbd>enter</kbd> in Visual Studio Code)?</p>
+","8953425","","1033581","","2019-06-29 03:57:33","2019-06-29 03:57:33","Shortcut to create new line in Android Studio editor","<android><android-studio><android-studio-3.0>","2","1","","","","CC BY-SA 4.0"
+"43362754","1","43362872","","2017-04-12 07:12:47","","-20","285","<p>My app crashed when I choose time using a TimePicker.<br>
+How to fix this?  </p>
+
+<p>Please guide me.  </p>
+
+<p>when I print the <code>timeMinute</code> <code>System.out: 30 am</code> I get an 
+error on this line <code>Integer.parseInt(timeMinute.replace("" am"","""")), true);</code></p>
+
+<pre><code>start_time.setInputType(InputType.TYPE_NULL);
+
+        start_time.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                String time = start_time.getText().toString();
+
+                if (time != null &amp;&amp; !time.equals("""")) {
+                    StringTokenizer st = new StringTokenizer(time, "":"");
+                    String timeHour = st.nextToken();
+                    String timeMinute = st.nextToken();
+
+                    timePickDialog = new TimePickerDialog(v.getContext(),
+                            new TimePickHandler(), Integer.parseInt(timeHour),
+                            Integer.parseInt(timeMinute.replace("" am"","""")), true);
+
+                } else {
+                    timePickDialog = new TimePickerDialog(v.getContext(),
+                            new TimePickHandler(), 10, 45, true);
+                }
+                timePickDialog.show();
+            }
+        });
+
+
+
+private class TimePickHandler implements TimePickerDialog.OnTimeSetListener {
+
+        @Override
+        public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+            //start_time.setText(hourOfDay + "":"" + minute);
+            int hour = hourOfDay % 12;
+            if (hour == 0)
+                hour = 12;
+            start_time.setText(String.format(""%02d:%02d %s"", hour, minute,hourOfDay &lt; 12 ? ""am"" : ""pm""));
+            timePickDialog.hide();
+        }
+
+    }
+</code></pre>
+","6822102","","2649012","","2017-04-12 07:41:33","2017-04-12 07:41:33","java.lang.NumberFormatException: Invalid int: ""24 pm""","<java><android><numberformatexception>","2","11","","2017-04-12 13:24:55","","CC BY-SA 3.0"
+"35474305","1","35564478","","2016-02-18 06:24:02","","-19","211","<p>Starting from opening a new file with a blank activity, where do I put the XML view groups for android apps?</p>
+
+<p><a href=""https://i.stack.imgur.com/qd3Qm.png"" rel=""nofollow noreferrer""><img src=""https://i.stack.imgur.com/qd3Qm.png"" alt=""enter image description here""></a></p>
+","3277047","","3277047","","2017-03-19 21:32:47","2018-02-14 18:54:25","Where do I put my layout in android studio?","<android><android-studio>","2","16","","","","CC BY-SA 3.0"
+"44341670","1","44519970","","2017-06-03 07:45:29","","-19","567","<p>I am trying to implement similar screen. Unable to add different items at proper place. I want to add shoes at the proper place.</p>
+
+<p><img src=""https://i.stack.imgur.com/cYLwu.jpg"" alt=""enter image description here""></p>
+
+<p><strong>Layout</strong></p>
+
+<pre><code>&lt;?xml version=""1.0"" encoding=""utf-8""?&gt;&lt;RelativeLayout
+android:layout_width=""0dp""
+android:layout_height=""match_parent""
+android:layout_weight=""0.5""
+android:padding=""0dp""&gt;
+
+&lt;ImageView
+    android:id=""@+id/imgBody""
+    android:layout_width=""match_parent""
+    android:layout_height=""match_parent""
+    android:layout_alignParentStart=""true""
+    android:layout_alignParentTop=""true""
+    android:scaleType=""fitXY""
+    android:src=""@drawable/dress"" /&gt;
+
+&lt;ImageView
+    android:id=""@+id/imgFeet""
+    android:layout_width=""match_parent""
+    android:layout_height=""wrap_content""
+    android:layout_alignBottom=""@+id/imgBody""
+    android:layout_alignParentBottom=""true""
+    android:layout_centerHorizontal=""true""
+    android:layout_marginTop=""0dp""
+    android:src=""@drawable/ic_shoe1""
+    android:visibility=""gone"" /&gt;
+
+&lt;ImageView
+    android:id=""@+id/imgFace""
+    android:layout_width=""50dp""
+    android:layout_height=""wrap_content""
+    android:layout_marginLeft=""55dp""
+    android:layout_marginTop=""0dp""
+    android:src=""@drawable/ic_head""
+    android:visibility=""gone"" /&gt;
+</code></pre>
+
+<p></p>
+
+<p></p>
+
+<pre><code>&lt;android.support.v7.widget.RecyclerView
+    android:id=""@+id/recyclerView""
+    android:layout_width=""wrap_content""
+    android:layout_height=""wrap_content""
+    android:background=""@android:color/white""/&gt;
+</code></pre>
+
+<p></p>
+","6027638","","6027638","","2019-04-25 08:08:01","2019-04-25 08:08:01","Dressing a mannequin with different items in android","<android-layout>","3","0","0","","","CC BY-SA 4.0"
+"35789790","1","35790460","","2016-03-04 06:52:38","","-19","1044","<p>I am creating a ProgressBar to be placed in the vertical center of a LinearLayout (other layouts will not work; I need to use a LinearLayout). Here is some code:</p>
+
+<pre><code>LinearLayout linearLayout = new LinearLayout(context);
+LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+        LinearLayout.LayoutParams.MATCH_PARENT,
+        LinearLayout.LayoutParams.MATCH_PARENT);
+linearLayout.setLayoutParams(layoutParams);
+linearLayout.setOrientation(LinearLayout.VERTICAL);
+linearLayout.setGravity(Gravity.CENTER);
+
+//add progressbar
+ProgressBar progressBar = new ProgressBar(context);
+progressBar.setLayoutParams(new ViewGroup.LayoutParams(
+        ViewGroup.LayoutParams.WRAP_CONTENT,
+        ViewGroup.LayoutParams.WRAP_CONTENT));
+linearLayout.addView(progressBar);
+</code></pre>
+
+<p>I have a ContainerView which will hold the LinearLayout created above. Something like this:</p>
+
+<pre><code>public class ContainerView extends ScrollView {
+    public ContainerView(Context context) {
+        super(context);
+        initView(context);
+    }
+
+    private void initView(Context context){
+        addView(linearLayout);     //which is created in the snippet above
+    }
+} 
+</code></pre>
+
+<p>If I extend ContainerView with LinearLayout, everything works fine. </p>
+
+<p>If I extend ContainerView with ScrollView, ProgressBar is centered horizontally but not vertically.</p>
+
+<p>What's the reason behind this dual behavior? My goal is to show a ProgressBar during the download of some data; once data is downloaded, I need to show it in the LinearLayout.</p>
+
+<p>(Note: The reason for using ScrollView is that downloaded data may be too large to fit a small screen. This may seem like a use-case for ListView, but there are some other reasons that prevent me from using ListView.)</p>
+","430720","","2756409","","2018-07-26 15:27:02","2018-07-26 15:27:02","Android center gravity is not working if container layout is in a scrollview","<android><android-layout><scrollview><layout-gravity><android-gravity>","3","7","","","","CC BY-SA 4.0"
+"37128554","1","40101745","","2016-05-10 02:59:50","","-19","169","<p>Hi I would like to know how to make this layout in android. I want to add 2 images for the 2 columns below and they are clickable.
+<a href=""https://i.stack.imgur.com/RUEDg.jpg"" rel=""nofollow noreferrer""><img src=""https://i.stack.imgur.com/RUEDg.jpg"" alt=""enter image description here""></a></p>
+","2673535","","6334037","","2016-08-16 11:29:38","2016-10-18 07:08:59","Layout Designing - Android","<android><android-layout>","4","7","0","","","CC BY-SA 3.0"
+"42721234","1","","","2017-03-10 14:51:55","","-18","1213","<p>I have been working on a simple android app using Xamarin.android for a while, I've just started on mobo development so it's pretty new to me, the thing is my app is supposed to be a login and registration form.
+I use a class to get and organize the data in <code>List&lt;T&gt;</code>, thing is I get null exception here is my code </p>
+
+<p>It is most likely a simple mistake, the weirdest thing is that it was working at some point when I tried to add sth else, didn't work deleted it and then this happened</p>
+
+<p>ty in advance</p>
+
+<pre><code>using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace DemoAppXamarinStu {
+
+public class Datos
+{
+    public static List&lt;string&gt; UsuarioL;//= new List&lt;string&gt;()
+    static List&lt;string&gt; NombreL;//= new List&lt;string&gt;()
+    static List&lt;string&gt; ApellidoL;//= new List&lt;string&gt;()
+    static List&lt;string&gt; EmailL;// = new List&lt;string&gt;()
+    public static List&lt;string&gt; ContraseñaL;// = new List&lt;string&gt;();
+
+    public Datos()
+    {
+        UsuarioL = new List&lt;string&gt;();
+        NombreL = new List&lt;string&gt;();
+        ApellidoL = new List&lt;string&gt;();
+        EmailL = new List&lt;string&gt;();
+        ContraseñaL = new List&lt;string&gt;();
+
+        UsuarioL.Add(""admin"");
+        ContraseñaL.Add(""admin"");
+        NombreL.Add(""administrador"");
+        ApellidoL.Add(""administrador"");
+        EmailL.Add(""admin@admin.com"");              
+    }
+    public static void agregar(string value1, string value2, string value3, string value4, string value5) 
+    {
+        //Datos d = new Datos();
+        UsuarioL.Add(value1);
+        NombreL.Add(value2);
+        ApellidoL.Add(value3);
+        EmailL.Add(value4);
+        ContraseñaL.Add(value5);
+    }
+}
+}
+</code></pre>
+
+<p>oh and also check this out an
+<a href=""https://i.stack.imgur.com/ax7Ae.png"" rel=""nofollow noreferrer"">an exception on a comment</a></p>
+","7061856","","4803173","","2017-12-16 10:57:12","2017-12-16 10:57:12","List<string> is null even after being initialized","<c#><android><xamarin>","4","5","","","","CC BY-SA 3.0"

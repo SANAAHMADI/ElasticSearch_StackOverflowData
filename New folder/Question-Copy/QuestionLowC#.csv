@@ -1,0 +1,294 @@
+Id,PostTypeId,AcceptedAnswerId,ParentId,CreationDate,DeletionDate,Score,ViewCount,Body,OwnerUserId,OwnerDisplayName,LastEditorUserId,LastEditorDisplayName,LastEditDate,LastActivityDate,Title,Tags,AnswerCount,CommentCount,FavoriteCount,ClosedDate,CommunityOwnedDate,ContentLicense
+"42384565","1","","","2017-02-22 06:52:00","","-137","10205","<p>I'm using a WEB API to receive a request from a Client application to save Contact Information, and I need to send an Error Message only if the data has an error; otherwise nothing TODO</p>
+<p>Earlier I Used a Dictionary&lt;string, string&gt;</p>
+<p>For Example:</p>
+<pre><code>Dictionary&lt;string, string&gt; error = new Dictionary&lt;string, string&gt;
+{
+    {&quot;SaveContactMethod_1&quot;, &quot;FirstName Invalid&quot;},
+    {&quot;SaveContactMethod_2&quot;, &quot;LastName Invalid&quot;},
+    {&quot;SaveContactMethod_3&quot;, &quot;MiddleName Invalid&quot;},
+}
+</code></pre>
+<p>the respective JSON Object is</p>
+<pre><code>{
+    &quot;error&quot; : {
+        &quot;SaveContactMethod_1&quot;:&quot;FirstName Invalid&quot;,
+        &quot;SaveContactMethod_2&quot;:&quot;LastName Invalid&quot;,
+        &quot;SaveContactMethod_3&quot;:&quot;MiddleName Invalid&quot;
+    }
+}
+</code></pre>
+<p>But I need an UNIQUE Key (i.e., Duplicate Key), So I changed the <code>Dictionary&lt;string, string&gt;</code> to <code>List&lt;KeyValuePair&lt;string, string&gt;&gt;</code></p>
+<pre><code>List&lt;KeyValuePair&lt;string, string&gt;&gt; error = new List&lt;KeyValuePair&lt;string, string&gt;&gt;
+{
+    new KeyValuePair&lt;string, string&gt;(&quot;SaveContactMethod&quot;, &quot;FirstName Invalid&quot;),
+    new KeyValuePair&lt;string, string&gt;(&quot;SaveContactMethod&quot;, &quot;LastName Invalid&quot;),
+    new KeyValuePair&lt;string, string&gt;(&quot;SaveContactMethod&quot;, &quot;MiddleName Invalid&quot;),
+}
+</code></pre>
+<p>the respective JSON Object is</p>
+<pre><code>{
+    &quot;error&quot; : [
+        { &quot;key&quot;:&quot;SaveContactMethod&quot;, &quot;value&quot;:&quot;FirstName Invalid&quot; },
+        { &quot;key&quot;:&quot;SaveContactMethod&quot;, &quot;value&quot;:&quot;LastName Invalid&quot; },
+        { &quot;key&quot;:&quot;SaveContactMethod&quot;, &quot;value&quot;:&quot;MiddleName Invalid&quot; }
+    ]
+}
+</code></pre>
+<p><strong>My Requirement</strong>: I need to add a Duplicate Key and I need the Json Output like a Dictionary.</p>
+<p>Expected Output: JSON</p>
+<pre><code>{
+    &quot;error&quot; : {
+        &quot;SaveContactMethod&quot;:&quot;FirstName Invalid&quot;,
+        &quot;SaveContactMethod&quot;:&quot;LastName Invalid&quot;,
+        &quot;SaveContactMethod&quot;:&quot;MiddleName Invalid&quot;
+    }
+}
+</code></pre>
+","2900199","","1447978","","2021-10-08 19:30:40","2021-10-08 19:30:40","Return Json object with Duplicate Keys using C#","<c#><json><dictionary><key-value>","2","18","0","","","CC BY-SA 4.0"
+"30791292","1","","","2015-06-11 20:55:54","","-87","7683","<p>I am trying to remove only one property i.e <code>float</code> and its value, from an inline style. I would like to start with this:</p>
+<pre><code>&lt;div id=&quot;first_line_info&quot; style=&quot;width:490px; float:right;&quot;&gt; &lt;/div&gt;
+</code></pre>
+<p>And make it like this:</p>
+<pre><code>&lt;div id=&quot;first_line_info&quot; style=&quot;width:490px&quot;&gt; &lt;/div&gt;
+</code></pre>
+<p>So far I have tried this code:</p>
+<pre><code>Regex noInlineStylePattern = new Regex(&quot;style=\&quot;[^\&quot;]*\&quot;&quot;, RegexOptions.IgnoreCase);
+data = noInlineStylePattern.Replace(data, &quot;&quot;);
+</code></pre>
+<p>This removes all of the inline styles. How can I just remove the float?</p>
+","3457760","","2338858","","2021-07-16 10:14:04","2021-07-16 10:15:07","How do I remove a style element from an inline style using regex?","<javascript><c#><html><css><regex>","4","5","0","","","CC BY-SA 4.0"
+"44132854","1","44133637","","2017-05-23 10:56:32","","-34","5269","<p>I have created a project where a cube is rotated when we touch on it. I want the cube to return back to its original position when the user stops touching the cube. Below I have added the source code of rotating a cube:</p>
+
+<pre><code>using UnityEngine;
+
+using System.Collections;
+
+[RequireComponent(typeof(MeshRenderer))]
+
+public class dr : MonoBehaviour 
+{
+
+    #region ROTATE
+    private float _sensitivity = 1f;
+    private Vector3 _mouseReference;
+    private Vector3 _mouseOffset;
+    private Vector3 _rotation = Vector3.zero;
+    private bool _isRotating;
+
+
+    #endregion
+
+    void Update()
+    {
+        if(_isRotating)
+        {
+            // offset
+            _mouseOffset = (Input.mousePosition - _mouseReference); // apply rotation
+            _rotation.y = -(_mouseOffset.x + _mouseOffset.y) * _sensitivity; // rotate
+            gameObject.transform.Rotate(_rotation); // store new mouse position
+            _mouseReference = Input.mousePosition;
+        }
+
+    }
+
+    void OnMouseDown()
+    {
+        // rotating flag
+        _isRotating = true;
+
+        // store mouse position
+        _mouseReference = Input.mousePosition;
+    }
+
+    void OnMouseUp()
+    {
+        // rotating flag
+        _isRotating = false;
+    }
+
+}
+</code></pre>
+
+<p>edited code:-
+using UnityEngine;
+using System.Collections;</p>
+
+<p>[RequireComponent(typeof(MeshRenderer))]</p>
+
+<p>public class pt : MonoBehaviour 
+{</p>
+
+<pre><code>#region ROTATE
+private float _sensitivity = 1f;
+private Vector3 _mouseReference;
+private Vector3 _mouseOffset;
+private Vector3 _rotation = Vector3.zero;
+private bool _isRotating;
+private Quaternion original;
+
+
+#endregion
+void start(){
+    original = transform.rotation;
+}
+
+void Update()
+{
+    if(_isRotating)
+    {
+        // offset
+        _mouseOffset = (Input.mousePosition - _mouseReference); // apply rotation
+        _rotation.y = -(_mouseOffset.x + _mouseOffset.y) * _sensitivity; // rotate
+        gameObject.transform.Rotate(_rotation); // store new mouse position
+        _mouseReference = Input.mousePosition;
+    }
+
+}
+
+public void OnMouseDown()
+{
+    // rotating flag
+    _isRotating = true;
+
+    // store mouse position
+    _mouseReference = Input.mousePosition;
+}
+
+public void OnMouseUp()
+{
+    // rotating flag
+    _isRotating = false;
+    transform.rotation = original;
+}
+</code></pre>
+
+<p>}</p>
+
+<p>""im trying to rotate a 3d model of a sofa and return to its starting rotation.but if i used this code "" <strong>whenever if i stopped touching the sofa , it turns to **backside</strong> of sofa""**
+ i want it to return to initial rotation.<a href=""https://i.stack.imgur.com/M9pE2.png"" rel=""nofollow noreferrer"">u can see initally this is how the sofa looks like and if i stopped touching it returns to its backside of sofa. i want it to return to its front side again if i stopped rotation</a></p>
+","5009307","","8614792","","2020-05-19 21:02:21","2020-05-19 21:02:21","How to bringback an object to its original position after rotation in unity?","<c#><unity3d><rotation><mouseevent><rotatetransform>","1","5","0","","","CC BY-SA 4.0"
+"10476067","1","","","2012-05-07 02:39:56","","-29","924","<p>Will this loop execute exactly <code>N</code> Times?</p>
+<pre class=""lang-js prettyprint-override""><code>for (int i = 0; i &lt; N; i++) 
+{
+    //statement
+    someMethodCall();
+}
+</code></pre>
+<p>Will this loop execute at most <code>N</code> Times?</p>
+<pre class=""lang-js prettyprint-override""><code>for (int i = 1; i &lt; N; i++)  
+{
+    someMethodCall();
+}
+</code></pre>
+<p>Will this loop execute at least <code>N</code> Times?</p>
+<pre class=""lang-js prettyprint-override""><code>for (int i = 0; i &lt;= N; i++) 
+{
+    //statement
+    someMethodCall();
+}
+</code></pre>
+<p>What should I do if I need to execute the statement between <code>m</code> and <code>n</code> times, e.g. calling a method?</p>
+","1029083","","13170636","","2021-09-19 12:26:17","2021-09-19 12:26:17","For Loop Constructs","<c#><c++>","3","2","","","","CC BY-SA 4.0"
+"42244424","1","42244537","","2017-02-15 08:43:22","","-27","1125","<p>The compiler gives an error CS0030: Cannot convert type 'void' to 'double'. Help me please.
+The code here:</p>
+
+<pre><code>static public double Decode(string a)
+{
+    double c=double.Parse(a);
+    return (double)Console.WriteLine(c%3);
+}
+</code></pre>
+","7565245","","109941","","2021-12-18 01:30:10","2021-12-18 01:30:10","Error CS0030: Cannot convert type 'void' to 'double'","<c#><return-type>","2","3","","","","CC BY-SA 4.0"
+"18585829","1","","","2013-09-03 06:47:03","","-24","4957","<p>An <code>array</code> of 3 dimensions initializes like this.</p>
+
+<pre><code>int[,,] arr = new int[2,3,3] {{{1,2,3},{4,5,6},{7,8,9}}, {{1,2,3},{4,5,6},{7,8,9}}};
+</code></pre>
+
+<p>How do you initialize this in 4 dimensions <code>array</code> or more?</p>
+
+<pre><code>int[,,,] arr = new int[3,6,5,2] // how to initialize as above?
+</code></pre>
+","2741936","","8614792","","2020-05-19 21:02:25","2020-05-20 06:47:25","Array for 4 dimension initializing","<c#>","1","4","","","","CC BY-SA 4.0"
+"23913512","1","","","2014-05-28 13:49:10","","-23","3308","<p>I'm trying to get today's date</p>
+
+<pre><code>DateTime todayDateTime = new DateTime();
+</code></pre>
+
+<p>and I'm getting this:</p>
+
+<pre><code>{1/1/0001 12:00:00 AM}.
+</code></pre>
+
+<p>Why is this happening?</p>
+","1587293","","247702","","2014-05-28 13:50:23","2020-04-30 21:41:02","DateTime returns wrong date","<c#><datetime>","5","3","","","","CC BY-SA 3.0"
+"25515373","1","25515374","","2014-08-26 21:24:27","","-23","1044","<p>Given the following code snippet:</p>
+
+<pre><code>public class Foo
+{
+    public IEnumerable&lt;string&gt; Sequence { get; set; }
+    public IEnumerable&lt;string&gt; Bar()
+    {
+        foreach (string s in Sequence)
+            yield return s;
+    }
+}
+</code></pre>
+
+<p>is the following snippet semantically equivalent, or is it different?  If it is different, how do they function differently?</p>
+
+<pre><code>public class Foo2
+{
+    public IEnumerable&lt;string&gt; Sequence { get; set; }
+    public IEnumerable&lt;string&gt; Bar2()
+    {
+        return Sequence;
+    }
+}
+</code></pre>
+
+<p>This question is inspired by <a href=""https://stackoverflow.com/q/25514736/1159478"">this question</a> which is asking a different question about a similar situation.</p>
+","1159478","","-1","","2017-05-23 12:10:46","2014-08-26 21:41:19","How is transforming this iterator block a functional change?","<c#><iterator><yield-return><deferred-execution>","1","0","0","","","CC BY-SA 3.0"
+"9909434","1","9915458","","2012-03-28 14:17:58","","-22","6028","<p>I have an in-memory DataSet bound to an ASPxGridView where the column names are determined by a variable. Now I would prefer to assign the FieldName of the columns in the markup with the value of the corresponding variable, but <code>&lt;%#Eval(...)%&gt;</code> throws the following error.  </p>
+
+<pre><code>Parser Error Message: Databinding expressions are only supported on objects that have a DataBinding event. DevExpress.Web.ASPxGridView.GridViewDataTextColumn does not have a DataBinding event.
+</code></pre>
+
+<p>Is it possible to assign the FieldName-Attribute of a GridViewDataTextColumn with a variable in the markup?</p>
+
+<p>From</p>
+
+<pre><code>&lt;dx:GridViewDataTextColumn Caption=""Product"" FieldName=""product_name""&gt;
+</code></pre>
+
+<p>To</p>
+
+<pre><code>&lt;dx:GridViewDataTextColumn Caption=""Product"" FieldName=""&lt;%# Eval(""ProductFieldName"") %&gt;""&gt;
+</code></pre>
+","402037","","","","","2021-07-12 15:18:08","Dynamic FieldName for GridViewDataTextColumn (<%# Eval(...)%>)","<c#><devexpress><aspxgridview>","1","0","","","","CC BY-SA 3.0"
+"34623232","1","34623570","","2016-01-05 23:39:26","","-22","1256","<p>I would like a method that returns a string from date that looks like the ones in the social media websites and forum . </p>
+
+<p>Examples</p>
+
+<ul>
+<li>Added 2 seconds ago</li>
+<li>Added 3 mintues ago</li>
+<li>Added two weeks ago</li>
+<li>Added a month ago</li>
+</ul>
+
+<p>and so on</p>
+
+<p>I pass it a <code>DateTime</code> object and it returns a string based on the difference between <code>currentDate</code> and date passed to the method. </p>
+
+<p>I know how to use timespan to get difference between dates but how can switch from seconds to minutes to hours to days to weeks appropriately?</p>
+
+<p>For example if the difference between dates is 120 minutes I do not want it to return it 120 minutes, I want it to return 2 hours. </p>
+
+<p>How to make this switch?</p>
+
+<p>I would prefer a custom method in order to change the language of the string to Arabic. Can language be changed using libraries?</p>
+
+<p>Thanks
+Abdullah</p>
+","5749954","","2735344","","2017-10-11 12:42:31","2017-10-11 12:42:31","Return correct time measurements from a date","<c#><datetime>","2","8","","2016-01-06 00:15:58","","CC BY-SA 3.0"

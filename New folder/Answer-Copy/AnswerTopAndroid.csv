@@ -1,0 +1,11 @@
+Id,PostId,Score,Text,CreationDate,UserDisplayName,UserId,ContentLicense
+"36502904","16754643","917","When someone asks a question on here that yes, does have a lot of links in Google about it, what they are really asking is for someone to answer the question with **plain language** and to put it in **context**, such as why do we need it, who will use it most, do we need to know it to build Android apps in Android Studio, etc. Because most often the links you find about it on Google are in ""tech-speak"" and for a beginner this is confusing.","2014-05-19 18:09:15","","2418793","CC BY-SA 3.0"
+"2027605","2092098","295","that prefix does nothing but to mess up the readability ...","2010-01-19 15:36:58","","221965","CC BY-SA 2.5"
+"10788245","3482742","287","Easy trick to remember: Take ""layout-gravity"" as ""Lay-outside-gravity""","2011-12-30 09:22:57","","816416","CC BY-SA 3.0"
+"44224839","22634446","197","did you finally find her?","2015-01-12 23:46:36","","2068563","CC BY-SA 3.0"
+"50954054","30817871","190","Need to fire that guy who oversees android studio @google. My PC literally crwals right now. My mouse pointer jumps. Its extremely frustrating to use android studio. It used to be better before","2015-07-18 20:28:02","","2831855","CC BY-SA 3.0"
+"16031767","11863329","184","I guess even you ask questions :)","2012-08-18 04:08:52","","1176436","CC BY-SA 3.0"
+"39783935","3875184","174","What a stupid error message! It could've been as simple as - can't call this from a non-UI thread as done when views are touched from a non-UI thread.","2014-08-25 15:49:57","","1311745","CC BY-SA 3.0"
+"6911216","4568267","159","**The accepted answer is not correct.** Please read the answer by Steve H.","2011-05-13 01:21:15","","86060","CC BY-SA 3.0"
+"15753428","6343166","138","[**Read this blog post**](http://www.androiddesignpatterns.com/2012/06/app-force-close-honeycomb-ics.html) on the NetworkOnMainThreadException for more information. It explains why this occurs on Android 3.0 and above.","2012-08-07 12:38:46","","1357390","CC BY-SA 3.0"
+"19074160","13854425","134","It sounds like you may be using ""security by obscurity"" if your payment processing scheme relies on the operation of the client remaining secret.","2012-12-13 06:45:37","","1599751","CC BY-SA 3.0"

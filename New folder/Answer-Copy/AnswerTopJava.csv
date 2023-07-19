@@ -1,0 +1,13 @@
+Id,PostId,Score,Text,CreationDate,UserDisplayName,UserId,ContentLicense
+"11728310","784929","1336","Remember it by ""bang, bang you're boolean""","2012-02-15 18:35:02","","1172174","CC BY-SA 3.0"
+"14359320","1986896","766","Think of `a` in apply for array of args and `c` in call for columns of args.","2012-06-12 06:17:46","","527776","CC BY-SA 3.0"
+"9406283","242813","673","How about this Ryan? `alert(""It's \""game\"" time."");` or `alert('It\'s ""game"" time.');`?","2011-10-11 18:37:01","","383148","CC BY-SA 3.0"
+"12110766","149055","618","Please, to anyone reading this in the future, do **not** use float to store currency. You will loose precision and data. You should store it as a integer number of cents (or pennies etc.) and then convert prior to output.","2012-03-04 13:35:10","","1052931","CC BY-SA 3.0"
+"61452760","11508463","605","The solution in ES6 is to put the variable in square brackets in order to evaluate it.
+`var key = ""happyCount"";
+myArray.push({ [key]: someValueArray });`","2016-04-29 20:40:28","","2547255","CC BY-SA 3.0"
+"3521845","3387427","575","As James said, the DOM does not support removing an object directly. You have to go to its parent and remove it from there. Javascript won't let an element commit suicide, but it does permit infanticide...","2010-08-01 23:36:21","","69683","CC BY-SA 2.5"
+"12515394","122102","566","Eval is not evil. Using eval poorly is. If you are afraid of its side effects you are using it wrong. The side effects you fear are the reasons to use it. Did any one by the way actually answer your question?","2012-03-22 14:08:54","","310678","CC BY-SA 3.0"
+"8651508","7202157","534","Start by understanding that `+[]` casts an empty array to `0`... then waste an afternoon... ;)","2011-08-26 08:51:54","","476","CC BY-SA 3.0"
+"11650538","1531093","462","`var currentTime = new Date();`","2009-10-07 11:39:40","","149715","CC BY-SA 2.5"
+"6810726","5915096","417","the answer will not involve jQuery","2011-05-06 17:51:44","","6782","CC BY-SA 3.0"

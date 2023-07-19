@@ -1,0 +1,280 @@
+Id,PostTypeId,AcceptedAnswerId,ParentId,CreationDate,DeletionDate,Score,ViewCount,Body,OwnerUserId,OwnerDisplayName,LastEditorUserId,LastEditorDisplayName,LastEditDate,LastActivityDate,Title,Tags,AnswerCount,CommentCount,FavoriteCount,ClosedDate,CommunityOwnedDate,ContentLicense
+"17686749","1","24711934","","2013-07-16 20:51:44","","-110","11444","<p>Is there any difference in performance between the <strong><em>conditional operator <code>===</code> and the assignment operator <code>=</code></em></strong>?  I am writing some pre-save hook middleware in mongoose and I am wondering if there is much of a speed difference between:</p>
+
+<pre><code>UserSchema.pre('save', function (next) {
+    if (!this.isModified()) {
+        return next();
+    }
+    this.crm.isUpToDate = false;
+    next();
+});
+</code></pre>
+
+<p>and</p>
+
+<pre><code>UserSchema.pre('save', function (next) {
+    if (!this.isModified()) {
+        return next();
+    }
+    if (this.crm.update === true) {
+        this.crm.isUpToDate = false;
+    }
+    next();
+});
+</code></pre>
+
+<p>EDIT:</p>
+
+<p>Thanks for the constructive comments.</p>
+
+<p>Basically, it doesn't look like there is much of a difference in the performance (as stated above it's negligible). Thanks for the cool tool for testing speed <a href=""http://jsperf.com/"" rel=""nofollow noreferrer"">http://jsperf.com/</a>, I had never heard of it before.</p>
+
+<p>For those of you who are wondering about the code, first off I made a blatant error in my original post, then when everyone tried to point it out to me I cried, that's probably the reason why everyone downvoted.</p>
+
+<p>Here is what I am doing:</p>
+
+<p>I have a mongoose pre-save middleware hook (for a mongo database) where the hook gets run every time a document is saved. At the point of save I check if the document was updated. If it was I set the <code>crmIsUpToDate</code> to false. The <code>crmIsUpToDate</code> will get set to true when a cron job gets. This hook can be run many times before the cron job gets to the document. </p>
+
+<p>I didn't think this was all that necessary for the question because the question was if there is a difference between doing a comparison <code>===</code> and doing an assignment <code>=</code>. I shouldn't have even put the code up because it really detracted from the main question.</p>
+","1174799","","366904","","2019-04-02 18:34:59","2019-04-03 01:40:54","Javascript performance, conditional statement vs assignment operator","<javascript><performance><operators>","2","6","0","","","CC BY-SA 3.0"
+"30791292","1","","","2015-06-11 20:55:54","","-87","7683","<p>I am trying to remove only one property i.e <code>float</code> and its value, from an inline style. I would like to start with this:</p>
+<pre><code>&lt;div id=&quot;first_line_info&quot; style=&quot;width:490px; float:right;&quot;&gt; &lt;/div&gt;
+</code></pre>
+<p>And make it like this:</p>
+<pre><code>&lt;div id=&quot;first_line_info&quot; style=&quot;width:490px&quot;&gt; &lt;/div&gt;
+</code></pre>
+<p>So far I have tried this code:</p>
+<pre><code>Regex noInlineStylePattern = new Regex(&quot;style=\&quot;[^\&quot;]*\&quot;&quot;, RegexOptions.IgnoreCase);
+data = noInlineStylePattern.Replace(data, &quot;&quot;);
+</code></pre>
+<p>This removes all of the inline styles. How can I just remove the float?</p>
+","3457760","","2338858","","2021-07-16 10:14:04","2021-07-16 10:15:07","How do I remove a style element from an inline style using regex?","<javascript><c#><html><css><regex>","4","5","0","","","CC BY-SA 4.0"
+"24281192","1","","","2014-06-18 08:54:45","","-55","33592","<p>Is it possible to hide or remove the <code>Powered by Google Translate</code> on the dropdown in Google Translate?</p>
+<p>I have removed the logo part, but couldn't remove the <code>Powered by</code> text.</p>
+<p>Here's the code:</p>
+<pre class=""lang-html prettyprint-override""><code>&lt;div id=&quot;google_translate_element&quot;&gt;&lt;/div&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL}, 'google_translate_element');
+    }
+&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit&quot;&gt;&lt;/script&gt;
+</code></pre>
+","3526450","","13266974","","2020-10-03 14:03:05","2022-09-27 07:45:04","How to remove or hide powered by text from Google Translate","<javascript><google-translate>","11","11","0","","","CC BY-SA 4.0"
+"26655534","1","26655665","","2014-10-30 14:21:28","","-54","9423","<p>The JQuery UI autocomplete plugin uses the <code>catcomplete</code> function. I'm new to the JQuery syntax, can you help me to understand how to read it?</p>
+
+<pre><code>$(""#searchTextBox"").catcomplete({
+    minLength: 1,
+    source: $(""#searchTextBox"").data(""url""),
+    open: function () {
+        $("".ui-autocomplete"").css({
+            left: $("".ui-autocomplete"").position().left - 50 + ""px"",
+            top: $("".ui-autocomplete"").position().top - 12 + ""px""
+        });
+    },
+    select: function (event, ui) {
+        /*code*/
+    }
+});
+</code></pre>
+","196210","","-1","","2018-05-10 14:40:03","2018-05-10 14:40:03","What is catcomplete in jQuery's autocomplete plugin?","<javascript><jquery>","1","0","0","2018-10-30 22:35:48","","CC BY-SA 3.0"
+"27894144","1","27894183","","2015-01-12 01:30:44","","-42","3016","<p>I recently noticed my ad networks popunder code is getting blocked by adblock. Is there any software or technique you guys know that can counter this?  I am running an adult site by the way. </p>
+
+<p>Here is the popunder code if you need it:</p>
+
+<pre><code>    &lt;!-- PopAds.net Popunder Code for www.example.com --&gt;
+&lt;script type=""text/javascript""&gt;
+  var _pop = _pop || [];
+  _pop.push(['siteId', 518347]);
+  _pop.push(['minBid', 0]);
+  _pop.push(['popundersPerIP', 0]);
+  _pop.push(['delayBetween', 0]);
+  _pop.push(['default', false]);
+  _pop.push(['defaultPerDay', 0]);
+  _pop.push(['topmostLayer', false]);
+  (function() {
+    var pa = document.createElement('script'); pa.type = 'text/javascript'; pa.async = true;
+    var s = document.getElementsByTagName('script')[0]; 
+    pa.src = '//c1.popads.net/pop.js';
+    pa.onerror = function() {
+      var sa = document.createElement('script'); sa.type = 'text/javascript'; sa.async = true;
+      sa.src = '//c2.popads.net/pop.js';
+      s.parentNode.insertBefore(sa, s);
+    };
+    s.parentNode.insertBefore(pa, s);
+  })();
+&lt;/script&gt;
+&lt;!-- PopAds.net Popunder Code End --&gt;
+</code></pre>
+
+<p>Any help would be appreciated. </p>
+","4115507","","","","","2019-06-06 14:40:30","How to block ""adblock""","<javascript><ads><adblock>","1","4","0","","","CC BY-SA 3.0"
+"31967020","1","","","2015-08-12 13:43:25","","-36","919","<p>I'm populating email-id in the text box value using <code>ng-repeat</code>. Using the edit icon I'm adding an email-id in the text box and on the text box focus out I have to create a token for the email-id in the text box.
+I have to find out the token input and create the token</p>
+<pre class=""lang-js prettyprint-override""><code>$(&quot;.tagemail&quot;)
+  .parent()
+  .focusout(function () {
+    $(&quot;.token-input&quot;).each(function (valindex) {
+      if ($(this).val() != &quot;&quot;) {
+        var value = $(this).val();
+        var id = $(this).attr(&quot;id&quot;);
+        $(&quot;#&quot; + id).val(&quot;&quot;);
+        thisChild.tokenfield(&quot;createToken&quot;, value);
+      }
+    });
+  });
+</code></pre>
+<p>But the div of <strong>thisChild</strong> getting differed.</p>
+","5219556","","13170636","","2021-09-19 12:33:59","2021-09-19 12:33:59","Create token on textbox focusout","<javascript><angularjs><token><jquery-tokeninput>","1","2","","","","CC BY-SA 4.0"
+"35723062","1","35723136","","2016-03-01 12:33:11","","-33","4599","<p>So I am creating a web app and I get some data.</p>
+<p>There are points you have now (now=284), and total points (total=1000). So, The difference between them is dif=716.</p>
+<p>How do I use javascript to turn the difference into a percentage value, for example, 32% or whatever?</p>
+<p>Thanks</p>
+","2045016","","13170636","","2021-09-19 12:31:50","2021-09-19 12:32:11","Get the percentage of a number with javascript","<javascript><math><percentage>","4","2","","2016-03-13 19:05:10","","CC BY-SA 4.0"
+"30555079","1","","","2015-05-31 07:49:20","","-30","5683","<p><strong>Form: Entity  A</strong></p>
+<ul>
+<li>Field Display Name : Approver</li>
+<li>Field Name : bch_signingauthority</li>
+<li>Field Type : Lookup Field</li>
+<li>Source : User Entity</li>
+<li>Summarize : When Approver lookup in Entity: A is selected it will display a list of records from Entity: Users. Entity</li>
+<li>Name : bch_signingauthority</li>
+</ul>
+<p><strong>Form: Entity B</strong></p>
+<ul>
+<li>Field Display Name: Approver</li>
+<li>Field Name: bch_approver</li>
+<li>Field Type: Lookup</li>
+<li>Field Source: From Entity: A and Field Name: Approver</li>
+<li>Summarize: When Approver lookup is selected it will display all saved records of Approver from Entity: A</li>
+</ul>
+<p><strong>Functions:</strong>
+When I select an Approver in Entity: A and select an HTML button
+I have used the code below to send a query string to the form Entity: B</p>
+<pre><code>&lt;HTML xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;&lt;HEAD&gt;
+&lt;SCRIPT type=text/javascript&gt;
+
+function setDelegate(){
+
+var ApproverInfo = new Array();
+ApproverInfo = window.parent.Xrm.Page.getAttribute('bch_approver').getValue();
+    if(ApproverInfo[0] != null)
+    {
+       
+       var parameters = {};
+       parameters[&quot;formid&quot;] = &quot;{b053a39a-041a-4356-acef-ddf00182762b}&quot;;
+       window.parent.Xrm.Utility.openEntityForm(&quot;bch_delegate&quot;, ApproverInfoId ); 
+    }
+}
+
+&lt;/SCRIPT&gt;
+
+&lt;META charset=utf-8&gt;&lt;/HEAD&gt;
+&lt;BODY&gt;&lt;INPUT onclick=setDelegate(); value=&quot;Set Delegate&quot; type=submit&gt; &lt;/BODY&gt;&lt;/HTML&gt;
+</code></pre>
+<p>In Form Entity:B on Page Load I have written the following javascript code to read and set the lookup in Entity: B</p>
+<p>I have received the query string using code below:</p>
+<pre class=""lang-js prettyprint-override""><code>// Get the Value of the Regarding through the Customer Parameters
+var param = Xrm.Page.context.getQueryStringParameters();
+
+if (param != null) {
+  alert(&quot;inside&quot;);
+
+  var ApproverId = param[&quot;bch_signingauthority&quot;];
+  var bchName = param[&quot;bch_name&quot;];
+
+  //Populate the Regarding if there is one
+  //if (regardingId != undefined)
+  //{Xrm.Page.getAttribute(&quot;regardingobjectid&quot;).setValue([{id:regardingId, name:regardingName, entityType:regardingType}]);}
+  var a = GetApproverName(ApproverId);
+  var lookup = new Array();
+  lookup[0] = new Object();
+  lookup[0].id = bchName;
+  lookup[0].name = a;
+  //alert(a.trim());
+  //alert(ApproverId);
+  //lookup[0].entityType = 'Signing Authority';
+  //Xrm.Page.getAttribute('bch_signingauthority').setValue(lookup);
+
+  Xrm.Page.getAttribute(&quot;bch_signingauthority&quot;).setValue([
+    { id: bchName, name: a, entityType: &quot;Signing Authority&quot; },
+  ]);
+
+  lookup[0] = new Object();
+  lookup[0].id = ApproverId;
+  lookup[0].name = a;
+  Xrm.Page.getAttribute(&quot;bch_approver_test1&quot;).setValue(lookup);
+}
+
+function GetApproverName(ApproverId) {
+  var result = &quot;&quot;;
+  var serverUrl = document.location.href.substring(
+    0,
+    document.location.href.indexOf(&quot;/&quot;, 10)
+  );
+  var organizationName = Xrm.Page.context.getOrgUniqueName();
+  serverUrl = serverUrl + &quot;/&quot; + organizationName;
+
+  var fetchUtil = new FetchUtil(organizationName, serverUrl);
+
+  var _fetchXMLGetUserName =
+    &quot;&quot; +
+    &quot;   &lt;fetch version='1.0' output-format='xml-platform' mapping='logical' distinct='false'&gt; &quot; +
+    &quot;     &lt;entity name='systemuser'&gt; &quot; +
+    &quot;       &lt;attribute name='fullname'/&gt; &quot; +
+    &quot;       &lt;attribute name='systemuserid'/&gt; &quot; +
+    //+ &quot;       &lt;attribute name='createdon' /&gt; &quot;
+    //+ &quot;       &lt;attribute name='bch_approver' /&gt; &quot;
+    &quot;       &lt;order attribute='fullname' descending='false' /&gt; &quot; +
+    &quot;       &lt;filter type='and'&gt; &quot; +
+    &quot;       &lt;condition attribute='systemuserid' operator='eq'  uitype='systemuser' value='&quot; +
+    ApproverId +
+    &quot; ' /&gt;&quot; +
+    &quot;     &lt;/filter&gt; &quot; +
+    &quot;   &lt;/entity&gt; &quot; +
+    &quot;   &lt;/fetch&gt; &quot;;
+  alert(_fetchXMLGetUserName);
+  try {
+    // Find System User
+    var systemUser = fetchUtil.Fetch(_fetchXMLGetUserName);
+
+    if (systemUser &amp;&amp; systemUser.length &gt; 0) {
+      //  var signingAuthority = systemUser[0].attributes[&quot;bch_signingauthorityid&quot;];
+      //   alert(signingAuthority.value);
+
+      // var name = systemUser[0].attributes[&quot;bch_name&quot;];
+      // alert(name.value);
+
+      var systemUserName = systemUser[0].attributes[&quot;fullname&quot;];
+      //  alert(systemUserName.value);
+
+      if (systemUserName != null &amp;&amp; systemUserName.value != null) {
+        result = systemUserName.value;
+      }
+    }
+  } catch (e) {
+    alert(&quot;An Error occured in GetUserName&quot;);
+  }
+
+  return result;
+}
+</code></pre>
+<p>I am not able to set the Approver lookup/Name: bch_signingauthority with
+ID being passed in via query string. Can you please help and suggest to me how to go about doing this as I am fairly new to CRM Dynamics 2011.</p>
+","369914","","13170636","","2021-09-19 12:29:08","2021-09-19 12:29:08","Unable to set the lookup with values on Entity form with lookup data from caller form in MS Dynamics CRM 2011","<javascript><dynamics-crm-2011><dynamics-crm><crm><dynamics-crm-2013>","1","1","","","","CC BY-SA 4.0"
+"45723965","1","45724017","","2017-08-16 22:31:13","","-28","571","<p>I am trying to figure out below script and what it does. </p>
+
+<p>Any help is appropriated </p>
+
+<pre><code>$(document).ready(function(){
+    console.log('Hello World!');
+});
+</code></pre>
+","8474971","","1491895","","2017-08-16 22:34:00","2020-10-20 04:07:21","I am trying to figure out below javascript and what it does","<javascript><jquery>","2","7","0","","","CC BY-SA 3.0"
+"30501161","1","47590863","","2015-05-28 08:29:54","","-27","14932","<p>In the code below I want to hide the contents of the key(speaker) key being viewed by browser console.</p>
+
+<pre class=""lang-js prettyprint-override""><code>var App_Version = 1; 
+var App_id = 35; 
+var Speaker = ""password"";
+</code></pre>
+","4799941","","4551041","","2017-01-02 14:03:28","2020-10-20 04:04:33","javascript: hiding contents of key","<javascript><jquery>","8","9","","","","CC BY-SA 3.0"

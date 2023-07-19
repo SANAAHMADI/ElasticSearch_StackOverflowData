@@ -1,0 +1,11 @@
+Id,PostId,Score,Text,CreationDate,UserDisplayName,UserId,ContentLicense
+"98155831","55738886","0","I found that currently there is no way to have an AppBar without Scaffold. Can't find the link to the post but there is an issue on github.","2019-04-18 04:49:20","","5522344","CC BY-SA 4.0"
+"98156108","55738886","0","does the appbar gets any other change except for the title? I mean does separate route have same appbar or different appbar?","2019-04-18 05:06:14","","5522344","CC BY-SA 4.0"
+"98156003","55738886","0","Seems hard to do this, I think i need to defined scaffold for each screen, thanks anyway","2019-04-18 05:00:35","","8943429","CC BY-SA 4.0"
+"98165794","52501007","0","thanks Let me know @oetoni","2019-04-18 10:55:42","","9133954","CC BY-SA 4.0"
+"98155981","55738886","0","also, this looks similar to what you want to do https://stackoverflow.com/questions/53957287/is-it-possible-to-pass-appbar-from-body-in-scaffold-widget","2019-04-18 04:58:54","","5522344","CC BY-SA 4.0"
+"98162522","55741234","0","Try to wrap your widget inside a gestureDetector and override the gestures to perform nothing.","2019-04-18 09:13:33","","10005707","CC BY-SA 4.0"
+"98165505","52501007","0","Hi @Jigar, yet no because I was off, but I plan this weekend to finish that task. I will reply here for sure","2019-04-18 10:46:10","","5911096","CC BY-SA 4.0"
+"31349555","20886683","0","@SethLadd In order, yes. Filters sound good, but what about the logging example where a listener is required to know when the request/response is ended? There could be multiple examples of these.","2014-01-02 18:08:32","","916334","CC BY-SA 3.0"
+"98171075","55741234","0","@JaswantSingh unfortunately gestureDetector does not have any handler to handle multiple touches, and if to create a counter that counts number of pointers that are currently on the screen, and makes Dismissible widgets unavailable (except from currently selected), it does not work for simultaneous touches.","2019-04-18 13:31:27","","5903902","CC BY-SA 4.0"
+"98156576","55735418","0","@Xuzan i will, if problem solves i will definitely inform here. May anything wrong with my AVD or pc. When i run flutter app, it always go previous state of the app and i need to restart app again !","2019-04-18 05:33:49","","7387089","CC BY-SA 4.0"

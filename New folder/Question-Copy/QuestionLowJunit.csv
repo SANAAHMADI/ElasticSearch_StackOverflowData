@@ -1,0 +1,470 @@
+Id,PostTypeId,AcceptedAnswerId,ParentId,CreationDate,DeletionDate,Score,ViewCount,Body,OwnerUserId,OwnerDisplayName,LastEditorUserId,LastEditorDisplayName,LastEditDate,LastActivityDate,Title,Tags,AnswerCount,CommentCount,FavoriteCount,ClosedDate,CommunityOwnedDate,ContentLicense
+"42916666","1","","","2017-03-21 01:05:04","","-11","105","<p>Here is an example of <code>is</code> method:</p>
+
+<pre><code>assertThat(dynamicType.newInstance().toString(), is(""Hello World!""));
+</code></pre>
+","7742839","","2986984","","2018-02-08 11:16:24","2018-02-08 11:16:24","What is method ""is"" used for? What java library does it require?","<java><junit><hamcrest>","1","1","","","","CC BY-SA 3.0"
+"28373925","1","","","2015-02-06 20:10:15","","-8","242","<p>Method named <code>hasAdjacentRepeats</code> that accepts a <code>String</code> as input and returns, as a <code>boolean</code>, whether the input has two adjacent characters which are identical.</p>
+
+<p>Like this question said I don't know how to define such a method that returns a  <code>Boolean</code>.</p>
+","4538750","","3400481","","2016-05-03 04:59:45","2016-05-03 04:59:45","How to input a boolean and return as a boolean?","<java><junit><boolean>","3","1","","","","CC BY-SA 3.0"
+"39483819","1","","","2016-09-14 06:30:19","","-8","524","<p>I need a test case for the exception part:</p>
+
+<pre><code>try { 
+  return String.valueOf(value);
+} catch (Exception e) {
+  return null;
+}
+</code></pre>
+","6708373","","833070","","2016-09-14 07:13:19","2017-05-25 06:31:49","How to write Test case for static methods for exception part","<java><junit>","1","5","","2016-09-14 09:16:14","","CC BY-SA 3.0"
+"25256739","1","25256857","","2014-08-12 05:26:10","","-7","65","<p>I am a beginner in Android Devlopment and want to Know the use of JUnit Test in android development using Eclipse, if possible please suggest me some tutorial for learning Android JUnit test, and Please let me know why we use it, what is the benifit of it.</p>
+","3921550","","4409409","","2017-07-14 00:36:24","2017-07-14 00:36:24","Want to Know the Use of Android JUnit Test in eclipse?","<android><junit>","2","1","0","2014-08-12 06:53:19","","CC BY-SA 3.0"
+"56347897","1","","","2019-05-28 18:11:33","","-6","72","<p>I have to make a junit test a method in one of my classes, but I never did such a thing and all the info on the INternet is for simple calculation tests. I don't know how to implement a test for my method, to be honest, I tried a boolean check but it did not really help me, maybe someone here can give me a pointer.</p>
+
+<p>I watched a few tutorials with Junit but did not help me out because they are simple methods. I tried a boolean check but I could not make it work</p>
+
+<pre><code>public void takeDamage(int damage) {
+
+    if (!todelete) {
+        damage = damage / damagereduction;
+        currentLife -= damage;
+    }
+    if (currentLife &lt;= 0) {
+        todelete = true;
+        return;
+    }
+    if (currentLife &gt;= 100) {
+        sprite.setTexture(skins[0]);
+        currentLife = 100;
+        return;
+    }
+    int life = currentLife / 20;
+    sprite.setTexture(skins[life]);
+}
+</code></pre>
+
+<p>So this method is changing the picture of my character to a set picture depending on the health he has left. I don't know how I could test this method. Maybe someone can give me an pointer.</p>
+","11569053","","","","","2019-05-29 16:04:07","How to test a method in Junit5","<java><junit5>","1","1","","","","CC BY-SA 4.0"
+"12777651","1","","","2012-10-08 08:10:28","","-6","986","<p>Still getting the red bar. What's wrong with the AssertEquals?</p>
+
+<pre><code>public void testFindEmployeeByID() {
+    StubEmployeeRepositoryImpl result = new StubEmployeeRepositoryImpl(dataSource);
+    List&lt;Employee&gt; emp = result.findEmployeesByName(""John"", ""X"");
+    assertEquals(""John""+""X"", result.findEmployeesByName(""John"", ""X""));
+}
+</code></pre>
+","1724407","","759866","","2013-12-18 17:01:25","2013-12-18 17:01:25","What's wrong with my assertEquals?","<java><junit>","1","1","","2014-06-15 10:38:47","","CC BY-SA 3.0"
+"18838367","1","","","2013-09-16 22:28:25","","-6","1412","<p>I have to modify my class so that it passes JUnit test cases. It seems like everything should be working fine but it keeps failing. It is giving me a java.lang.AssertionError.</p>
+
+<p>Here is my class</p>
+
+<pre><code>package dayofweek;
+/**
+ * Method to find out what day of the week a certain date was
+ * 
+ * Output determines what day of the week this certain date was
+ *
+ */
+public class DayOfWeek {
+    private int myMonth = -1, myDayOfMonth = -1, myYear= -1, myAdjustment= -1, numericDayOfWeek= -1, remainderSeven= -1;
+    private static final int NO_VALUE = -1;
+    /**
+     * @param what the date was
+     */
+    public DayOfWeek(int month, int dayOfMonth, int  year){
+        myMonth = month;
+        myDayOfMonth = dayOfMonth;
+        myYear = year;
+        remainderSeven = 0;
+        if(myMonth==1){
+            myAdjustment = 1;
+            if(myYear%4==0){
+                myAdjustment=0;
+            }
+        }
+        if(myMonth==2){
+            myAdjustment = 4;
+            if(myYear%4==0){
+                myAdjustment=3;
+            }
+        }
+        if(myMonth==3){
+            myAdjustment = 4;
+        }
+        if(myMonth==4){
+            myAdjustment = 0;
+        }
+        if(myMonth==5){
+            myAdjustment = 2;
+        }
+        if(myMonth==6){
+            myAdjustment = 5;
+        }
+        if(myMonth==7){
+            myAdjustment = 0;
+        }
+        if(myMonth==8){
+            myAdjustment = 3;
+        }
+        if(myMonth==9){
+            myAdjustment = 6;
+        }
+        if(myMonth==10){
+            myAdjustment = 1;
+        }
+        if(myMonth==11){
+            myAdjustment = 4;
+        }
+        if(myMonth==12){
+            myAdjustment = 6;
+        }
+        int fourDivides = myYear / 4;
+        numericDayOfWeek = myAdjustment + myDayOfMonth + (myYear-1900) + fourDivides; 
+        remainderSeven = numericDayOfWeek % 7;
+    }
+     /**
+      * @return the month in a string
+      */
+     public String getMonthString(){
+         String[] arrayOfMonths = new String[12];
+         arrayOfMonths[0] = ""January"";
+         arrayOfMonths[1] = ""February"";
+         arrayOfMonths[2] = ""March"";
+         arrayOfMonths[3] = ""April"";
+         arrayOfMonths[4] = ""May"";
+         arrayOfMonths[5] = ""June"";
+         arrayOfMonths[6] = ""July"";
+         arrayOfMonths[7] = ""August"";
+         arrayOfMonths[8] = ""September"";
+         arrayOfMonths[9] = ""October"";
+         arrayOfMonths[10] = ""November"";
+         arrayOfMonths[11] = ""December"";
+         if (this.myMonth &gt; 0 &amp;&amp; this.myMonth &lt;=12){
+             return arrayOfMonths[this.myMonth-1];
+         }
+         else{
+             return null;
+         }
+     }
+     /**
+      * @return what day of the month it was
+      */
+     public int getDayOfMonth(){
+         if(myDayOfMonth != NO_VALUE){
+         return myDayOfMonth;
+     }
+         else{
+             return NO_VALUE;
+         }
+     }
+     /**
+      * @return what year it was
+      */
+     public int getYear(){
+         if(myYear != NO_VALUE){
+             return myYear;
+         }
+         else{
+             return NO_VALUE;
+         }
+     }
+     /**
+         * @return the numeric day of the week
+         */
+    public int getNumericDayOfWeek(){
+
+        return remainderSeven;
+
+    }
+
+    /**
+     * returns what day of the week it was
+     */
+    public String getDayOfWeek(){   
+        String[] arrayOfDays = new String[7];
+        arrayOfDays[0] = ""Saturday"";
+        arrayOfDays[1] = ""Sunday"";
+        arrayOfDays[2] = ""Monday"";
+        arrayOfDays[3] = ""Tuesday"";
+        arrayOfDays[4] = ""Wednesday"";
+        arrayOfDays[5] = ""Thursday"";
+        arrayOfDays[6] = ""Friday"";
+        if( myMonth != NO_VALUE &amp;&amp; myDayOfMonth != NO_VALUE &amp;&amp; myYear != NO_VALUE){
+            return arrayOfDays[remainderSeven];
+        }
+
+         else{
+             return null;
+         }
+     }
+
+
+
+
+     /**
+      * @return the month in an int
+      */
+     public int getMonth(){
+        if(myMonth != NO_VALUE){
+            return myMonth;
+        }
+        else return NO_VALUE;
+     }
+
+
+
+
+}
+</code></pre>
+
+<p>Here is the JUnit test class</p>
+
+<pre><code>package dayofweektesting;
+
+import dayofweek.DayOfWeek;
+import static org.junit.Assert.*;
+import org.junit.Test;
+
+/**
+ * Test cases for ""Day of week"" lab assuming requirements set 
+ * at top of DayOfWeek class
+ * 
+ * Test valid leap years
+ * 
+ *
+ */
+public class TestValidLeapYears {
+
+    /**
+     * Test valid 2/29/XXXX dates
+     */
+    @Test
+    public void firstValidLeapYear() {
+        DayOfWeek dow = new DayOfWeek(2, 29, 1904);
+        assertTrue(dow.getDayOfWeek().compareTo(""Monday"") == 0);
+        assertTrue(dow.getNumericDayOfWeek() == 2);
+    }
+
+    @Test
+    public void secondValidLeapYear() {
+        DayOfWeek dow = new DayOfWeek(2, 29, 1908);
+        assertTrue(dow.getDayOfWeek().compareTo(""Saturday"") == 0);
+        assertTrue(dow.getNumericDayOfWeek() == 0);
+    }
+
+    @Test
+    public void thirdValidLeapYear() {
+        DayOfWeek dow = new DayOfWeek(2, 29, 1912);
+        assertTrue(dow.getDayOfWeek().compareTo(""Thursday"") == 0);
+        assertTrue(dow.getNumericDayOfWeek() == 5);
+    }
+
+    @Test
+    public void fourthValidLeapYear() {
+        DayOfWeek dow = new DayOfWeek(2, 29, 1916);
+        assertTrue(dow.getDayOfWeek().compareTo(""Tuesday"") == 0);
+        assertTrue(dow.getNumericDayOfWeek() == 3);
+    }
+
+    /**
+     * Test boundary dates of2/28/XXXX and 3/1/XXXX for valid leap years
+     */
+    @Test
+    public void firstValidLeapYearBoundaries() {
+        DayOfWeek dow = new DayOfWeek(2, 28, 1904);
+        assertTrue(dow.getDayOfWeek().compareTo(""Sunday"") == 0);
+        assertTrue(dow.getNumericDayOfWeek() == 1);
+        dow = new DayOfWeek(3, 1, 1904);
+        assertTrue(dow.getDayOfWeek().compareTo(""Tuesday"") == 0);
+        assertTrue(dow.getNumericDayOfWeek() == 3);
+    }
+
+    @Test
+    public void secondValidLeapYearBoundaries() {
+        DayOfWeek dow = new DayOfWeek(2, 28, 1908);
+        assertTrue(dow.getDayOfWeek().compareTo(""Friday"") == 0);
+        assertTrue(dow.getNumericDayOfWeek() == 6);
+        dow = new DayOfWeek(3, 1, 1908);
+        assertTrue(dow.getDayOfWeek().compareTo(""Sunday"") == 0);
+        assertTrue(dow.getNumericDayOfWeek() == 1);
+    }
+
+}
+</code></pre>
+
+<p>Here is the line the error is pointing to, in the secondValidLeapYearBoundaries() </p>
+
+<pre><code>assertTrue(dow.getDayOfWeek().compareTo(""Friday"") == 0);
+</code></pre>
+
+<p>does anyone know how to fix all these problems?</p>
+","2734430","","","","","2013-09-16 22:49:36","How to figure out why the JUnit test case is failing?","<java><testing><junit>","1","6","","2013-09-17 21:29:52","","CC BY-SA 3.0"
+"16230471","1","","","2013-04-26 06:57:48","","-6","101","<p>Hi im trying to run my function and test it thought the junit test but i can't figure out why my junit tests are failing. im sure that the function that i wrote works. This is homework if anyone is wondering . </p>
+
+<p>here is the test </p>
+
+<pre><code>@Test
+public void test4() {
+    lst1.removeAll(3);
+    assertEquals(8, lst1.size());
+    assertEquals(false, lst1.contains(3));
+    lst1.removeAll(6);
+    assertEquals(5, lst1.size());
+    assertEquals(false, lst1.contains(6));
+    lst1.removeAll(5);
+    assertEquals(3, lst1.size());
+    lst1.removeAll(4);
+    assertEquals(2, lst1.size());
+    lst1.removeAll(7);
+    assertEquals(1, lst1.size());
+    lst1.removeAll(8);
+    assertEquals(0, lst1.size());
+}
+</code></pre>
+
+<p>here is the code </p>
+
+<pre><code>public void removeAll( E x ) {
+      first = first.next;
+       if (first.data == x ) {
+           first = first.next;   
+       }
+       Node curr = first;
+       Node fut = curr.next ; 
+       while ( fut!= null) {
+            if (fut.data == x ) {
+                curr.next = fut.next;               
+            }
+         curr=curr.next;
+         fut=fut.next; 
+       }
+    assert check();
+}
+</code></pre>
+
+<p>set up of the junit </p>
+
+<pre><code>public class MyListTest {
+    private MyList&lt;Integer&gt; lst0;
+    private MyList&lt;Integer&gt; lst1;
+    private Integer[] a;
+    @Before
+    public void setUp() throws Exception {
+        lst0 = new MyList&lt;Integer&gt;();
+
+        a = new Integer[] {3,4,3,5,6,8,6,6,7,5};
+        lst1 = new MyList&lt;Integer&gt;();
+        for(Integer x: a) {
+            lst1.add(x);
+        }
+}
+</code></pre>
+
+<p>Size method</p>
+
+<pre><code>public int size() {
+   return sz;
+}
+</code></pre>
+
+<p>Main method </p>
+
+<pre><code>public class MyList&lt;E extends Comparable&lt; E&gt;&gt; implements Iterable&lt;E&gt; {
+   private Node first;
+   private int sz;
+
+   public MyList() {
+      first = null;
+      sz = 0;
+      assert check();
+   }
+}
+</code></pre>
+
+<p>check method </p>
+
+<pre><code>private boolean check()
+{
+    if (first == null &amp;&amp; sz != 0) return false;
+    if (sz == 0 &amp;&amp; first != null) return false;
+    if (sz == 1 &amp;&amp; (first == null || first.next != null)) return false;
+    if (sz &gt; 1 &amp;&amp; (first == null || first.next == null)) return false;
+
+    int count = 0;
+    Node p = first;
+    while(p != null) {
+        count++;
+        p = p.next;
+    }
+
+    if (count != sz) {
+        System.out.printf(""count = %d, sz = %d\n"", count, sz);
+        return false;
+    }
+
+    return true;
+}
+</code></pre>
+","1760930","","2143690","","2015-09-07 09:17:53","2015-09-07 09:17:53","error while running function","<java><junit>","1","12","0","","","CC BY-SA 3.0"
+"11229015","1","","","2012-06-27 14:51:45","","-6","948","<p>I am new to Java and i encounter problem with implementing toString. can someone help me?
+the toString return the package name and the calling class name instead the results intention.
+i am using eclipse 3.7.2. 
+in different place in the code i used toString and it return the proper results</p>
+
+<p>my file is MyLibraryTest.java</p>
+
+<pre><code>    public void testToString(){
+    setup();
+    addItems();
+    //assertEquals(""Test: 2 books; 2 people."", ml.toString());
+    String results = ml.toString();
+    assertEquals(""Test: 2 books; 2 people."", results);
+
+}
+
+    results = org.totalBeginner.tutorial.MyLibraryTest.testToString
+</code></pre>
+
+<p>i wonder what have i done wrong? </p>
+
+<p>here is the code to setup()</p>
+
+<pre><code>        public void setup(){
+    b1 = new Book(""Book1"");
+    b2 = new Book(""Book2"");
+
+    p1 = new Person();
+    p2 = new Person();
+
+    p1.setName(""Fred"");
+    p2.setName(""Sue"");
+
+    ml = new MyLibrary(""test"");
+
+    }
+</code></pre>
+
+<p>and here is the code to addItems()</p>
+
+<pre><code>private void addItems() {
+        ml.addBook(b1);
+        ml.addBook(b2);
+        ml.addPerson(p1);
+        ml.addPerson(p2);
+         }
+</code></pre>
+
+<p>here how i am implementing to toString()</p>
+
+<p>public String toSrting(){
+            //return this.getName() + "": "" + this.getBooks().size() + "" books; "" +    this.getPeople().size() + "" people. "";
+            return ""Test: 2 books; 2 people."";<br>
+        }</p>
+","1485979","","1485979","","2012-06-27 15:37:31","2012-06-27 16:56:37","how to use toString in junit and eclipse","<java><eclipse><junit><tostring>","1","5","","2012-06-29 13:11:40","","CC BY-SA 3.0"
+"38307526","1","","","2016-07-11 12:54:59","","-5","435","<p>How to mock this? </p>
+
+<pre><code>public class MyClass {
+
+}
+</code></pre>
+","4138915","","4138915","","2016-07-12 09:38:27","2016-07-12 09:38:27","How to mock Guava Maps.newConcurrentMap()","<java><testing><junit><mocking><guava>","2","5","0","2016-07-26 06:34:54","","CC BY-SA 3.0"

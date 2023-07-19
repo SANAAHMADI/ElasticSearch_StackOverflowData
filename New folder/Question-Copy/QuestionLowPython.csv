@@ -1,0 +1,308 @@
+Id,PostTypeId,AcceptedAnswerId,ParentId,CreationDate,DeletionDate,Score,ViewCount,Body,OwnerUserId,OwnerDisplayName,LastEditorUserId,LastEditorDisplayName,LastEditDate,LastActivityDate,Title,Tags,AnswerCount,CommentCount,FavoriteCount,ClosedDate,CommunityOwnedDate,ContentLicense
+"32191198","1","","","2015-08-24 20:29:31","","-44","1176","<p>I have this string:</p>
+<pre><code>var(HELLO,)|var(Hello again)| var(HOW ARE YOU?)|outV(0)|outV(1)|outV(2)|END
+</code></pre>
+<p>I want to split it on the <code>|</code>. I don't want it to split at the white space, only at the <code>|</code>.</p>
+<p>Is this possible?</p>
+","4864486","","63550","","2022-11-29 00:02:48","2022-11-29 00:02:48","How can I split a pipe-separated string into a list?","<python><python-3.x><split>","1","1","0","2019-08-20 06:16:20","","CC BY-SA 4.0"
+"27885020","1","27888361","","2015-01-11 07:43:21","","-37","8238","<p>I have a string in python,
+I need to find all the possible ways any substring of that string (including itself)
+could be selected. A substring (for my purposes) does not have to be contiguous, in the original string -- it could have gaps. <br>
+Eg: <code>&quot;frogman&quot;</code> is one of the many substrings of <code>&quot;froghuman'</code> under this definition.</p>
+<p>For example of the would function:
+If my string is <code>&quot;abcd&quot;</code>, the output should be:</p>
+<pre><code>[ &quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;ab&quot;, &quot;ac&quot;, &quot;ad&quot;, &quot;bc&quot;, &quot;bd&quot;, &quot;cd&quot;, &quot;abc&quot;, &quot;abd&quot;, &quot;acd&quot;, &quot;bcd&quot;, &quot;abcd&quot; ]
+</code></pre>
+","4266559","","13170636","","2021-09-19 12:37:23","2021-09-19 12:37:23","find all possible combinations of letters in a string in python","<python><string><substring>","1","6","0","2015-01-13 15:09:18","","CC BY-SA 4.0"
+"40882108","1","","","2016-11-30 06:57:07","","-27","373","<pre><code>fileRef = open(the_file, ""r"")    # opening file to be read
+</code></pre>
+
+<p>I got the following error :</p>
+
+<pre><code>FileNotFoundError: [Errno 2] No such file or directory: 'y'
+</code></pre>
+","7229234","","7483494","","2018-08-10 19:17:16","2018-08-10 19:17:16","Python - FileNotFoundError: [Errno 2] No such file or directory: 'y'","<python>","1","3","","2016-12-08 16:09:20","","CC BY-SA 4.0"
+"38567618","1","39128242","","2016-07-25 12:20:48","","-25","869","<p>I've started reading the book <em><a href=""https://www.amazon.com/gp/search?index=books&amp;linkCode=qs&amp;keywords=9781107036604"" rel=""nofollow"">Systematic Program Design: From Clarity to Efficiency</a></em> few days ago. Chapter 4 talks about a systematic method to convert any recursive algorithm into its counterpart iterative. It seems this is a really powerful general method but I'm struggling quite a lot to understand how it works.</p>
+
+<p>After reading a few articles talking about recursion removal using custom stacks, it feels like this proposed method would produce a much more readable, optimized and compact output.</p>
+
+<hr>
+
+<h2>Recursive algorithms in Python where I want to apply the method</h2>
+
+<pre><code>#NS: lcs and knap are using implicit variables (i.e.: defined globally), so they won't
+#work directly
+
+# n&gt;=0
+def fac(n):
+    if n==0:
+        return 1
+    else:
+        return n*fac(n-1)
+
+# n&gt;=0
+def fib(n):
+    if n==0:
+        return 0
+    elif n==1:
+        return 1
+    else:
+        return fib(n-1)+fib(n-2)
+
+# k&gt;=0, k&lt;=n
+def bin(n,k):
+    if k==0 or k==n:
+        return 1
+    else:
+        return bin(n-1,k-1)+bin(n-1,k)
+
+# i&gt;=0, j&gt;=0
+def lcs(i,j):
+    if i==0 or j==0:
+        return 0
+    elif x[i]==y[j]:
+        return lcs(i-1,j-1)+1
+    else:
+        return max(lcs(i,j-1),lcs(i-1,j))
+
+# i&gt;=0, u&gt;=0,  for all i in 0..n-1 w[i]&gt;0
+def knap(i,u):
+    if i==0 or u==0:
+        return 0
+    elif w[i]&gt;u:
+        return knap(i-1,u)
+    else:
+        return max(v[i]+knap(i-1,u-w[i]), knap(i-1,u))
+
+# i&gt;=0, n&gt;=0
+def ack(i,n):
+    if i==0:
+        return n+1
+    elif n==0:
+        return ack(i-1,1)
+    else:
+        return ack(i-1,ack(i,n-1))
+</code></pre>
+
+<h2>Step Iterate: Determine minimum increments, transform recursion into iteration</h2>
+
+<p>The Section 4.2.1 the book talks about determining the appropriate increment:</p>
+
+<pre><code>1) All possible recursive calls
+    fact(n)   =&gt; {n-1}
+    fib(n)    =&gt; {fib(n-1), fib(n-2)}
+    bin(n,k)  =&gt; {bin(n-1,k-1),bin(n-1,k)}
+    lcs(i,j)  =&gt; {lcs(i-1,j-1),lcs(i,j-1),lcs(i-1,j)}
+    knap(i,u) =&gt; {knap(i-1,u),knap(i-1,u-w[i])}
+    ack(i,n)  =&gt; {ack(i-1,1),ack(i-1,ack(i,n-1)), ack(i,n-1)}
+
+2) Decrement operation
+    fact(n)   =&gt; n-1
+    fib(n)    =&gt; n-1
+    bin(n,k)  =&gt; [n-1,k]
+    lcs(i,j)  =&gt; [i-1,j]
+    knap(i,u) =&gt; [i-1,u]
+    ack(i,n)  =&gt; [i,n-1]
+
+3) Minimum increment operation
+    fact(n)   =&gt; next(n) = n+1
+    fib(n)    =&gt; next(n) = n+1
+    bin(n,k)  =&gt; next(n,k) = [n+1,k]
+    lcs(i,j)  =&gt; next(i,j) = [i+1,j]
+    knap(i,u) =&gt; next(i,u) = [i+1,u]
+    ack(i,n)  =&gt; next(i,n) = [i,n+1]
+</code></pre>
+
+<p>Section 4.2.2 talks about forming the optimized program:</p>
+
+<pre><code>Recursive
+---------
+def fExtOpt(x):
+    if base_cond(x) then fExt0(x )       -- Base case
+    else let rExt := fExtOpt(prev(x)) in -- Recursion
+        f Ext’(prev(x),rExt)              -- Incremental computation
+
+Iterative
+---------
+def fExtOpt(x):
+    if base_cond(x): return fExt0(x)                    -- Base case
+    x1 := init_arg; rExt := fExt0(x1)                   -- Initialization
+    while x1 != x:                                      -- Iteration
+        x1 := next(x1); rExt := fExt’(prev(x1),rExt)    -- Incremental comp
+    return rExt
+</code></pre>
+
+<p>How do I create <code>{fibExtOpt,binExtOpt,lcsExtOpt,knapExtOpt,ackExtOpt}</code> in Python?</p>
+
+<p>Additional material about this topic can be found in one of <a href=""http://www3.cs.stonybrook.edu/~liu/papers/IncEff-HOSC00.pdf"" rel=""nofollow"">the papers</a> of the main author of the method, <a href=""http://www3.cs.stonybrook.edu/~liu/"" rel=""nofollow"">Y. Annie Liu, Professor</a>.</p>
+","3809375","","63550","","2016-09-01 22:25:16","2016-09-01 22:25:16","Recursive to iterative using a systematic method","<python><recursion>","1","19","0","2019-08-20 08:06:52","","CC BY-SA 3.0"
+"46994833","1","47045645","","2017-10-28 21:50:21","","-24","1012","<p>How do I remove duplicates and combine multiple lists into one like so:</p>
+
+<p><code>function([[""hello"",""me.txt""],[""good"",""me.txt""],[""good"",""money.txt""], [""rep"", ""money.txt""]])</code> should return <strong>exactly</strong>:</p>
+
+<pre><code>[[""good"", [""me.txt"", ""money.txt""]], [""hello"", [""me.txt""]], [""rep"", [""money.txt""]]]
+</code></pre>
+","","user8618383","189134","user8618383","2017-11-01 04:45:23","2022-09-11 16:32:39","Remove duplicates and combine multiple lists into one?","<python><duplicates>","8","4","0","","","CC BY-SA 3.0"
+"24537981","1","","","2014-07-02 18:01:02","","-23","2148","<p>It should ask for a number between 4 and 8 and then turtle will draw those sides. </p>
+
+<p>The interior angle equation:</p>
+
+<blockquote>
+  <p>where N is the # of sides (N -2)180= x, then x divided by N = draw
+  sides</p>
+</blockquote>
+
+<pre><code>&gt;&gt;&gt; import turtle
+&gt;&gt;&gt; t=turtle.Pen()
+&gt;&gt;&gt; usernum = int(input('Give me a number between 4 and 8: '))
+Give me a number between 4 and 8: 5
+&gt;&gt;&gt; if usernum &lt; 4 or usernum &gt; 8:
+        print (""invalid number!"")
+else:
+        draw
+        myangle = (((numSides-2) * 180)/ numSides)
+        turtle.right(180 - myangle)
+</code></pre>
+","3798757","","3076272","","2014-07-03 03:36:24","2016-06-10 12:40:37","Can anyone help me make a Polygon Generator in Python?","<python>","1","4","0","","","CC BY-SA 3.0"
+"53946721","1","","","2018-12-27 14:35:55","","-23","944","<p>I have to put 20 turtles on verticles of a polygon with 20 sides, so they will be on a circle with regular spacing.</p>
+
+<p>I have class Turtle, where I want to put those 20 turtles. I know how to put more turtles in one file, but how can I situate them in a circle?</p>
+
+<pre><code># Already working
+class Turtle:
+
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+        self.heading = 0
+        self.lines = []
+
+    def left(self, angle):
+        self.heading -= angle
+
+    def right(self, angle):
+        self.heading += angle
+
+    def forward(self, d):
+        nx = self.x + d * math.cos(self.heading * math.pi / 180)
+        ny = self.y + d * math.sin(self.heading * math.pi / 180)
+        self.lines.append((self.x, self.y, nx, ny))
+        self.x, self.y = nx, ny
+
+    def save(filename, lines):
+        f = open(filename, ""w"")
+        f.write('&lt;svg viewBox=""-500 -500 1000 1000""&gt;')
+        s = '&lt;line x1=""{}"" y1=""{}"" x2=""{}"" y2=""{}"" style=""{}"" /&gt;'
+        for i in lines:
+            for x1, y1, x2, y2 in i:
+                f.write(s.format(x1, y1, x2, y2, ""stroke:black;stroke-width:1""))
+        f.write(""&lt;/svg&gt;"")
+        f.close()
+
+    # Here is just a try to put more turtles with more lines in one file
+    # But I can't do this with 20 turtles...
+    def set_turtles():
+        global all_lines
+        turtle_names = []
+        t_red = Turtle(-100, 0)
+        turtle_names.append(t_red)
+        t1 = Turtle(0, 100)
+        turtle_names.append(t1)
+        t2 = Turtle(0, -100)
+        turtle_names.append(t2)
+        for turtle in turtle_names:
+            for i in range(4):
+                turtle.forward(10)
+                turtle.left(90)
+            all_lines.append(turtle.lines)
+        save(""drawing_one.html"", all_lines)
+        f.close()
+</code></pre>
+","10839428","","63550","","2019-01-02 00:57:29","2019-01-04 17:45:49","How can you put 20 turtles on a circle in Python?","<python><turtle-graphics>","1","1","","2019-01-06 21:46:35","","CC BY-SA 4.0"
+"37157706","1","37157785","","2016-05-11 08:59:39","","-22","252","<p>in Python, it seems I can do any one of the following 3 variable assignments:</p>
+
+<pre><code>g = (3, 4, 5)
+
+g = ""(3, 4, 5)""
+
+g = 3, 4, 5
+</code></pre>
+
+<p>followed by</p>
+
+<pre><code>print(g)
+</code></pre>
+
+<p>and the output is always</p>
+
+<pre><code>(3, 4, 5)
+</code></pre>
+
+<p>So, what's the difference between these 3 types of variable assignments?</p>
+","1883050","","","","","2016-05-11 09:14:00","difference between these 3 types of variable assignments","<python><variable-assignment>","2","1","0","","","CC BY-SA 3.0"
+"38106947","1","38107101","","2016-06-29 17:59:56","","-22","7448","<p>I'm not able to walk through as to why this code prints 'spam' twice.</p>
+
+<pre><code>def do_twice(f):
+    f()
+    f()
+
+def print_spam():
+    print('spam')
+
+do_twice(print_spam)
+</code></pre>
+","6288320","","","","","2020-04-02 18:07:58","Why Does This Python Function Print Twice?","<python>","4","4","0","","","CC BY-SA 3.0"
+"11981810","1","11985661","","2012-08-16 06:31:26","","-22","936","<p>My simple program extracts the database from Python and store in the variable row.</p>
+
+<pre><code>cursor = con.cursor()       
+    cursor.execute(""SELECT * FROM traffic"")
+
+    #Retrieves data from SQL
+    rows = cursor.fetchall()  
+
+    for row in rows:
+       row = list(row)
+       a = row[1:]
+       b = row[:-1]
+       print(a)
+       print(b)
+</code></pre>
+
+<p>Now that I am able to get the month and traffic in list a and b like [1000L]</p>
+
+<pre><code>['January']
+[100L]
+['February']
+[10430L]
+['March']
+[1500L]
+['April']
+[100L]
+['May']
+[1200L]
+['June']
+[800L]
+['July']
+[8000L]
+['August']
+[100000L]
+['September']
+</code></pre>
+
+<p>Now I want to plot, histogram and piechart out of it.
+The row contains two coloumns: <code>MOnth</code> and <code>Traffic</code>. I want to convert this into the chart using Rpy2. How do I do it?  Here's my table:</p>
+
+<pre><code>month     | traffic |
++-----------+---------+
+| January   |    1000 |
+| February  |     100 |
+| March     |   10430 |
+| April     |    1500 |
+| May       |     100 |
+| June      |    1200 |
+| July      |     800 |
+| August    |    8000 |
+| September |  100000 |
++-----------+---------+
+</code></pre>
+","1755133","","1755133","","2012-08-17 07:18:31","2012-08-17 07:18:31","How to use the variable from the python in rpy2?","<python><r><rpy2>","1","7","","","","CC BY-SA 3.0"

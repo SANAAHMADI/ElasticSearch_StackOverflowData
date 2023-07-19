@@ -1,0 +1,12 @@
+Id,PostId,Score,Text,CreationDate,UserDisplayName,UserId,ContentLicense
+"98157012","55739826","0","The client is a webapp?","2019-04-18 05:55:49","","3018671","CC BY-SA 4.0"
+"98157107","55739901","0","Also as you are new to StackOverflow please check the How To Ask page and take the Tour so to see how to post questions in the required way in StackOverflow","2019-04-18 06:01:10","","6400526","CC BY-SA 4.0"
+"98157105","55135596","0","Please try delete all the bin bundleAtifacts appx file and obj folder then create again and let me know the result.","2019-04-18 06:00:59","","7254781","CC BY-SA 4.0"
+"98157239","52468660","0","anyone found the answer ?","2019-04-18 06:07:51","","3565879","CC BY-SA 4.0"
+"98157129","55739901","0","As the exception says your MainForm does not have a constructor which takes 7 arguments.","2019-04-18 06:02:19","","1367497","CC BY-SA 4.0"
+"98157529","55738428","0","I found what is making the problem but still I can't figure out what is the problem or why it happen. I will update what I found in my question.","2019-04-18 06:22:13","","11302724","CC BY-SA 4.0"
+"98157200","55738660","0","Can you check the response status code
+response.IsSuccessStatusCode. It is very important property which should be handled","2019-04-18 06:05:38","","5291375","CC BY-SA 4.0"
+"98157557","55740144","0","Do you want user to press pri?nt and then they select file","2019-04-18 06:23:14","","7605561","CC BY-SA 4.0"
+"98157312","55739478","0","Check if your process run yet, it can lock your file.","2019-04-18 06:12:13","","5275790","CC BY-SA 4.0"
+"98157323","55739379","0","Possible duplicate of [Calling a method every x minutes](https://stackoverflow.com/questions/13019433/calling-a-method-every-x-minutes)","2019-04-18 06:12:39","","9260725","CC BY-SA 4.0"

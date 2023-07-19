@@ -1,0 +1,188 @@
+Id,PostTypeId,AcceptedAnswerId,ParentId,CreationDate,DeletionDate,Score,ViewCount,Body,OwnerUserId,OwnerDisplayName,LastEditorUserId,LastEditorDisplayName,LastEditDate,LastActivityDate,Title,Tags,AnswerCount,CommentCount,FavoriteCount,ClosedDate,CommunityOwnedDate,ContentLicense
+"32683811","1","32689058","","2015-09-20 20:11:20","","-14","315","<p>Need help with this,</p>
+
+<ol>
+<li><p>Write a function, that takes 2 StraightLine and returns the intersecting point as a tuple <code>(x,y)</code>. If there is no solution, there shall be used an ""Exception""</p></li>
+<li><p>Change your solution in assignment ""1"", so instead of using an ""Exception"" you need to use the option ""None"" if there is no solution. If there is a solution, use the <code>Some(x,y)</code> expression.</p></li>
+<li><p>Solve assignment ""1"" again, but define a record-type Line with brackets a and b til represent a line. <code>y=3x+4</code> is for example represented with the brackets <code>{a=3.0; b=4.0}</code>.</p></li>
+</ol>
+","5356933","","8134164","","2019-04-01 18:02:31","2019-04-01 18:02:31","F# : not sure how to start","<f#>","1","1","","2015-09-22 10:08:58","","CC BY-SA 4.0"
+"66533936","1","66534098","","2021-03-08 16:56:25","","-7","86","<p>I am writing below class in to F#</p>
+<pre><code>using System.ComponentModel;
+using System.Reflection;
+namespace System
+{
+    public static class EnumExtensions
+    {
+        {
+            FieldInfo fi = value.GetType().GetField(value.ToString());
+            DescriptionAttribute[] attributes = 
+            (DescriptionAttribute[])fi.GetCustomAttributes(typeof(DescriptionAttribute), false);
+            return attributes.Length &gt; 0 ? attributes[0].Description : value.ToString();
+        }
+        public static string Description&lt;TEnum&gt;(this TEnum enumValue) where TEnum : struct
+        {
+            return GetEnumDescription((Enum)(object)(enumValue));
+        }
+    }
+}
+</code></pre>
+<p>But I am stuck can someone help me</p>
+","15316639","","4294399","","2021-03-08 16:58:17","2021-03-09 13:36:51","Need Converting Help C# to F#","<c#><f#>","1","1","","","","CC BY-SA 4.0"
+"13475295","1","13475480","","2012-11-20 14:26:25","","-5","857","<p>First write a function called mem which, given an integer and a list of integers, return true if the integer occurs at least once in the list and false otherwise. This is my first question and I dont want to use any inbuilt functions.</p>
+
+<p>My second question:
+Create two functions that each takes two list of integers as arguments and returns the union and the intersection respectively of the lists considered as sets. You will probobly want to use the previosly defined member function. The lists doesn't need to be sorted but they cant have any duplicates.</p>
+
+<p>I have no ide how to solve this without any inbuilt functions
+Any solutions?</p>
+","1838781","","","","","2012-11-20 14:45:03","How can I see if a int exist in a list without any inbuilt functions?","<f#>","1","1","0","2012-11-21 06:49:11","","CC BY-SA 3.0"
+"55791486","1","56133213","","2019-04-22 08:34:26","","-5","91","<p>Assume there is a <code>NxN board</code>, I want to create a <code>seq&lt;seq&lt;int*int&gt;&gt;</code> containing all of the lines on the board. I cannot use mutable variable.
+For example, input <code>N</code> is 2, the output will be:</p>
+
+<pre><code>seq [seq[(0,0);(0,1)];seq[(1,0);(1,1)];seq[(0,0);
+(1,0)];seq[(0,1);(1,1)];seq[(0,0);(1,1)];seq[(0,1);(1,0)]]
+</code></pre>
+
+<p>There are six lines including Horizontal, Vertical and Diagonal lines on the board.</p>
+
+<pre><code>let f (n:int) : seq&lt;seq&lt;int*int&gt;&gt; =    
+    let seq1 = seq{ for x in 0 .. n-1 do yield 0,x}
+    ...
+</code></pre>
+
+<p>I can create a single line. I cannot combine all lines into a seq[] by a loop.</p>
+
+<pre><code>let loop = 
+    for j in 0 .. n-1 do
+        let seq1 (j:int) = seq{ for x in 0 .. n-1 do yield j,x}
+</code></pre>
+
+<p>I have an idea that is use for loop to create the lines. But I have no idea how to store the seq1 value and combine with a new seq1 value.</p>
+","7109408","","7109408","","2019-04-23 04:41:21","2019-05-14 14:47:58","how to create a seq<seq<int*int>> value","<f#>","1","1","","","","CC BY-SA 4.0"
+"13473537","1","13474077","","2012-11-20 12:47:11","","-5","137","<pre><code>3::[4;5;2;7];;
+List.length [4;5;2;7];;
+[4;5;2;7]::3;;
+</code></pre>
+
+<p>This gives the error This expression was expected to have type int list list but here has type int</p>
+
+<p>I know that it can be solved by doing : <code>[4;5;2;7];; List.append it [3];;</code> but is there any other way to do it?   </p>
+","1838781","","1838781","","2012-11-20 14:58:13","2012-11-20 20:45:02","What is the answer to this list?","<list><f#>","1","1","","2012-11-20 15:15:35","","CC BY-SA 3.0"
+"23705543","1","23705744","","2014-05-16 22:39:58","","-5","128","<p>Hi what is wrong with my code below, my errors are:
+unmatched { which is mostly due to my tabs, 
+Invalid record, sequence or computation expression. Sequence expressions should be of the form 'seq { ... }'
+Incomplete structured construct at or before this point in expression</p>
+
+<pre><code>module records =
+   let debate(irthes:DateTime) =
+       {
+            let mutable manch = nexttime(irthes) 
+            let mutable array1: DateTime array = Array.zeroCreate 480
+            for i in 0 .. 480-1 do
+                Array.set array1 i (manch)
+                let next = Array.get array1 i
+                let! manch=nexttime(next)
+           return(array1)  
+       } 
+</code></pre>
+","3623025","","","","","2014-05-17 00:24:23","F# poorly formatted module","<module><f#>","2","1","","","","CC BY-SA 3.0"
+"62903279","1","","","2020-07-14 20:11:39","","-4","223","<p>I'm starting a new webapi Project</p>
+<p>For domain implementation I m going to use F#.</p>
+<p>To Store Data I m going to use Database, Which I haven't  decided.</p>
+<p><strong>ORM</strong>
+if it will be C# I would be using Entity Framework with no question in my mind.</p>
+<p><strong>But using F# + Entity Framework I have following questions</strong></p>
+<p>1- Bcs of my domain is in F# all my Entities and Value Objects will be in F#. Does EF core will work with it ? (eg Discriminated Union)</p>
+<p>2- if not what are different Options I have ?</p>
+<p>3- What Options do u use?</p>
+<p>feel free to share sample projects</p>
+<p>I don't want to use <strong>type providers</strong> bcs I don't want to manage DB Manually (not at start).</p>
+","3862698","","3862698","","2020-07-15 17:56:28","2020-07-15 17:56:28","F# On Server and Database","<f#><entity-framework-core><domain-driven-design>","1","4","","2020-07-20 13:52:37","","CC BY-SA 4.0"
+"40488481","1","","","2016-11-08 13:43:40","","-4","632","<p>How would i create a list of lists with elements such as [[1;1;1;1];[1;1;1;2];[1;1;1;3];[1;1;1;4];[1;1;1;5];[1;1;1;6];[1;1;2;1]...[6;6;6;6]] ?</p>
+
+<p>It must be within range 1-6 at every place. But i'm unsure of how to do this.</p>
+","6797835","","","","","2016-11-08 13:56:59","Creating list of lists F#","<list><f#>","1","2","","","","CC BY-SA 3.0"
+"20042979","1","20043308","","2013-11-18 08:15:56","","-4","621","<p>Can anyone convert this C++ code to f#?</p>
+
+<pre><code>int power(int a,int b)
+{
+  if(b==1)
+  {
+     return a;
+  } 
+  else 
+      return a*power(a,b-1);
+}
+</code></pre>
+","1191655","","440558","","2013-11-18 08:16:36","2016-12-19 05:39:27","converting C++ code to F#( function )","<f#>","2","2","","","","CC BY-SA 3.0"
+"19108042","1","19108086","","2013-10-01 04:33:46","","-4","189","<p>I have this c# class and i want to Implement this on f#</p>
+
+<pre><code>    using System;
+    using AIInterface;
+    using Boards;
+
+    namespace TTTAiCSharpAlphaBate
+    {
+        public class AI : IAI
+        {
+            private int symbol;
+            Board cBoard;
+            int aiLevel = 1;
+            string IAI.GetAIName()
+            {
+                return ""C#AlphaBetaAi"";
+            }
+
+            string IAI.GetAIVersion()
+            {
+                return ""1.0.0"";
+            }
+
+            void IAI.SetAI(Boards.Board board, int level, int symbol)
+            {
+                cBoard = board;
+                this.symbol = symbol;
+                aiLevel = level;
+
+            }
+
+            int[] IAI.GetLevel()
+            {
+                return new int[1] { 3 };
+            }
+
+            int IAI.AIMove()
+            {
+                throw new NotImplementedException();
+            }
+        }
+    }
+</code></pre>
+
+<p>So Far I got this far</p>
+
+<pre><code>    #if Board
+    #r @""c:\..\bin\Debug\Boards.dll""
+    #r @""c:\..\bin\Debug\AIInterface.dll""
+    #endif
+    module TTTAiFSharpAlphaBeta
+    open AIInterface
+    open Boards
+    type AI()= 
+            interface IAI with
+                member this.SetAI (board: Board ,level:int, symbol:int)  =
+</code></pre>
+
+<p><strong>[error here] Unexpected keyword 'member' in expression</strong></p>
+
+<pre><code>                    member this.cboard = board
+                    member this.level = level
+                    member this.symbol = symbol
+</code></pre>
+
+<p><strong>[error here] 
+Incomplete structured construct at or before 
+this point in definition. Expected incomplete structured
+construct at or before this point or other token.</strong></p>
+","835292","","","","","2013-10-05 20:23:23","C# To F# for fun","<c#><class><f#><implementation>","2","1","","","","CC BY-SA 3.0"

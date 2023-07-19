@@ -1,0 +1,73 @@
+Id,PostTypeId,AcceptedAnswerId,ParentId,CreationDate,DeletionDate,Score,ViewCount,Body,OwnerUserId,OwnerDisplayName,LastEditorUserId,LastEditorDisplayName,LastEditDate,LastActivityDate,Title,Tags,AnswerCount,CommentCount,FavoriteCount,ClosedDate,CommunityOwnedDate,ContentLicense
+"231767","1","231855","","2008-10-23 22:21:11","","12460","3117582","<p>What is the use of the <code>yield</code> keyword in Python? What does it do?</p>
+<p>For example, I'm trying to understand this code<sup><strong>1</strong></sup>:</p>
+<pre><code>def _get_child_candidates(self, distance, min_dist, max_dist):
+    if self._leftchild and distance - max_dist &lt; self._median:
+        yield self._leftchild
+    if self._rightchild and distance + max_dist &gt;= self._median:
+        yield self._rightchild  
+</code></pre>
+<p>And this is the caller:</p>
+<pre><code>result, candidates = [], [self]
+while candidates:
+    node = candidates.pop()
+    distance = node._get_dist(obj)
+    if distance &lt;= max_dist and distance &gt;= min_dist:
+        result.extend(node._values)
+    candidates.extend(node._get_child_candidates(distance, min_dist, max_dist))
+return result
+</code></pre>
+<p>What happens when the method <code>_get_child_candidates</code> is called?
+Is a list returned? A single element? Is it called again? When will subsequent calls stop?</p>
+<hr />
+<sub>
+1. This piece of code was written by Jochen Schulz (jrschulz), who made a great Python library for metric spaces. This is the link to the complete source: <a href=""https://well-adjusted.de/~jrspieker/mspace/"" rel=""noreferrer"">Module mspace</a>.</sub> 
+","18300","Alex. S.","100297","Scott Dorman","2022-11-28 23:55:56","2022-12-31 14:29:13","What does the ""yield"" keyword do?","<python><iterator><generator>","51","0","0","","","CC BY-SA 4.0"
+"419163","1","419185","","2009-01-07 04:11:00","","7877","4315249","<p>What does this do, and why should one include the <code>if</code> statement?</p>
+<pre class=""lang-py prettyprint-override""><code>if __name__ == &quot;__main__&quot;:
+    print(&quot;Hello, World!&quot;)
+</code></pre>
+<hr />
+<p><sub>If you are trying to close a question where someone should be using this idiom and isn't, consider closing as a duplicate of <a href=""https://stackoverflow.com/questions/6523791"">Why is Python running my module when I import it, and how do I stop it?</a> instead. For questions where someone simply hasn't called any functions, or incorrectly expects a function named <code>main</code> to be used as an entry point automatically, use <a href=""https://stackoverflow.com/questions/17257631"">Why doesn&#39;t the main() function run when I start a Python script? Where does the script start running?</a>.</sub></p>
+","51518","koldfyre","365102","saua","2022-11-14 02:06:55","2022-12-31 17:21:54","What does if __name__ == ""__main__"": do?","<python><namespaces><program-entry-point><python-module><idioms>","45","2","0","","","CC BY-SA 4.0"
+"394809","1","394814","","2008-12-27 08:32:18","","7593","2674585","<p>Is there a <a href=""https://en.wikipedia.org/wiki/%3F:#Python"" rel=""noreferrer"">ternary conditional operator</a> in Python?</p>
+","51518","koldfyre","365102","Vinko Vrsalovic","2022-06-06 02:52:42","2022-08-27 05:10:28","Does Python have a ternary conditional operator?","<python><operators><conditional-operator>","30","9","0","","","CC BY-SA 4.0"
+"100003","1","100146","","2008-09-19 06:10:46","","7082","1075408","<p>What are metaclasses? What are they used for?</p>
+","9951","e-satis","365102","Patrick McElhaney","2022-04-19 02:11:23","2022-12-08 12:40:56","What are metaclasses in Python?","<python><oop><metaclass><python-class><python-datamodel>","23","0","0","","","CC BY-SA 4.0"
+"82831","1","","","2008-09-17 12:55:00","","6866","5060640","<p>How do I check whether a file exists or not, without using the <a href=""https://docs.python.org/3.6/reference/compound_stmts.html#try"" rel=""noreferrer""><code>try</code></a> statement?</p>
+","15616","","963881","Mark Biek","2021-03-27 19:42:25","2022-12-22 12:08:36","How do I check whether a file exists without exceptions?","<python><file><file-exists>","40","1","0","","","CC BY-SA 4.0"
+"38987","1","26853961","","2008-09-02 07:44:30","","6576","2964130","<p>I want to merge two dictionaries into a new dictionary.</p>
+<pre><code>x = {'a': 1, 'b': 2}
+y = {'b': 3, 'c': 4}
+z = merge(x, y)
+
+&gt;&gt;&gt; z
+{'a': 1, 'b': 3, 'c': 4}
+</code></pre>
+<p>Whenever a key <code>k</code> is present in both dictionaries, only the value <code>y[k]</code> should be kept.</p>
+","3207","Carl Meyer","365102","Carl Meyer","2022-06-22 18:01:34","2022-12-30 00:36:14","How do I merge two dictionaries in a single expression?","<python><dictionary><merge>","43","0","0","","","CC BY-SA 4.0"
+"89228","1","89243","","2008-09-18 01:35:30","","5877","4219833","<p>How do I call an external command within Python as if I had typed it in a shell or command prompt?</p>
+","17085","alan lai","3739391","","2022-12-15 01:06:05","2022-12-15 01:06:48","How do I execute a program or call a system command?","<python><shell><terminal><subprocess><command>","64","0","0","","","CC BY-SA 4.0"
+"273192","1","273227","","2008-11-07 18:56:45","","5415","3457321","<p>I am writing a file using Python. How do I check:</p>
+<ol>
+<li>if the parent file directory exists</li>
+<li>if it does not - create the directory</li>
+</ol>
+","13055","Parand","2347649","Parand","2022-12-19 09:27:21","2022-12-19 09:27:21","How can I safely create a nested directory?","<python><exception><path><directory><operating-system>","28","4","0","","","CC BY-SA 4.0"
+"522563","1","522578","","2009-02-06 22:47:54","","4982","3639926","<p>How do I access the index while iterating over a sequence with a <code>for</code> loop?</p>
+<pre><code>xs = [8, 23, 45]
+
+for x in xs:
+    print(&quot;item #{} = {}&quot;.format(index, x))
+</code></pre>
+<p>Desired output:</p>
+<pre class=""lang-none prettyprint-override""><code>item #1 = 8
+item #2 = 23
+item #3 = 45
+</code></pre>
+","51816","Joan Venge","523612","hop","2022-08-08 00:51:54","2022-11-04 16:47:18","Accessing the index in 'for' loops","<python><loops><list>","26","1","0","","","CC BY-SA 4.0"
+"952914","1","952952","","2009-06-04 20:30:05","","4976","3748143","<p>I have a list of lists like <code>[[1, 2, 3], [4, 5, 6], [7], [8, 9]]</code>. How can I flatten it to get <code>[1, 2, 3, 4, 5, 6, 7, 8, 9]</code>?</p>
+<hr />
+<p><sub>If your list of lists comes from a nested list comprehension, the problem can be solved more simply/directly by fixing the comprehension; please see <a href=""https://stackoverflow.com/questions/1077015"">python list comprehensions; compressing a list of lists?</a>.</sub></p>
+<p><sub>The most popular solutions here generally only flatten one &quot;level&quot; of the nested list. See <a href=""https://stackoverflow.com/questions/2158395"">Flatten an irregular (arbitrarily nested) list of lists</a> for solutions that completely flatten a deeply nested structure (recursively, in general).</sub></p>
+","110527","","523612","","2022-09-10 09:22:27","2022-12-21 17:33:44","How do I make a flat list out of a list of lists?","<python><list><multidimensional-array><flatten>","34","2","0","","","CC BY-SA 4.0"

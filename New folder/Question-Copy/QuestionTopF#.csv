@@ -1,0 +1,343 @@
+Id,PostTypeId,AcceptedAnswerId,ParentId,CreationDate,DeletionDate,Score,ViewCount,Body,OwnerUserId,OwnerDisplayName,LastEditorUserId,LastEditorDisplayName,LastEditDate,LastActivityDate,Title,Tags,AnswerCount,CommentCount,FavoriteCount,ClosedDate,CommunityOwnedDate,ContentLicense
+"2672791","1","2672898","","2010-04-20 05:35:31","","418","77936","<p>I've recently caught the FP bug (trying to learn Haskell), and I've been really impressed with what I've seen so far (first-class functions, lazy evaluation, and all the other goodies).  I'm no expert yet, but I've already begun to find it easier to reason ""functionally"" than imperatively for basic algorithms (and I'm having trouble going back where I have to).  </p>
+
+<p>The one area where current FP seems to fall flat, however, is GUI programming.  The Haskell approach seems to be to just wrap imperative GUI toolkits (such as GTK+ or wxWidgets) and to use ""do"" blocks to simulate an imperative style.  I haven't used F#, but my understanding is that it does something similar using OOP with .NET classes.  Obviously, there's a good reason for this--current GUI programming is all about IO and side effects, so purely functional programming isn't possible with most current frameworks.  </p>
+
+<p>My question is, is it possible to have a functional approach to GUI programming?  I'm having trouble imagining what this would look like in practice.  Does anyone know of any frameworks, experimental or otherwise, that try this sort of thing (or even any frameworks that are designed from the ground up for a functional language)?  Or is the solution to just use a hybrid approach, with OOP for the GUI parts and FP for the logic?  (I'm just asking out of curiosity--I'd love to think that FP is ""the future,"" but GUI programming seems like a pretty large hole to fill.)  </p>
+","294505","","","","","2021-06-08 04:29:40","Is functional GUI programming possible?","<user-interface><haskell><f#><functional-programming>","15","6","0","2018-03-30 14:25:16","2010-04-20 05:35:31","CC BY-SA 2.5"
+"2785029","1","2787342","","2010-05-06 22:45:10","","216","24215","<p>Over the last few years F# has evolved into one of Microsoft's fully supported languages employing many ideas incubated in OCaml, ML and Haskell.</p>
+
+<p>Over the last several years C# has extended its general purpose features by introducing more and more functional language features: LINQ (list comprehension), Lambdas, Closures, Anonymous Delegates and more...</p>
+
+<p>Given C#'s adoption of these functional features and F#'s taxonomy as an impure functional language (it allows YOU to access framework libraries or change shared state when a function is called if you want to) there is a strong similarity between the two languages although each has its own polar opposite primary emphasis.</p>
+
+<p>I'm interested in any successful models employing these two languages in your production polyglot programs and also the areas within production software (web apps, client apps, server apps) you have written in F# in the past year or so that you would previously have written in C#.</p>
+","57465","","16587","","2013-08-14 13:58:33","2013-08-14 13:58:33","In what areas might the use of F# be more appropriate than C#?","<c#><f#>","9","0","0","2013-08-14 13:58:57","2010-05-06 22:45:10","CC BY-SA 3.0"
+"11974624","1","","","2012-08-15 18:05:39","","145","21764","<p>How do I go about getting into F# programming?  </p>
+
+<p>What are some good starter samples to learn the language, or learn about some of its advantages over other languages?</p>
+
+<p>What tools do I need (e.g. Windows, Visual Studio, ...)?</p>
+","19299","","19299","","2012-09-11 19:07:45","2019-06-09 04:21:29","Getting started with F#","<f#>","3","1","0","2015-03-08 08:39:11","","CC BY-SA 3.0"
+"9055837","1","9055893","","2012-01-29 19:02:58","","135","45315","<p>Trying to learn F# but got confused when trying to distinguish between <a href=""http://msdn.microsoft.com/en-us/library/ee353894.aspx"" rel=""noreferrer"">fold</a> and <a href=""http://msdn.microsoft.com/en-us/library/ee370239.aspx"" rel=""noreferrer"">reduce</a>. Fold seems to do the <a href=""https://stackoverflow.com/questions/3682371/accumulate-vs-fold-vs-reduce-vs-compress"">same thing</a> but takes an extra parameter. Is there a legitimate reason for these two functions to exist or they are there to accommodate people with different backgrounds? (E.g.: String and string in C#)</p>
+
+<p>Here is code snippet copied from sample:</p>
+
+<pre><code>let sumAList list =
+    List.reduce (fun acc elem -&gt; acc + elem) list
+
+let sumAFoldingList list =
+    List.fold (fun acc elem -&gt; acc + elem) 0 list
+
+printfn ""Are these two the same? %A "" 
+             (sumAList [2; 4; 10] = sumAFoldingList [2; 4; 10])
+</code></pre>
+","823469","","1460448","","2018-01-09 00:57:55","2022-09-17 19:29:21","Difference between fold and reduce?","<f#><functional-programming><reduce><fold>","5","3","0","","","CC BY-SA 3.0"
+"44961","1","44995","","2008-09-04 23:24:51","","135","32005","<p>I've searched on the Internet for comparisons between <a href=""http://en.wikipedia.org/wiki/F_Sharp_%28programming_language%29"" rel=""noreferrer"">F#</a> and <a href=""http://en.wikipedia.org/wiki/Haskell_%28programming_language%29"" rel=""noreferrer"">Haskell</a> but haven't found anything really definitive. What are the primary differences and why would I want to choose one over the other?</p>
+","3394","kronoz","2963652","jolson","2014-05-21 21:22:55","2014-05-21 21:22:55","What are the primary differences between Haskell and F#?","<haskell><f#><functional-programming><language-comparisons>","5","2","0","2014-02-20 00:49:54","","CC BY-SA 3.0"
+"4588787","1","4588818","","2011-01-03 22:04:43","","131","65640","<p>F# has <em>sequences</em> that allows to create sequences:</p>
+
+<pre><code>seq { 0 .. 10 }
+</code></pre>
+
+<p>Create sequence of numbers from 0 to 10.</p>
+
+<p>Is there something similar in C#?</p>
+","159179","","659190","","2019-11-07 08:49:03","2022-09-26 07:38:22","How to create a sequence of integers in C#?","<c#><.net><f#><sequence>","9","0","0","","","CC BY-SA 4.0"
+"179492","1","179950","","2008-10-07 17:21:40","","131","28108","<p>F# is derived from OCaml, but what major items are missing or added? Specifically I'm curious as to whether the resources available for learning OCaml are also useful to someone who wants to learn F#.</p>
+","16942","Erik","1243762","user29439","2016-03-05 12:47:20","2018-08-28 07:59:14","F# changes to OCaml","<f#><ocaml><functor>","4","4","0","2015-11-27 08:34:08","","CC BY-SA 3.0"
+"6104221","1","6104300","","2011-05-23 23:33:30","","128","22884","<p>A Levenshtein implementation in C# and F#. The C# version is 10 times faster for two strings of about 1500 chars. C#: 69 ms, F# 867 ms. Why? As far as I can tell, they do the exact same thing? Doesn't matter if it is a Release or a Debug build. </p>
+
+<p>EDIT: If anyone comes here looking specifically for the Edit Distance implementation, it is broken. Working code is <a href=""https://bitbucket.org/vgrit/clrsquirrel/src/82840c2ce95b/ClrSquirrel/ClrSquirrel.fs"" rel=""noreferrer"">here</a>.</p>
+
+<p><strong>C#</strong>:</p>
+
+<pre class=""lang-cs prettyprint-override""><code>private static int min3(int a, int b, int c)
+{
+   return Math.Min(Math.Min(a, b), c);
+}
+
+public static int EditDistance(string m, string n)
+{
+   var d1 = new int[n.Length];
+   for (int x = 0; x &lt; d1.Length; x++) d1[x] = x;
+   var d0 = new int[n.Length];
+   for(int i = 1; i &lt; m.Length; i++)
+   {
+      d0[0] = i;
+      var ui = m[i];
+      for (int j = 1; j &lt; n.Length; j++ )
+      {
+         d0[j] = 1 + min3(d1[j], d0[j - 1], d1[j - 1] + (ui == n[j] ? -1 : 0));
+      }
+      Array.Copy(d0, d1, d1.Length);
+   }
+   return d0[n.Length - 1];
+}
+</code></pre>
+
+<p><strong>F#</strong>:</p>
+
+<pre class=""lang-ml prettyprint-override""><code>let min3(a, b, c) = min a (min b c)
+
+let levenshtein (m:string) (n:string) =
+   let d1 = Array.init n.Length id
+   let d0 = Array.create n.Length 0
+   for i=1 to m.Length-1 do
+      d0.[0] &lt;- i
+      let ui = m.[i]
+      for j=1 to n.Length-1 do
+         d0.[j] &lt;- 1 + min3(d1.[j], d0.[j-1], d1.[j-1] + if ui = n.[j] then -1 else 0)
+      Array.blit d0 0 d1 0 n.Length
+   d0.[n.Length-1]
+</code></pre>
+","9436","","1243762","","2016-04-12 11:31:08","2016-04-12 11:31:08","Why is this F# code so slow?","<c#><performance><f#><inline>","1","1","0","","","CC BY-SA 3.0"
+"10110174","1","","","2012-04-11 16:35:37","","116","10237","<p>I am trying to design a library in F#. The library should be friendly for use from <em>both F# and C#</em>.</p>
+
+<p>And this is where I'm stuck a little bit.  I can make it F# friendly, or I can make it C# friendly, but the problem is how to make it friendly for both.</p>
+
+<p>Here is an example.  Imagine I have the following function in F#:</p>
+
+<pre class=""lang-ml prettyprint-override""><code>let compose (f: 'T -&gt; 'TResult) (a : 'TResult -&gt; unit) = f &gt;&gt; a
+</code></pre>
+
+<p>This is perfectly usable from F#:</p>
+
+<pre class=""lang-ml prettyprint-override""><code>let useComposeInFsharp() =
+    let composite = compose (fun item -&gt; item.ToString) (fun item -&gt; printfn ""%A"" item)
+    composite ""foo""
+    composite ""bar""
+</code></pre>
+
+<p>In C#, the <code>compose</code> function has the following signature:</p>
+
+<pre class=""lang-cs prettyprint-override""><code>FSharpFunc&lt;T, Unit&gt; compose&lt;T, TResult&gt;(FSharpFunc&lt;T, TResult&gt; f, FSharpFunc&lt;TResult, Unit&gt; a);
+</code></pre>
+
+<p>But of course, I don't want <code>FSharpFunc</code> in the signature, what I want is <code>Func</code> and <code>Action</code> instead, like this:</p>
+
+<pre class=""lang-cs prettyprint-override""><code>Action&lt;T&gt; compose2&lt;T, TResult&gt;(Func&lt;T, TResult&gt; f, Action&lt;TResult&gt; a);
+</code></pre>
+
+<p>To achieve this, I can create <code>compose2</code> function like this:</p>
+
+<pre class=""lang-ml prettyprint-override""><code>let compose2 (f: Func&lt;'T, 'TResult&gt;) (a : Action&lt;'TResult&gt; ) = 
+    new Action&lt;'T&gt;(f.Invoke &gt;&gt; a.Invoke)
+</code></pre>
+
+<p>Now, this is perfectly usable in C#:</p>
+
+<pre class=""lang-cs prettyprint-override""><code>void UseCompose2FromCs()
+{
+    compose2((string s) =&gt; s.ToUpper(), Console.WriteLine);
+}
+</code></pre>
+
+<p>But now we have a problem using <code>compose2</code> from F#!  Now I have to wrap all standard F# <code>funs</code> into <code>Func</code> and <code>Action</code>, like this:</p>
+
+<pre class=""lang-ml prettyprint-override""><code>let useCompose2InFsharp() =
+    let f = Func&lt;_,_&gt;(fun item -&gt; item.ToString())
+    let a = Action&lt;_&gt;(fun item -&gt; printfn ""%A"" item)
+    let composite2 = compose2 f a
+
+    composite2.Invoke ""foo""
+    composite2.Invoke ""bar""
+</code></pre>
+
+<p><strong>The question:</strong> How can we achieve first-class experience for the library written in F# for both F# and C# users?</p>
+
+<p>So far, I couldn't come up with anything better than these two approaches:</p>
+
+<ol>
+<li>Two separate assemblies: one targeted to F# users, and the second to C# users.</li>
+<li>One assembly but different namespaces: one for F# users, and the second for C# users.</li>
+</ol>
+
+<p>For the first approach, I would do something like this:</p>
+
+<ol>
+<li><p>Create a F# project, call it FooBarFs and compile it into FooBarFs.dll.</p>
+
+<ul>
+<li>Target the library purely to F# users.</li>
+<li>Hide everything unnecessary from the .fsi files.</li>
+</ul></li>
+<li><p>Create another F# project, call if FooBarCs and compile it into FooFar.dll</p>
+
+<ul>
+<li>Reuse the first F# project at the source level.</li>
+<li>Create .fsi file which hides everything from that project.</li>
+<li>Create .fsi file which exposes the library in C# way, using C# idioms for name, namespaces, etc.</li>
+<li>Create wrappers that delegate to the core library, doing the conversion where necessary.</li>
+</ul></li>
+</ol>
+
+<p>I think the second approach with the namespaces can be confusing to the users, but then you have one assembly.  </p>
+
+<p><strong>The question:</strong> None of these are ideal, perhaps I am missing some kind of compiler flag/switch/attribute
+or some kind of trick and there is a better way of doing this?</p>
+
+<p><strong>The question:</strong> has anyone else tried to achieve something similar and if so how did you do it?</p>
+
+<p>EDIT: to clarify, the question is not only about functions and delegates but the overall experience of a C# user with an F# library. This includes namespaces, naming conventions, idioms and suchlike that are native to C#. Basically, a C# user shouldn't be able to detect that the library was authored in F#. And vice versa, an F# user should feel like dealing with a C# library.</p>
+
+<hr>
+
+<p><strong>EDIT 2:</strong></p>
+
+<p>I can see from the answers and comments so far that my question lacks the necessary depth,
+perhaps mostly due to use of only one example where interoperability issues between F# and C# 
+arise, the issue of function values.  I think this is the most obvious example and so this
+led me to use it to ask the question, but by the same token gave the impression that this is
+the only issue I am concerned with.</p>
+
+<p>Let me provide more concrete examples. I have read through the most excellent
+<a href=""http://fsharp.org/specs/component-design-guidelines/"" rel=""noreferrer"">F# Component Design Guidelines</a>
+document (many thanks @gradbot for this!). The guidelines in the document, if used, do address
+some of the issues but not all.</p>
+
+<p>The document is split into two main parts: 1) guidelines for targeting F# users; and 2) guidelines for
+targeting C# users.  Nowhere does it even attempt to pretend that it is possible to have a uniform
+approach, which exactly echoes my question: we can target F#, we can target C#, but what is the
+practical solution for targeting both?</p>
+
+<p>To remind, the goal is to have a library authored in F#, and which can be used <em>idiomatically</em> from
+both F# and C# languages.</p>
+
+<p>The keyword here is <em>idiomatic</em>. The issue is not the general interoperability where it is just possible
+to use libraries in different languages.</p>
+
+<p>Now to the examples, which I take straight from 
+<a href=""http://fsharp.org/specs/component-design-guidelines/"" rel=""noreferrer"">F# Component Design Guidelines</a>.</p>
+
+<ol>
+<li><p>Modules+functions (F#) vs Namespaces+Types+functions</p>
+
+<ul>
+<li><p>F#: Do use namespaces or modules to contain your types and modules.
+The idiomatic use is to place functions in modules, e.g.:</p>
+
+<pre><code>// library
+module Foo
+let bar() = ...
+let zoo() = ...
+
+
+// Use from F#
+open Foo
+bar()
+zoo()
+</code></pre></li>
+<li><p>C#: Do use namespaces, types and members as the primary organizational structure for your 
+components (as opposed to modules), for vanilla .NET APIs.</p>
+
+<p>This is incompatible with the F# guideline, and the example would need
+to be re-written to fit the C# users:</p>
+
+<pre><code>[&lt;AbstractClass; Sealed&gt;]
+type Foo =
+    static member bar() = ...
+    static member zoo() = ...
+</code></pre>
+
+<p>By doing so though, we break the idiomatic use from F# because
+we can no longer use <code>bar</code> and <code>zoo</code> without prefixing it with <code>Foo</code>.</p></li>
+</ul></li>
+<li><p>Use of tuples</p>
+
+<ul>
+<li><p>F#: Do use tuples when appropriate for return values.</p></li>
+<li><p>C#: Avoid using tuples as return values in vanilla .NET APIs.</p></li>
+</ul></li>
+<li><p>Async</p>
+
+<ul>
+<li><p>F#: Do use Async for async programming at F# API boundaries.  </p></li>
+<li><p>C#: Do expose asynchronous operations using either the .NET asynchronous programming model 
+(BeginFoo, EndFoo), or as methods returning .NET tasks (Task), rather than as F# Async 
+objects.</p></li>
+</ul></li>
+<li><p>Use of <code>Option</code></p>
+
+<ul>
+<li><p>F#: Consider using option values for return types instead of raising exceptions (for F#-facing code).</p></li>
+<li><p>Consider using the TryGetValue pattern instead of returning F# option values (option) in vanilla 
+.NET APIs, and prefer method overloading over taking F# option values as arguments.</p></li>
+</ul></li>
+<li><p>Discriminated unions</p>
+
+<ul>
+<li><p>F#: Do use discriminated unions as an alternative to class hierarchies for creating tree-structured data</p></li>
+<li><p>C#: <em>no specific guidelines for this, but the concept of discriminated unions is foreign to C#</em></p></li>
+</ul></li>
+<li><p>Curried functions</p>
+
+<ul>
+<li><p>F#: <em>curried functions are idiomatic for F#</em></p></li>
+<li><p>C#: Do not use currying of parameters in vanilla .NET APIs.</p></li>
+</ul></li>
+<li><p>Checking for null values</p>
+
+<ul>
+<li><p>F#: <em>this is not idiomatic for F#</em></p></li>
+<li><p>C#: Consider checking for null values on vanilla .NET API boundaries.</p></li>
+</ul></li>
+<li><p>Use of F# types <code>list</code>, <code>map</code>, <code>set</code>, etc</p>
+
+<ul>
+<li><p>F#: <em>it is idiomatic to use these in F#</em></p></li>
+<li><p>C#: Consider using the .NET collection interface types IEnumerable and IDictionary
+for parameters and return values in vanilla .NET APIs. (<em>i.e. do not use F# <code>list</code>, <code>map</code>, <code>set</code></em>)</p></li>
+</ul></li>
+<li><p>Function types (the obvious one)</p>
+
+<ul>
+<li><p>F#: <em>use of F# functions as values is idiomatic for F#, obviously</em></p></li>
+<li><p>C#: Do use .NET delegate types in preference to F# function types in vanilla .NET APIs.</p></li>
+</ul></li>
+</ol>
+
+<p>I think these should be sufficient to demonstrate the nature of my question.</p>
+
+<p>Incidentally, the guidelines also have a partial answer:</p>
+
+<blockquote>
+  <p>... a common implementation strategy when developing higher-order 
+  methods for vanilla .NET libraries is to author all the implementation using F# function types, and 
+  then create the public API using delegates as a thin façade atop the actual F# implementation.  </p>
+</blockquote>
+
+<p><strong>To summarise.</strong> </p>
+
+<p>There is one definite answer: <em>there are no compiler tricks that I missed</em>.</p>
+
+<p>As per the guidelines doc, it seems that authoring for F# first and then creating
+a facade wrapper for .NET is a reasonable strategy.</p>
+
+<p>The question then remains regarding the practical implementation of this:</p>
+
+<ul>
+<li><p>Separate assemblies? or</p></li>
+<li><p>Different namespaces?</p></li>
+</ul>
+
+<p>If my interpretation is correct, Tomas suggests that using separate namespaces should
+be sufficient, and should be an acceptable solution.</p>
+
+<p>I think I will agree with that given that the choice of namespaces is such that it
+does not surprise or confuse the .NET/C# users, which means that the namespace
+for them should probably look like it is the primary namespace for them.  The
+F# users will have to take the burden of choosing F#-specific namespace.
+For example:</p>
+
+<ul>
+<li><p>FSharp.Foo.Bar  -> namespace for F# facing the library</p></li>
+<li><p>Foo.Bar         -> namespace for .NET wrapper, idiomatic for C#</p></li>
+</ul>
+","190460","","10014202","","2020-04-19 14:16:41","2020-04-19 14:16:41","Best approach for designing F# libraries for use from both F# and C#","<c#><f#>","4","11","0","","","CC BY-SA 4.0"
+"900585","1","1891573","","2009-05-23 00:59:13","","112","10071","<p>Why is it that functions in F# and OCaml (and possibly other languages) are not by default recursive?</p>
+<p>In other words, why did the language designers decide it was a good idea to explicitly make you type <code>rec</code> in a declaration like:</p>
+<pre><code>let rec foo ... = ...
+</code></pre>
+<p>and not give the function recursive capability by default?  Why the need for an explicit <code>rec</code> construct?</p>
+","94824","","7214292","","2021-02-04 13:12:09","2021-02-04 13:12:09","Why are functions in OCaml/F# not recursive by default?","<f#><recursion><ocaml>","6","1","0","","","CC BY-SA 4.0"

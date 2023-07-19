@@ -1,0 +1,12 @@
+Id,PostId,Score,Text,CreationDate,UserDisplayName,UserId,ContentLicense
+"98155139","55729619","0","I have an idea: Is it possible if we can run adb shell from within the android app. If yes, then I can get su permissions within adb by running 'su' command and then I can run executable. Please suggest.","2019-04-18 03:57:01","","5677024","CC BY-SA 4.0"
+"98155688","55739184","0","add your code so that we can understand your problem?","2019-04-18 04:38:57","","7598082","CC BY-SA 4.0"
+"98155383","55729619","0","@kiranBiradar Please explain a little more about how we can adhere SE policies for an app and Is it will enable access on diag port without fully rooting the device?","2019-04-18 04:15:50","","5677024","CC BY-SA 4.0"
+"31322967","20874296","0","I think he does need to use rawQuery here, but honestly I'm not quite sure what's going on in this code","2014-01-01 23:28:26","","95462","CC BY-SA 3.0"
+"98155040","55724477","0","@davidgyoung You are right, thanks a lot your point indicated the lap in my app. I asked my client to tell me the name of the manufacturer whose beacon he is using . When he told me I came to know that beacon is based on ibeacon format . It resolved my issue .
+I'll recommend each person reading this thread please confirm the beacon manufacturer before testing .","2019-04-18 03:48:20","","8020399","CC BY-SA 4.0"
+"98155679","55727431","0","How do you use `ConnectionsUtil` and its `Db `?","2019-04-18 04:38:23","","3367974","CC BY-SA 4.0"
+"98155196","55691629","0","Have you migrated to the new Places SDK?","2019-04-18 04:02:04","","10841880","CC BY-SA 4.0"
+"31322972","20874296","0","Yes, I have the `static String[]` of the tables. But, my implementation selects data from any of those tables. At the end, I would need a structure like a `HashMap<String, String>` to associate the 'ENGLISH_NAME' value with the 'TableName'","2014-01-01 23:28:51","","1188208","CC BY-SA 3.0"
+"98155590","49522619","0","consider RxLifecycle","2019-04-18 04:32:04","","4323043","CC BY-SA 4.0"
+"98155658","55738771","0","is it glans or `Gradle` in title?","2019-04-18 04:36:27","","4168607","CC BY-SA 4.0"

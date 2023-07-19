@@ -1,0 +1,11 @@
+Id,PostId,Score,Text,CreationDate,UserDisplayName,UserId,ContentLicense
+"2170","53786","0","They're not guaranteed to be fitted between the start and end dates because you're using a probability distribution with infinite support. As long as you use the random number returned from the distribution unchanged as a key, you're going to have this problem.","2008-09-11 10:06:51","","2963","CC BY-SA 2.5"
+"98155016","55738787","0","Every nonzero value in a represent a block of instances. I need to sum up any nonzero value adjacent to each other to observe the length of the instances. Summing all elements would not help my objectives since I need it to be separate. 0 in the list means that there is a break in instances occurance. Hope you get what I mean","2019-04-18 03:45:45","","4643715","CC BY-SA 4.0"
+"98154924","55738731","0","Please fix your code formatting and tell us what framework you are using.","2019-04-18 03:36:32","","3929826","CC BY-SA 4.0"
+"98155123","55725896","0","@Furkat Gafurov can you show us all urls conf of your project?","2019-04-18 03:55:31","","8283848","CC BY-SA 4.0"
+"98154905","55738021","0","You don't even need a dictionary, check my answer below!","2019-04-18 03:34:02","","8591431","CC BY-SA 4.0"
+"98155247","55738892","0","I don't understand the last two lines of your ""sliding"" array. From the first three it looks like you have the array`a[0]` moving to the left (although they differ at `a[5]`, as `a[5] = 8`) but then the two last lines seem to contradict that, as `[14, 3, 30, _, _, _,]` looks utterly unrelated to `[_, _, 38, 20, 31, 33]`, so I have no idea what you are trying to achieve.","2019-04-18 04:05:38","","9546874","CC BY-SA 4.0"
+"98155108","55738711","0","Sorry, I probably worded that poorly. The regression works, but not the plotting.","2019-04-18 03:54:28","","9226062","CC BY-SA 4.0"
+"98155299","55739008","0","`1.2.1` and `2.1.2` are not floating numbers.","2019-04-18 04:09:50","","6890912","CC BY-SA 4.0"
+"98154942","55688516","0","Thanks for the response. I found the solution by modifying pgadmin4 code.. I posted my solution below.","2019-04-18 03:39:00","","3022604","CC BY-SA 4.0"
+"98155095","55738787","0","@Tacratis yup. thank you =)","2019-04-18 03:53:22","","4643715","CC BY-SA 4.0"

@@ -1,0 +1,14 @@
+Id,PostId,Score,Text,CreationDate,UserDisplayName,UserId,ContentLicense
+"98155835","55739084","0","I think method swizzling!!! -> https://medium.com/@abhimuralidharan/method-swizzling-in-ios-swift-1f38edaf984f","2019-04-18 04:49:33","","6630644","CC BY-SA 4.0"
+"98155934","55739298","0","Possible duplicate of [How to create a Scroll View with a page control using swift?](https://stackoverflow.com/questions/29074454/how-to-create-a-scroll-view-with-a-page-control-using-swift)","2019-04-18 04:55:18","","10150796","CC BY-SA 4.0"
+"98155858","55739276","0","`yourLbl.text` need string value and you are passing Int. so just remove Int from your code, will work","2019-04-18 04:50:45","","7276156","CC BY-SA 4.0"
+"98156043","55739298","0","I already seen here but I getting confused here
+let subView = UIView(frame: frame)
+subView.backgroundColor = slides[index]
+I need to display slides array here","2019-04-18 05:03:02","","11377019","CC BY-SA 4.0"
+"98155955","55739276","0","no i want integer value. i want to display it as 1970 etc etc..","2019-04-18 04:57:14","","4550226","CC BY-SA 4.0"
+"98155992","55726474","0","@EpicPandaForce, not re-adding anywhere.","2019-04-18 04:59:40","","2006503","CC BY-SA 4.0"
+"98156033","55645162","0","No, I didn't find a solution for this yet, what I observed is when I revert from version 100.5 to 100.4 the code start working without any issue.","2019-04-18 05:02:19","","4955401","CC BY-SA 4.0"
+"98156144","55739298","0","So you just add image view as a subview instead of Uiview","2019-04-18 05:08:14","","10150796","CC BY-SA 4.0"
+"98156062","55738218","0","The code you have provided doesn't have any issue in itself. You might missing something in your original complete code. You can share it for better answer.","2019-04-18 05:04:06","","8496024","CC BY-SA 4.0"
+"98156094","55739084","0","@SPatel Method swizzling has too many disadvantages and I am also using firebase","2019-04-18 05:05:34","","5845384","CC BY-SA 4.0"

@@ -1,0 +1,393 @@
+Id,PostTypeId,AcceptedAnswerId,ParentId,CreationDate,DeletionDate,Score,ViewCount,Body,OwnerUserId,OwnerDisplayName,LastEditorUserId,LastEditorDisplayName,LastEditDate,LastActivityDate,Title,Tags,AnswerCount,CommentCount,FavoriteCount,ClosedDate,CommunityOwnedDate,ContentLicense
+"17686749","1","24711934","","2013-07-16 20:51:44","","-110","11444","<p>Is there any difference in performance between the <strong><em>conditional operator <code>===</code> and the assignment operator <code>=</code></em></strong>?  I am writing some pre-save hook middleware in mongoose and I am wondering if there is much of a speed difference between:</p>
+
+<pre><code>UserSchema.pre('save', function (next) {
+    if (!this.isModified()) {
+        return next();
+    }
+    this.crm.isUpToDate = false;
+    next();
+});
+</code></pre>
+
+<p>and</p>
+
+<pre><code>UserSchema.pre('save', function (next) {
+    if (!this.isModified()) {
+        return next();
+    }
+    if (this.crm.update === true) {
+        this.crm.isUpToDate = false;
+    }
+    next();
+});
+</code></pre>
+
+<p>EDIT:</p>
+
+<p>Thanks for the constructive comments.</p>
+
+<p>Basically, it doesn't look like there is much of a difference in the performance (as stated above it's negligible). Thanks for the cool tool for testing speed <a href=""http://jsperf.com/"" rel=""nofollow noreferrer"">http://jsperf.com/</a>, I had never heard of it before.</p>
+
+<p>For those of you who are wondering about the code, first off I made a blatant error in my original post, then when everyone tried to point it out to me I cried, that's probably the reason why everyone downvoted.</p>
+
+<p>Here is what I am doing:</p>
+
+<p>I have a mongoose pre-save middleware hook (for a mongo database) where the hook gets run every time a document is saved. At the point of save I check if the document was updated. If it was I set the <code>crmIsUpToDate</code> to false. The <code>crmIsUpToDate</code> will get set to true when a cron job gets. This hook can be run many times before the cron job gets to the document. </p>
+
+<p>I didn't think this was all that necessary for the question because the question was if there is a difference between doing a comparison <code>===</code> and doing an assignment <code>=</code>. I shouldn't have even put the code up because it really detracted from the main question.</p>
+","1174799","","366904","","2019-04-02 18:34:59","2019-04-03 01:40:54","Javascript performance, conditional statement vs assignment operator","<javascript><performance><operators>","2","6","0","","","CC BY-SA 3.0"
+"30791292","1","","","2015-06-11 20:55:54","","-87","7683","<p>I am trying to remove only one property i.e <code>float</code> and its value, from an inline style. I would like to start with this:</p>
+<pre><code>&lt;div id=&quot;first_line_info&quot; style=&quot;width:490px; float:right;&quot;&gt; &lt;/div&gt;
+</code></pre>
+<p>And make it like this:</p>
+<pre><code>&lt;div id=&quot;first_line_info&quot; style=&quot;width:490px&quot;&gt; &lt;/div&gt;
+</code></pre>
+<p>So far I have tried this code:</p>
+<pre><code>Regex noInlineStylePattern = new Regex(&quot;style=\&quot;[^\&quot;]*\&quot;&quot;, RegexOptions.IgnoreCase);
+data = noInlineStylePattern.Replace(data, &quot;&quot;);
+</code></pre>
+<p>This removes all of the inline styles. How can I just remove the float?</p>
+","3457760","","2338858","","2021-07-16 10:14:04","2021-07-16 10:15:07","How do I remove a style element from an inline style using regex?","<javascript><c#><html><css><regex>","4","5","0","","","CC BY-SA 4.0"
+"24281192","1","","","2014-06-18 08:54:45","","-55","33592","<p>Is it possible to hide or remove the <code>Powered by Google Translate</code> on the dropdown in Google Translate?</p>
+<p>I have removed the logo part, but couldn't remove the <code>Powered by</code> text.</p>
+<p>Here's the code:</p>
+<pre class=""lang-html prettyprint-override""><code>&lt;div id=&quot;google_translate_element&quot;&gt;&lt;/div&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL}, 'google_translate_element');
+    }
+&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit&quot;&gt;&lt;/script&gt;
+</code></pre>
+","3526450","","13266974","","2020-10-03 14:03:05","2022-09-27 07:45:04","How to remove or hide powered by text from Google Translate","<javascript><google-translate>","11","11","0","","","CC BY-SA 4.0"
+"26655534","1","26655665","","2014-10-30 14:21:28","","-54","9423","<p>The JQuery UI autocomplete plugin uses the <code>catcomplete</code> function. I'm new to the JQuery syntax, can you help me to understand how to read it?</p>
+
+<pre><code>$(""#searchTextBox"").catcomplete({
+    minLength: 1,
+    source: $(""#searchTextBox"").data(""url""),
+    open: function () {
+        $("".ui-autocomplete"").css({
+            left: $("".ui-autocomplete"").position().left - 50 + ""px"",
+            top: $("".ui-autocomplete"").position().top - 12 + ""px""
+        });
+    },
+    select: function (event, ui) {
+        /*code*/
+    }
+});
+</code></pre>
+","196210","","-1","","2018-05-10 14:40:03","2018-05-10 14:40:03","What is catcomplete in jQuery's autocomplete plugin?","<javascript><jquery>","1","0","0","2018-10-30 22:35:48","","CC BY-SA 3.0"
+"44899821","1","44900290","","2017-07-04 07:39:23","","-45","752","<p>I am trying to fetch data from Android to Custom ListView but  I am not able to Fetch! Please help</p>
+
+<p>MY JSON:_</p>
+
+<pre><code>{  
+   ""College"":[  
+      {  
+         ""Name"":""NITK"",
+         ""Logo"":""http:\/\/192.168.43.164\\Webapp\\Collegelogos\\nitk.jpg""
+      },
+      {  
+         ""Name"":""IITR"",
+         ""Logo"":""http:\/\/192.168.43.164\\Webapp\\Collegelogos\\iitr.jpg""
+      },
+      {  
+         ""Name"":""NITT"",
+         ""Logo"":""http:\/\/192.168.43.164\\Webapp\\Collegelogos\\nitt.jpg""
+      },
+      {  
+         ""Name"":""IITB"",
+         ""Logo"":""http:\/\/192.168.43.164\\Webapp\\Collegelogos\\iitb.png""
+      },
+      {  
+         ""Name"":""IITG"",
+         ""Logo"":""http:\/\/192.168.43.164\\Webapp\\Collegelogos\\iitg.png""
+      },
+      {  
+         ""Name"":""IITD"",
+         ""Logo"":""http:\/\/192.168.43.164\\Webapp\\Collegelogos\\iitd.png""
+      },
+      {  
+         ""Name"":""BITS"",
+         ""Logo"":""http:\/\/192.168.43.164\\Webapp\\Collegelogos\\bits.png""
+      }
+   ]
+}
+</code></pre>
+
+<p>CODE:-</p>
+
+<pre><code>public class MainActivity extends AppCompatActivity {
+    private List&lt;College&gt; listcollege;
+
+    //Creating Views
+    private RecyclerView recyclerView;
+    private RecyclerView.LayoutManager layoutManager;
+    private RecyclerView.Adapter adapter;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        //Initializing Views
+        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        recyclerView.setHasFixedSize(true);
+        layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+
+        listcollege = new ArrayList&lt;&gt;();
+        getData();
+
+    }
+
+    private void getData(){
+        //Showing a progress dialog
+        final ProgressDialog loading = ProgressDialog.show(this,""Loading Data"", ""Please wait..."",false,false);
+
+        //Creating a json array request
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Config.DATA_URL,
+                new Response.Listener&lt;JSONArray&gt;() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        //Dismissing progress dialog
+                        Toast.makeText(MainActivity.this, ""sachin"", Toast.LENGTH_SHORT).show();
+                        loading.dismiss();
+
+                        //calling method to parse json array
+                        parseData(response);
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                });
+
+        //Creating request queue
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+
+        //Adding request to the queue
+        requestQueue.add(jsonArrayRequest);
+    }
+    public  void parseData(JSONArray array) {
+        for (int i = 0; i &lt; array.length(); i++) {
+            College college = new College();
+            JSONObject json = null;
+            try {
+                json = array.getJSONObject(i);
+                college.setImageUrl(json.getString(Config.TAG_IMAGE_URL));
+               String s = (json.getString(Config.TAG_NAME));
+                Toast.makeText(this, s, Toast.LENGTH_SHORT).show();
+                college.setName(s);
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            listcollege.add(college);
+
+        }
+            adapter = new CardAdapter(this, listcollege);
+            recyclerView.setAdapter(adapter);
+      //  adapter.notifyDataSetChanged();
+
+    }
+
+
+}
+</code></pre>
+
+<p>LOG :- ANDROID MONITOR</p>
+
+<pre><code>07-04 13:02:42.289 16225-16256/com.example.sachin.volleyrecycle I/OpenGLRenderer: Initialized EGL, version 1.4
+07-04 13:02:42.289 16225-16256/com.example.sachin.volleyrecycle D/OpenGLRenderer: Swap behavior 1
+07-04 13:02:42.289 16225-16256/com.example.sachin.volleyrecycle W/OpenGLRenderer: Failed to choose config with EGL_SWAP_BEHAVIOR_PRESERVED, retrying without...
+07-04 13:02:42.289 16225-16256/com.example.sachin.volleyrecycle D/OpenGLRenderer: Swap behavior 0
+07-04 13:02:42.702 16225-16225/com.example.sachin.volleyrecycle E/RecyclerView: No adapter attached; skipping layout
+07-04 13:02:42.946 16225-16225/com.example.sachin.volleyrecycle W/art: Before Android 4.1, method int android.support.v7.widget.ListViewCompat.lookForSelectablePosition(int, boolean) would have incorrectly overridden the package-private method in android.widget.ListView
+</code></pre>
+","7800558","","4826457","","2017-07-04 09:58:45","2017-07-04 09:58:45","No response from jsonArray request","<java><android><json>","1","4","0","2021-04-17 10:16:40","","CC BY-SA 3.0"
+"27894144","1","27894183","","2015-01-12 01:30:44","","-42","3016","<p>I recently noticed my ad networks popunder code is getting blocked by adblock. Is there any software or technique you guys know that can counter this?  I am running an adult site by the way. </p>
+
+<p>Here is the popunder code if you need it:</p>
+
+<pre><code>    &lt;!-- PopAds.net Popunder Code for www.example.com --&gt;
+&lt;script type=""text/javascript""&gt;
+  var _pop = _pop || [];
+  _pop.push(['siteId', 518347]);
+  _pop.push(['minBid', 0]);
+  _pop.push(['popundersPerIP', 0]);
+  _pop.push(['delayBetween', 0]);
+  _pop.push(['default', false]);
+  _pop.push(['defaultPerDay', 0]);
+  _pop.push(['topmostLayer', false]);
+  (function() {
+    var pa = document.createElement('script'); pa.type = 'text/javascript'; pa.async = true;
+    var s = document.getElementsByTagName('script')[0]; 
+    pa.src = '//c1.popads.net/pop.js';
+    pa.onerror = function() {
+      var sa = document.createElement('script'); sa.type = 'text/javascript'; sa.async = true;
+      sa.src = '//c2.popads.net/pop.js';
+      s.parentNode.insertBefore(sa, s);
+    };
+    s.parentNode.insertBefore(pa, s);
+  })();
+&lt;/script&gt;
+&lt;!-- PopAds.net Popunder Code End --&gt;
+</code></pre>
+
+<p>Any help would be appreciated. </p>
+","4115507","","","","","2019-06-06 14:40:30","How to block ""adblock""","<javascript><ads><adblock>","1","4","0","","","CC BY-SA 3.0"
+"31117132","1","","","2015-06-29 13:34:42","","-41","1470","<p>I know that there is a question like this on Stack Overflow but I want to know why we can't declare variables inside <code>if</code> statements so that we can save space by just utilizing the <code>if</code> scope.</p>
+<p>For example, if I write:</p>
+<pre><code>if (int i) {
+    ...
+} 
+</code></pre>
+<p>then I could use <code>i</code> only within the <code>if</code> scope, but if I write it outside of the <code>if</code> statement, then <code>i</code> variable should be in memory for the whole block.</p>
+","5061468","","109941","","2021-12-18 01:25:48","2021-12-18 01:25:48","Why can't we declare variables in if statement?","<java><if-statement><scope><variable-assignment>","6","6","","","","CC BY-SA 4.0"
+"39601887","1","","","2016-09-20 19:00:57","","-37","1232","<ol>
+<li>Please check the error</li>
+<li>I have shown the runtime error occurring</li>
+<li>Please tell what is going wrong in this.</li>
+<li><p>This was the problem [Hacker Rank Challenges - Washing Plates ]:<a href=""https://www.hackerrank.com/contests/101hack41/challenges/washing-plates"" rel=""nofollow noreferrer"">https://www.hackerrank.com/contests/101hack41/challenges/washing-plates</a></p></li>
+<li><p>Error:</p>
+
+<pre><code> Exception in thread ""main"" java.util.NoSuchElementException
+    at java.util.Scanner.throwFor(Scanner.java:862)
+    at java.util.Scanner.next(Scanner.java:1485)
+    at java.util.Scanner.nextInt(Scanner.java:2117)
+    at java.util.Scanner.nextInt(Scanner.java:2076)
+    at Plates.main(Plates.java:17)
+</code></pre></li>
+<li><p>Code.</p>
+
+<pre><code>import java.util.*;
+
+public class Plates {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        //System.out.println(""Enter Details"");
+        String s = in.next();
+        int l = s.length();
+        int n = s.charAt(0);
+        int k = s.charAt(l - 1);
+        int arr[][] = new int[n][2];
+        for(int i = 0; i &lt; n; i++) {
+            for(int j = 0; j &lt; 2; j++) {
+                arr[i][j] = in.nextInt();
+            }
+        }
+        int max = 0;
+        int inc[] = new int[n];
+        int ded[] = new int[n];
+        for(int t = 0; t &lt; n; t++) {
+            for(int p = 0; p &lt; 2; p++) {
+                if(p == 0) {
+                    inc[t] = arr[t][p];
+                } else if(p == 1) {
+                    ded[t] = arr[t][p];
+                }
+            }
+        }
+        int a, b;
+        int sum = 0, loss = 0;
+        for(a = 0; a &lt; n; a++) {
+            for(b = 1; b &lt;= k; b++) {
+                sum = sum + inc[a + 1];
+                loss = loss - ded[a + 1];
+            }
+            if((sum - loss) &gt; max) {
+                max = sum - loss;
+            }
+        }
+        System.out.println(max);
+    }
+}
+</code></pre></li>
+</ol>
+","6855006","","206401","","2017-06-13 22:45:56","2018-04-11 09:25:12","Java Code Compile Issue","<java>","2","5","","","","CC BY-SA 3.0"
+"31967020","1","","","2015-08-12 13:43:25","","-36","919","<p>I'm populating email-id in the text box value using <code>ng-repeat</code>. Using the edit icon I'm adding an email-id in the text box and on the text box focus out I have to create a token for the email-id in the text box.
+I have to find out the token input and create the token</p>
+<pre class=""lang-js prettyprint-override""><code>$(&quot;.tagemail&quot;)
+  .parent()
+  .focusout(function () {
+    $(&quot;.token-input&quot;).each(function (valindex) {
+      if ($(this).val() != &quot;&quot;) {
+        var value = $(this).val();
+        var id = $(this).attr(&quot;id&quot;);
+        $(&quot;#&quot; + id).val(&quot;&quot;);
+        thisChild.tokenfield(&quot;createToken&quot;, value);
+      }
+    });
+  });
+</code></pre>
+<p>But the div of <strong>thisChild</strong> getting differed.</p>
+","5219556","","13170636","","2021-09-19 12:33:59","2021-09-19 12:33:59","Create token on textbox focusout","<javascript><angularjs><token><jquery-tokeninput>","1","2","","","","CC BY-SA 4.0"
+"31205402","1","31206292","","2015-07-03 11:10:06","","-36","617","<p>Below is the program:</p>
+
+<pre><code>package annotationtype;
+
+public class Example {
+
+    public static void main(String[] args){
+
+    }
+}
+</code></pre>
+
+<p>got compiled with below byte code.</p>
+
+<pre><code>Classfile /D:/git/Java_programming/JavaCode/bin/annotationtype/Example.class
+  ......
+  Compiled from ""Example.java""
+public class annotationtype.Example
+  .......
+  flags: ACC_PUBLIC, ACC_SUPER
+Constant pool:
+   #1 = Class              #2             // annotationtype/Example
+   #2 = Utf8               annotationtype/Example
+   #3 = Class              #4             // java/lang/Object
+   ......
+  #18 = Utf8               SourceFile
+  #19 = Utf8               Example.java
+{
+  public annotationtype.Example();
+  ........
+  public static void main(java.lang.String[]);
+  ......
+}
+SourceFile: ""Example.java""
+</code></pre>
+
+<p>Using eclipse editor, In <code>main()</code> method, if I type,</p>
+
+<p><code>Example.</code>, eclipse editor immediately provides <code>class</code> member of type <code>Class&lt;annotationtype.Example&gt;</code></p>
+
+<p>My understanding is, </p>
+
+<p>below byte code,</p>
+
+<pre><code>#1 = Class              #2             // annotationtype/Example
+ ..
+#3 = Class              #4             // java/lang/Object
+</code></pre>
+
+<p>indicates creation of object of type <code>Class&lt;annotationtype.Example&gt;</code> pointed by member <code>Class&lt;annotationtype.Example&gt; class</code> during initialisation phase of <code>class Example</code>, something <strong>functionally equivalent</strong> to:</p>
+
+<pre><code>public class annotationtype.Example{
+    public static Class&lt;annotationtype.Example&gt; class;
+    {
+        class = Class.forName(""annotationtype.Example"")
+    }
+    ......
+}
+</code></pre>
+
+<p>Is my understanding correct about, </p>
+
+<p>the phase at which object(creation) of type <code>Class&lt;annotationtype.Example&gt;</code> comes into existence, that is pointed by <code>Example.class</code>? </p>
+","3317808","","3317808","","2015-07-03 11:41:31","2015-07-03 11:56:10","When does object pointed by 'Example.class' come into existence?","<java><eclipse>","1","1","0","","","CC BY-SA 3.0"

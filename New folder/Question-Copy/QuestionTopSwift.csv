@@ -1,0 +1,170 @@
+Id,PostTypeId,AcceptedAnswerId,ParentId,CreationDate,DeletionDate,Score,ViewCount,Body,OwnerUserId,OwnerDisplayName,LastEditorUserId,LastEditorDisplayName,LastEditDate,LastActivityDate,Title,Tags,AnswerCount,CommentCount,FavoriteCount,ClosedDate,CommunityOwnedDate,ContentLicense
+"5210535","1","9736559","","2011-03-06 12:43:57","","1490","513401","<p>I'm new to iOS and Objective-C and the whole <a href=""https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller"" rel=""noreferrer"">MVC</a> paradigm and I'm stuck with the following:</p>
+<p>I have a view that acts as a data entry form and I want to give the user the option to select multiple products. The products are listed on another view with a <code>UITableViewController</code> and I have enabled multiple selections.</p>
+<p>How do I transfer the data from one view to another? I will be holding the selections on the <code>UITableView</code> in an array, but how do I then pass that back to the previous data entry form view so it can be saved along with the other data to Core Data on submission of the form?</p>
+<p>I have surfed around and seen some people declare an array in the app delegate. I read something about <a href=""https://en.wikipedia.org/wiki/Singleton_pattern"" rel=""noreferrer"">singletons</a>, but I don't understand what these are and I read something about creating a data model.</p>
+<p>What would be the correct way of performing this and how would I go about it?</p>
+","634273","","63550","","2021-02-11 17:35:52","2022-10-24 21:39:51","Passing data between view controllers","<ios><objective-c><swift><model-view-controller><uiviewcontroller>","46","0","0","","","CC BY-SA 4.0"
+"24002369","1","24005242","","2014-06-02 20:05:42","","1113","350908","<p>In Swift, how does one call Objective-C code?</p>
+
+<p>Apple mentioned that they could co-exist in one application, but does this mean that one could technically re-use old classes made in Objective-C whilst building new classes in Swift?</p>
+","1266242","","2756409","","2019-08-21 14:03:24","2021-05-10 11:17:40","How do I call Objective-C code from Swift?","<objective-c><swift>","17","11","0","","","CC BY-SA 4.0"
+"17678881","1","17768797","","2013-07-16 14:11:22","","1076","657034","<p>My application has a dark background, but in iOS 7 the status bar became transparent. So I can't see anything there, only the green battery indicator in the corner. How can I change the status bar text color to white like it is on the home screen?</p>
+","1142999","","12511078","","2020-02-21 17:39:35","2021-12-21 20:29:39","How to change Status Bar text color in iOS","<ios><swift><ios7><statusbar><uistatusbar>","59","2","0","","","CC BY-SA 4.0"
+"24017316","1","24037870","","2014-06-03 14:05:56","","1007","247265","<p>In Objective C, I can use <code>#pragma mark</code> to mark sections of my code in the symbol navigator. Since this is a C preprocessor command, it's not available in Swift. Is there a stand-in for this in Swift, or do I have to use ugly comments?</p>
+","1296280","","409958","","2019-12-20 14:03:57","2022-04-30 13:53:29","#pragma mark in Swift?","<swift><documentation>","20","7","0","","","CC BY-SA 3.0"
+"24101718","1","24102237","","2014-06-07 23:53:45","","975","117705","<p>I was implementing an algorithm in Swift Beta and noticed that the performance was very poor. After digging deeper I realized that one of the bottlenecks was something as simple as sorting arrays. The relevant part is here:</p>
+
+<pre><code>let n = 1000000
+var x =  [Int](repeating: 0, count: n)
+for i in 0..&lt;n {
+    x[i] = random()
+}
+// start clock here
+let y = sort(x)
+// stop clock here
+</code></pre>
+
+<p>In C++, a similar operation takes <strong>0.06s</strong> on my computer.</p>
+
+<p>In Python, it takes <strong>0.6s</strong> (no tricks, just y = sorted(x) for a list of integers).</p>
+
+<p>In Swift it takes <strong>6s</strong> if I compile it with the following command:</p>
+
+<pre><code>xcrun swift -O3 -sdk `xcrun --show-sdk-path --sdk macosx`
+</code></pre>
+
+<p>And it takes as much as <strong>88s</strong> if I compile it with the following command:</p>
+
+<pre><code>xcrun swift -O0 -sdk `xcrun --show-sdk-path --sdk macosx`
+</code></pre>
+
+<p>Timings in Xcode with ""Release"" vs. ""Debug"" builds are similar.</p>
+
+<p>What is wrong here? I could understand some performance loss in comparison with C++, but not a 10-fold slowdown in comparison with pure Python.</p>
+
+<hr>
+
+<p><strong>Edit:</strong> weather noticed that changing <code>-O3</code> to <code>-Ofast</code> makes this code run almost as fast as the C++ version! However, <code>-Ofast</code> changes the semantics of the language a lot — in my testing, it <strong>disabled the checks for integer overflows and array indexing overflows</strong>. For example, with <code>-Ofast</code> the following Swift code runs silently without crashing (and prints out some garbage):</p>
+
+<pre><code>let n = 10000000
+print(n*n*n*n*n)
+let x =  [Int](repeating: 10, count: n)
+print(x[n])
+</code></pre>
+
+<p>So <code>-Ofast</code> is not what we want; the whole point of Swift is that we have the safety nets in place. Of course, the safety nets have some impact on the performance, but they should not make the programs 100 times slower. Remember that Java already checks for array bounds, and in typical cases, the slowdown is by a factor much less than 2. And in Clang and GCC we have got <code>-ftrapv</code> for checking (signed) integer overflows, and it is not that slow, either.</p>
+
+<p>Hence the question: how can we get reasonable performance in Swift without losing the safety nets?</p>
+
+<hr>
+
+<p><strong>Edit 2:</strong> I did some more benchmarking, with very simple loops along the lines of</p>
+
+<pre><code>for i in 0..&lt;n {
+    x[i] = x[i] ^ 12345678
+}
+</code></pre>
+
+<p>(Here the xor operation is there just so that I can more easily find the relevant loop in the assembly code. I tried to pick an operation that is easy to spot but also ""harmless"" in the sense that it should not require any checks related to integer overflows.)</p>
+
+<p>Again, there was a huge difference in the performance between <code>-O3</code> and <code>-Ofast</code>. So I had a look at the assembly code:</p>
+
+<ul>
+<li><p>With <code>-Ofast</code> I get pretty much what I would expect. The relevant part is a loop with 5 machine language instructions.</p></li>
+<li><p>With <code>-O3</code> I get something that was beyond my wildest imagination. The inner loop spans 88 lines of assembly code. I did not try to understand all of it, but the most suspicious parts are 13 invocations of ""callq _swift_retain"" and another 13 invocations of ""callq _swift_release"". That is, <strong>26 subroutine calls in the inner loop</strong>!</p></li>
+</ul>
+
+<hr>
+
+<p><strong>Edit 3:</strong> In comments, Ferruccio asked for benchmarks that are fair in the sense that they do not rely on built-in functions (e.g. sort). I think the following program is a fairly good example:</p>
+
+<pre><code>let n = 10000
+var x = [Int](repeating: 1, count: n)
+for i in 0..&lt;n {
+    for j in 0..&lt;n {
+        x[i] = x[j]
+    }
+}
+</code></pre>
+
+<p>There is no arithmetic, so we do not need to worry about integer overflows. The only thing that we do is just lots of array references. And the results are here—Swift -O3 loses by a factor almost 500 in comparison with -Ofast:</p>
+
+<ul>
+<li>C++ -O3: <strong>0.05 s</strong></li>
+<li>C++ -O0: 0.4 s</li>
+<li>Java: <strong>0.2 s</strong></li>
+<li>Python with PyPy: 0.5 s</li>
+<li>Python: <strong>12 s</strong></li>
+<li>Swift -Ofast: 0.05 s</li>
+<li>Swift -O3: <strong>23 s</strong></li>
+<li>Swift -O0: 443 s</li>
+</ul>
+
+<p>(If you are concerned that the compiler might optimize out the pointless loops entirely, you can change it to e.g. <code>x[i] ^= x[j]</code>, and add a print statement that outputs <code>x[0]</code>. This does not change anything; the timings will be very similar.)</p>
+
+<p>And yes, here the Python implementation was a stupid pure Python implementation with a list of ints and nested for loops. It should be <strong>much</strong> slower than unoptimized Swift. Something seems to be seriously broken with Swift and array indexing.</p>
+
+<hr>
+
+<p><strong>Edit 4:</strong> These issues (as well as some other performance issues) seems to have been fixed in Xcode 6 beta 5.</p>
+
+<p>For sorting, I now have the following timings:</p>
+
+<ul>
+<li>clang++ -O3: 0.06 s</li>
+<li>swiftc -Ofast: 0.1 s</li>
+<li>swiftc -O: 0.1 s</li>
+<li>swiftc: 4 s</li>
+</ul>
+
+<p>For nested loops:</p>
+
+<ul>
+<li>clang++ -O3: 0.06 s</li>
+<li>swiftc -Ofast: 0.3 s</li>
+<li>swiftc -O: 0.4 s</li>
+<li>swiftc: 540 s</li>
+</ul>
+
+<p>It seems that there is no reason anymore to use the unsafe <code>-Ofast</code> (a.k.a. <code>-Ounchecked</code>); plain <code>-O</code> produces equally good code.</p>
+","383299","","11023101","","2019-02-08 12:29:16","2020-04-19 16:54:39","Swift Beta performance: sorting arrays","<swift><performance><sorting><xcode6><compiler-optimization>","9","21","0","","","CC BY-SA 4.0"
+"24028421","1","24028458","","2014-06-04 03:19:21","","925","620903","<p>Is there a function that I can use to iterate over an array and have both index and element, like Python's <code>enumerate</code>?</p>
+<pre><code>for index, element in enumerate(list):
+    ...
+</code></pre>
+","1890537","","4100225","","2020-09-16 11:23:24","2022-12-19 21:40:17","How to iterate a loop with index and element in Swift","<arrays><swift><enumeration>","19","0","0","","","CC BY-SA 4.0"
+"24003291","1","","","2014-06-02 21:06:37","","850","328633","<p>In C/C++/Objective C you can define a macro using compiler preprocessors.
+Moreover, you can include/exclude some parts of code using compiler preprocessors.</p>
+<pre class=""lang-cpp prettyprint-override""><code>#ifdef DEBUG
+    // Debug-only code
+#endif
+</code></pre>
+<p>Is there a similar solution in Swift?</p>
+","193718","","10147399","","2021-08-13 12:25:57","2022-08-23 06:53:30","#ifdef replacement in the Swift language","<swift><xcode><preprocessor><preprocessor-directive>","18","6","0","","","CC BY-SA 4.0"
+"24037711","1","24037756","","2014-06-04 12:40:01","","829","529313","<p>How do you get the length of a <code>String</code>? For example, I have a variable defined like:</p>
+
+<pre><code>var test1: String = ""Scott""
+</code></pre>
+
+<p>However, I can't seem to find a length method on the string.</p>
+","1561363","","8090893","","2021-11-18 06:32:38","2021-11-18 06:32:38","Get the length of a String","<ios><swift><string><xcode><cocoa-touch>","41","3","0","","","CC BY-SA 3.0"
+"25678373","1","26270721","","2014-09-05 03:51:01","","795","730676","<p>Say I have a string here:</p>
+
+<pre><code>var fullName: String = ""First Last""
+</code></pre>
+
+<p>I want to split the string base on white space and assign the values to their respective variables</p>
+
+<pre><code>var fullNameArr = // something like: fullName.explode("" "") 
+
+var firstName: String = fullNameArr[0]
+var lastName: String? = fullnameArr[1]
+</code></pre>
+
+<p>Also, sometimes users might not have a last name.</p>
+","1022768","","8090893","","2021-11-07 10:44:51","2022-05-12 23:39:14","Split a String into an array in Swift?","<ios><arrays><swift><string><split>","40","4","0","","","CC BY-SA 4.0"
+"30790188","1","46080904","","2015-06-11 19:52:21","","709","264171","<p>I just created a new Swift project within Xcode. I am wondering which version of Swift it's using. </p>
+
+<p>How can I see, in Xcode or the terminal, what version of Swift I am using inside my project?</p>
+","1854064","","3397217","","2018-04-07 22:32:42","2022-11-20 13:55:41","How do I see which version of Swift I'm using?","<swift><xcode><terminal>","18","1","0","","","CC BY-SA 3.0"

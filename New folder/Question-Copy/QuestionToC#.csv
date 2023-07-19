@@ -1,0 +1,93 @@
+Id,PostTypeId,AcceptedAnswerId,ParentId,CreationDate,DeletionDate,Score,ViewCount,Body,OwnerUserId,OwnerDisplayName,LastEditorUserId,LastEditorDisplayName,LastEditDate,LastActivityDate,Title,Tags,AnswerCount,CommentCount,FavoriteCount,ClosedDate,CommunityOwnedDate,ContentLicense
+"7074","1","7077","","2008-08-10 07:18:02","","7391","1267251","<p>What are the differences between these two and which one should I use?</p>
+<pre><code>string s = &quot;Hello world!&quot;;
+String s = &quot;Hello world!&quot;;
+</code></pre>
+","571","","5152146","","2022-09-12 10:35:50","2022-11-11 11:38:49","What is the difference between String and string in C#?","<c#><.net><string><types><alias>","65","11","0","","2012-10-04 10:37:21","CC BY-SA 4.0"
+"105372","1","105402","","2008-09-19 20:34:50","","4288","974573","<p>How can you enumerate an <code>enum</code> in C#?</p>
+
+<p>E.g. the following code does not compile:</p>
+
+<pre class=""lang-cs prettyprint-override""><code>public enum Suit
+{
+    Spades,
+    Hearts,
+    Clubs,
+    Diamonds
+}
+
+public void EnumerateAllSuitsDemoMethod()
+{
+    foreach (Suit suit in Suit)
+    {
+        DoSomething(suit);
+    }
+}
+</code></pre>
+
+<p>And it gives the following compile-time error:</p>
+
+<blockquote>
+  <p>'Suit' is a 'type' but is used like a 'variable'</p>
+</blockquote>
+
+<p>It fails on the <code>Suit</code> keyword, the second one.</p>
+","12597","","12597","alexandrul","2022-11-24 00:35:24","2022-11-24 00:35:24","How to enumerate an enum?","<c#><.net><loops><enums><enumeration>","33","2","0","","","CC BY-SA 4.0"
+"29482","1","29485","","2008-08-27 03:58:21","","3775","1867043","<p>How do I cast an <code>int</code> to an <code>enum</code> in C#?</p>
+","493","lomaxx","365102","","2022-07-10 23:22:40","2022-07-10 23:29:04","How do I cast int to enum in C#?","<c#><enums><casting><integer>","32","0","0","","","CC BY-SA 4.0"
+"444798","1","15464440","","2009-01-14 21:39:46","","3331","1135799","<p>Is there a way to make the following return true?</p>
+<pre><code>string title = &quot;ASTRINGTOTEST&quot;;
+title.Contains(&quot;string&quot;);
+</code></pre>
+<p>There doesn't seem to be an overload that allows me to set the case sensitivity. Currently I UPPERCASE them both, but that's just silly (by which I am referring to the <a href=""http://en.wikipedia.org/wiki/Internationalization_and_localization"" rel=""noreferrer"">i18n</a> issues that come with up- and down casing).</p>
+<p><strong>UPDATE</strong></p>
+<p>This question is ancient and since then I have realized I asked for a simple answer for a really vast and difficult topic if you care to investigate it fully.</p>
+<p>For most cases, in mono-lingual, English code bases <a href=""https://stackoverflow.com/a/444818/11333"">this</a> answer will suffice. I'm suspecting because most people coming here fall in this category this is the most popular answer.</p>
+<p><a href=""https://stackoverflow.com/a/15464440/11333"">This</a> answer however brings up the inherent problem that we can't compare text case insensitive until we know both texts are the same culture and we know  what that culture is. This is maybe a less popular answer, but I think it is more correct and that's why I marked it as such.</p>
+","11333","boris callens","107625","boris callens","2022-01-28 12:44:32","2022-08-09 14:31:50","Case insensitive 'Contains(string)'","<c#><string><contains><case-insensitive>","29","0","0","","","CC BY-SA 4.0"
+"141088","1","141098","","2008-09-26 18:20:06","","3177","2199906","<p>I've seen a few different ways to iterate over a dictionary in C#.  Is there a standard way?</p>
+","9311","","365102","amdfan","2022-05-08 18:13:21","2022-11-05 12:30:44","How to iterate over a dictionary?","<c#><dictionary><loops>","29","11","0","","","CC BY-SA 4.0"
+"247621","1","247623","","2008-10-29 17:09:40","","2841","404647","<p>What are the correct version numbers for C#? What came out when? Why can't I find any answers about <strong><em>C# 3.5</em></strong>?</p>
+
+<p>This question is primarily to aid those who are searching for an answer using an incorrect version number, e.g. <strong><em>C# 3.5</em></strong>. The hope is that anyone failing to find an answer with the wrong version number will find <em>this</em> question and then search again with the right version number.</p>
+","22656","Jon Skeet","17939455","Jon Skeet","2022-03-01 15:09:48","2022-11-20 06:35:04","What are the correct version numbers for C#?","<c#><.net><visual-studio><.net-core><.net-framework-version>","13","4","0","","2008-10-29 17:09:40","CC BY-SA 3.0"
+"78536","1","78612","","2008-09-17 00:06:27","","2565","965153","<p>I want to do something like:</p>
+
+<pre><code>MyObject myObj = GetMyObj(); // Create and fill a new object
+MyObject newObj = myObj.Clone();
+</code></pre>
+
+<p>And then make changes to the new object that are not reflected in the original object.</p>
+
+<p>I don't often need this functionality, so when it's been necessary, I've resorted to creating a new object and then copying each property individually, but it always leaves me with the feeling that there is a better or more elegant way of handling the situation.</p>
+
+<p>How can I clone or deep copy an object so that the cloned object can be modified without any changes being reflected in the original object?</p>
+","3742","Alison","216074","","2015-12-16 09:42:00","2022-11-30 12:17:16","Deep cloning objects","<c#><.net><clone>","58","13","0","","","CC BY-SA 3.0"
+"136035","1","136092","","2008-09-25 20:56:08","","2495","775240","<p>It is discouraged to simply catch <code>System.Exception</code>. Instead, only the &quot;known&quot; exceptions should be caught.</p>
+<p>Now, this sometimes leads to unnecessary repetitive code, for example:</p>
+<pre><code>try
+{
+    WebId = new Guid(queryString[&quot;web&quot;]);
+}
+catch (FormatException)
+{
+    WebId = Guid.Empty;
+}
+catch (OverflowException)
+{
+    WebId = Guid.Empty;
+}
+</code></pre>
+<p>I wonder: Is there a way to catch both exceptions and only call the <code>WebId = Guid.Empty</code> call once?</p>
+<p>The given example is rather simple, as it's only a <a href=""http://en.wikipedia.org/wiki/Globally_unique_identifier"" rel=""noreferrer""><code>GUID</code></a>. But imagine code where you modify an object multiple times, and if one of the manipulations fails expectedly, you want to &quot;reset&quot; the <code>object</code>. However, if there is an unexpected exception, I still want to throw that higher.</p>
+","91","Michael Stum","6270590","Michael Stum","2021-02-26 08:05:27","2021-11-26 12:41:59","Catch multiple exceptions at once?","<c#><.net><exception>","29","11","0","","","CC BY-SA 4.0"
+"125319","1","151560","","2008-09-24 03:49:50","","2350","261659","<p>I have been running <a href=""http://en.wikipedia.org/wiki/StyleCop"" rel=""noreferrer"">StyleCop</a> over some C# code, and it keeps reporting that my <code>using</code> directives should be inside the namespace.</p>
+
+<p>Is there a technical reason for putting the <code>using</code> directives inside instead of outside the namespace?</p>
+","4490","benPearce","920","benPearce","2018-04-13 11:44:56","2022-12-08 12:19:24","Should 'using' directives be inside or outside the namespace?","<c#><.net><namespaces><stylecop><code-organization>","13","5","0","","","CC BY-SA 3.0"
+"472906","1","10380166","","2009-01-23 13:39:54","","2346","1181033","<p>How do I convert a <code>string</code> to a <code>byte[]</code> in .NET (C#) without manually specifying a specific encoding?</p>
+
+<p>I'm going to encrypt the string. I can encrypt it without converting, but I'd still like to know why encoding comes to play here.</p>
+
+<p>Also, why should encoding even be taken into consideration? Can't I simply get what bytes the string has been stored in? Why is there a dependency on character encodings?</p>
+","45603","Vulcan Eager","3739391","Dale Ragan","2020-02-26 22:22:09","2022-10-04 04:11:23","How do I get a consistent byte representation of strings in C# without manually specifying an encoding?","<c#><.net><string><character-encoding>","41","31","0","","","CC BY-SA 4.0"

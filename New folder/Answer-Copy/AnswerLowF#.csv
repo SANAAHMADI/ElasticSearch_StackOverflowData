@@ -1,0 +1,11 @@
+Id,PostId,Score,Text,CreationDate,UserDisplayName,UserId,ContentLicense
+"98167847","55745039","0","i have updated the question. I do not know if int can have nullable type like in c#","2019-04-18 11:58:59","","9860690","CC BY-SA 4.0"
+"31337041","20881312","0","That was fast. I included an fsx which shows the problem.","2014-01-02 11:54:41","","144440","CC BY-SA 3.0"
+"98167662","55745039","0","this records comes from db C or D can be null or some int value","2019-04-18 11:53:58","","9860690","CC BY-SA 4.0"
+"53251","165404","0","Ah... sorry, I think I misunderstood the question then, I thought you were asking for code samples on how to do it... Anyway, as I recall, we covered this sort of stuff in year 11 physics, perhaps picking up a textbook or two might be a good start.","2008-10-03 02:50:06","","15537","CC BY-SA 2.5"
+"98167722","55745039","0","Then in your desired result you should have `C = null` instead of `C = None` and you can map it as ajuch suggests, to int? just setting it to null when it's none.","2019-04-18 11:55:39","","5246145","CC BY-SA 4.0"
+"98167900","55745039","0","No, that's what Option is for...","2019-04-18 12:00:33","","1703864","CC BY-SA 4.0"
+"31336036","20881312","0","I'm having trouble understanding your question. Could you maybe provide a minimal but complete sample code together with some input and desired output. Something that I can copy & paste into an F# program? (In your question you don't define `wherecondition` and `whereChainOperator`, for example.)","2014-01-02 11:21:41","","558823","CC BY-SA 3.0"
+"53742","161492","0","This is a good staring point. Also good suggestions from everyone else. Thanks a ton, everyone","2008-10-03 10:22:13","","6613","CC BY-SA 2.5"
+"47336","153286","0","if you find out you really love being a developer, I would follow the Pragmatic Programmer's advice and learn 1 language/year. It will stretch your mind about how to solve problems.","2008-10-01 03:15:42","","17205","CC BY-SA 2.5"
+"53208","165404","0","If you want to do it accurately, and want to do it yourself, but don't understand the math involved, there's not too much anyone can do for you. First you need to understand what you are trying to model before you can attempt to model it.","2008-10-03 02:19:32","","15537","CC BY-SA 2.5"

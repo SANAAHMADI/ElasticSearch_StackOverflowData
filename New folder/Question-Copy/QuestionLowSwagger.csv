@@ -1,0 +1,302 @@
+Id,PostTypeId,AcceptedAnswerId,ParentId,CreationDate,DeletionDate,Score,ViewCount,Body,OwnerUserId,OwnerDisplayName,LastEditorUserId,LastEditorDisplayName,LastEditDate,LastActivityDate,Title,Tags,AnswerCount,CommentCount,FavoriteCount,ClosedDate,CommunityOwnedDate,ContentLicense
+"16837151","1","","","2013-05-30 13:11:31","","-8","132","<pre><code>import java.lang.Object;
+import java.awt.event.*;
+import java.lang.*;
+
+public class LevelSelectionMouseListner extends MouseAdapter
+{
+  public void mouseClicked(MouseEvent event)
+  {
+    int levelNum = -1;
+    boolean standard = true;
+    if(event.getSource() == levelMenu.getProvidedList())
+{
+  levelMenu.clearCustomList();
+  levelNum = levelMenu.getProvidedLevelNum();
+}
+else if (event.getSource()==levelMenu.getCustomList())
+{
+  levelMenu.clearProvidedList();
+  levelNum=levelMenu.getCustomLevelNum();
+  standard = false;
+}
+
+if(event.getClickCount()==2)
+{
+  if (levelNum != -1)
+  {
+    changeContent(PLAY_PANEL, ""startPlay"");
+    playMgr.initLevelForPlay(standard, levelNum);
+    playPanel.startTimer();
+  }
+}
+}
+}
+</code></pre>
+
+<p>This code is giving me multipe errors, and the class is one of 3 I am using to create a spaceship that shoots lasers in java. What is the issue, and why won't this compile? I am really lost. Thanks!</p>
+","2381831","","2416853","","2013-05-30 13:18:27","2013-05-30 13:25:18","Spaceship java issue gui","<java><swagger>","2","2","","","","CC BY-SA 3.0"
+"58011401","1","","","2019-09-19 12:48:53","","-5","174","<p>a Put Action is defined with a parameter type int and I need to respond a custom BadRequest message when a string is sent instead, this response should be only for one Controller</p>
+
+<pre class=""lang-cs prettyprint-override""><code>        [HttpPut(""address"")]
+        [Authorize]
+        [ProducesResponseType(typeof(Customer), 200)]
+        [ProducesResponseType(typeof(Error), 400)]
+        [ProducesResponseType(typeof(Error), 404)] //custom error
+        [ProducesDefaultResponseType]
+        public async Task&lt;IActionResult&gt; UpdateAddress(
+            [Required] [FromForm] string email,
+            [Required] [FromForm] string address_1,
+                       [FromForm] string address_2,
+            [Required] [FromForm] string city,
+            [Required] [FromForm] string region,
+            [Required] [FromForm] string postal_code,
+            [Required] [FromForm] string country,
+            [Required] [FromForm] int shipping_region_id //this is the parameter to validate
+        )
+        {
+           //...
+        }
+
+</code></pre>
+
+<p>the BadRequest (400) message should be : ""The Shipping Region ID is not number""
+How I can validate the type before to reach the Controller and send a custom BadRequest object?</p>
+","5125093","","5125093","","2019-09-19 13:14:23","2019-09-19 13:14:23","Validate parameter type of Action and send custom BadRequest ""The [Field] is not number""","<c#><asp.net-core><swagger><asp.net-core-webapi>","1","3","","","","CC BY-SA 4.0"
+"54515692","1","54532638","","2019-02-04 12:02:49","","-5","173","<p>Unable to run swagger with CXF on top of spring boot Application, but it's working fine with spring rest web service.</p>
+","11012295","","","","","2019-02-06 06:45:26","Unable to run swagger with CXF on top of spring boot Application","<spring><spring-boot><swagger><cxf><swagger-ui>","1","2","","","","CC BY-SA 4.0"
+"44388501","1","","","2017-06-06 11:13:02","","-4","445","<p>I have web service that secure with spring security with basic http authentication.
+when i was document it with swagger using springfox-swagger2 library
+how can i force  swagger ui to ask for user name password</p>
+","5982616","","","","","2017-06-07 03:45:55","force swagger to ask for basic http authentication with springfox","<java><spring><spring-boot><swagger><swagger-ui>","1","0","","","","CC BY-SA 3.0"
+"50944645","1","50945118","","2018-06-20 09:20:52","","-4","46","<p>I am using PHP 7.0 and in my code I will receive form post parameter and once I will get parameter than I will run my logic than redirect to some website.</p>
+
+<p>Now my question is can I use swagger in this kind of project, if yes than kindly can you guide me.</p>
+
+<p>Sorry for bad question</p>
+","507913","","","","","2018-06-20 09:44:09","PHP POST with swagger","<php><swagger><swagger-ui>","1","0","","","","CC BY-SA 4.0"
+"73592341","1","","","2022-09-03 12:45:28","","-3","180","<p>How can I set the default value of a boolean to false in Entity Framework in .NET Core.</p>
+<p>Thank you</p>
+<pre><code>public class CategoryVM
+{
+    public CategoryVM()
+    {
+        isOpen = false;
+
+        Products = new List&lt;ProductVM&gt;();
+    }
+
+    public Guid Id { get; set; }
+    public string? Title { get; set; }
+
+    [NotMapped]
+    public IFormFile? ImageFile { get; set; }
+
+    public string? catImeage { get; set; }
+    public Boolean isOpen { get; set; }
+
+    public virtual IEnumerable&lt;ProductVM&gt; Products { get; set; }
+}
+</code></pre>
+<p><a href=""https://i.stack.imgur.com/cwe5c.png"" rel=""nofollow noreferrer""><img src=""https://i.stack.imgur.com/cwe5c.png"" alt=""enter image description here"" /></a></p>
+","10501254","","13302","","2022-09-03 12:49:30","2022-09-03 13:04:48","Entity Framework : boolean value is true","<c#><entity-framework><asp.net-core><crud><swagger-ui>","2","0","","","","CC BY-SA 4.0"
+"28882801","1","28886513","","2015-03-05 16:29:15","","-3","92","<p><a href=""https://github.com/apigee-127/swagger-converter"" rel=""nofollow"">https://github.com/apigee-127/swagger-converter</a></p>
+
+<p>I see this code:</p>
+
+<pre><code>var convert = require('swagger-converter');
+var fs = require('fs');
+var resourceListing = JSON.parse(fs.readFileSync('/path/to/petstore/index.json').toString());
+var apiDeclarations = [ JSON.parse(fs.readFileSync('/path/to/petstore/pet.json').toString()),
+JSON.parse(fs.readFileSync('/path/to/petstore/user.json').toString()),
+JSON.parse(fs.readFileSync('/path/to/petstore/store.json').toString())
+];
+
+var swagger2Document = convert(resourceListing, apiDeclarations);
+
+console.log(JSON.stringify(swagger2Document, null, 2));
+</code></pre>
+
+<p>I'm confsued as to what exactly I'm supposed to do here to run this?  Do I start a node http server?  </p>
+","3379893","","","","","2015-03-05 19:53:18","How does this npm build work?","<node.js><npm><swagger>","1","3","","","","CC BY-SA 3.0"
+"59273673","1","","","2019-12-10 18:53:47","","-3","325","<p>How do I solve the errors I get when I try to make a POST request?</p>
+
+<p>I have tried executing the following json code via swagger:</p>
+
+<pre><code>{
+
+
+""productID"": 0,
+  ""productName"": ""string"",
+  ""price"": 0,
+  ""marketID"": 0,
+  ""market"": {
+    ""marketID"": 0,
+    ""name"": ""string"",
+    ""budget"": 0,
+    ""startDate"": ""2019-12-10"",
+    ""productGuideID"": 0,
+    ""rowVersion"": ""string"",
+    ""administrator"": {
+      ""hireDate"": ""2019-12-10"",
+      ""productAssignments"": [
+        null
+      ],
+      ""countryAssignment"": {
+        ""productGuideID"": 0,
+        ""location"": ""string""
+      },
+      ""id"": 0,
+      ""lastName"": ""string"",
+      ""firstMidName"": ""string""
+    },
+    ""products"": [
+      null
+    ]
+  },
+  ""subscriptions"": [
+    {
+      ""subscriptionID"": 0,
+      ""productID"": 0,
+      ""customerID"": 0,
+      ""customerLoyalty"": 0,
+      ""customer"": {
+        ""subscriptionDate"": ""2019-12-10"",
+        ""subscriptions"": [
+          null
+        ],
+        ""id"": 0,
+        ""lastName"": ""string"",
+        ""firstMidName"": ""string""
+      }
+    }
+  ],
+  ""productAssignments"": [
+    {
+      ""productGuideID"": 0,
+      ""productID"": 0,
+      ""productGuide"": {
+        ""hireDate"": ""2019-12-10"",
+        ""productAssignments"": [
+          null
+        ],
+        ""countryAssignment"": {
+          ""productGuideID"": 0,
+          ""location"": ""string""
+        },
+        ""id"": 0,
+        ""lastName"": ""string"",
+        ""firstMidName"": ""string""
+      }
+    }
+  ]
+}
+</code></pre>
+
+<p>After I execute it I think I am getting a 400 response from the server:
+<a href=""https://i.stack.imgur.com/xyBDu.png"" rel=""nofollow noreferrer""><img src=""https://i.stack.imgur.com/xyBDu.png"" alt=""Server response 1""></a>
+I also think I am getting a 200 success response?:
+<a href=""https://i.stack.imgur.com/wyo6k.png"" rel=""nofollow noreferrer""><img src=""https://i.stack.imgur.com/wyo6k.png"" alt=""Server response 2""></a>
+I have also tried to put the standard json code from swagger into Postman and there I get a 404 error:
+<a href=""https://i.stack.imgur.com/M8SS6.png"" rel=""nofollow noreferrer""><img src=""https://i.stack.imgur.com/M8SS6.png"" alt=""Postman 404 error""></a></p>
+
+<p>The following is my Http Post method which is in my ProductsController:</p>
+
+<pre><code>[HttpPost]
+    public async Task&lt;ActionResult&lt;Product&gt;&gt; PostProduct(Product product)
+    {
+        _context.Products.Add(product);
+        try
+        {
+            await _context.SaveChangesAsync();
+        }
+        catch (DbUpdateException)
+        {
+            if (ProductExists(product.ProductID))
+            {
+                return Conflict();
+            }
+            else
+            {
+                throw;
+            }
+        }
+
+        return CreatedAtAction(""GetProduct"", new { id = product.ProductID }, 
+
+product);
+        }
+</code></pre>
+
+<p>The following is a link to my github repository where the VitekAPI project is:
+<a href=""https://github.com/tux-superman/MVCandAPI"" rel=""nofollow noreferrer"">https://github.com/tux-superman/MVCandAPI</a></p>
+
+<p>My Product model:</p>
+
+<pre><code>using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace VitekSky.Models
+{
+public class Product
+{
+
+    [DatabaseGenerated(DatabaseGeneratedOption.None)]
+    [Display(Name = ""Product Number"")]
+    public int ProductID { get; set; }
+    [StringLength(50, MinimumLength = 3)]
+    public string ProductName { get; set; }
+
+
+    [Range(0, 99999)]
+    public int Price { get; set; }
+
+    public int MarketID { get; set; }
+
+
+    public Market Market { get; set; }    
+    public ICollection&lt;Subscription&gt; Subscriptions { get; set; }
+    public ICollection&lt;ProductAssignment&gt; ProductAssignments { get; set; }
+
+}
+}
+</code></pre>
+
+<p>My Market model:</p>
+
+<pre><code> public class Market
+{
+    public int MarketID { get; set; }
+
+    [StringLength(50, MinimumLength = 3)]
+    public string Name { get; set; }
+
+    [DataType(DataType.Currency)]
+    [Column(TypeName = ""money"")]
+    public decimal Budget { get; set; }
+
+    [DataType(DataType.Date)]
+    [DisplayFormat(DataFormatString = ""{0:yyyy-MM-dd}"", ApplyFormatInEditMode = true)]
+    [Display(Name = ""Start Date"")]
+    public DateTime StartDate { get; set; }
+
+    public int? ProductGuideID { get; set; }
+
+    [Timestamp]
+    public byte[] RowVersion { get; set; }
+
+    public ProductGuide Administrator { get; set; }
+    public ICollection&lt;Product&gt; Products { get; set; }
+}
+</code></pre>
+","12328216","","12328216","","2019-12-10 19:28:34","2019-12-11 07:18:42","How do I make a post request?","<c#><json><swagger><postman><asp.net-core-webapi>","2","6","","","","CC BY-SA 4.0"
+"55794038","1","","","2019-04-22 11:56:56","","-3","1018","<p>Not working Swagger Ui</p>
+
+<p>500 : {""Message"":""An error has occurred."",""ExceptionMessage"":""Invalid type owner for DynamicMethod."",""ExceptionType"":""System.ArgumentException"",""StackTrace"":"" at System.Reflection.Emit.DynamicMethod.Init(String name, MethodAttributes attributes, CallingConventions callingConvention, Type returnType, Type[] signature, Type owner, Module m, Boolean skipVisibility, Boolean transparentMethod, StackCrawlMark&amp; stackMark)\r\n at System.Reflection.Emit.DynamicMethod..ctor(String name, Type returnType, Type[] parameterTypes, Type owner, Boolean skipVisibility)\r\n at Newtonsoft.Json.Utilities.DynamicReflectionDelegateFactory.CreateDynamicMethod(String name, Type returnType, Type[] parameterTypes, Type owner)\r\n at Newtonsoft.Json.Utilities.DynamicReflectionDelegateFactory.CreateDefaultConstructor[T](Type type)\r\n at Newtonsoft.Json.Serialization.DefaultContractResolver.GetDefaultCreator(Type createdType)\r\n at Newtonsoft.Json.Serialization.DefaultContractResolver.InitializeContract(JsonContract contract)\r\n at Newtonsoft.Json.Serialization.DefaultContractResolver.CreateArrayContract(Type objectType)\r\n at Newtonsoft.Json.Serialization.DefaultContractResolver.CreateContract(Type objectType)\r\n at Newtonsoft.Json.Serialization.DefaultContractResolver.ResolveContract(Type type)\r\n at Swashbuckle.Swagger.SchemaRegistry.CreateInlineSchema(Type type)\r\n at Swashbuckle.Swagger.SchemaRegistry.GetOrRegister(Type type)\r\n at Swashbuckle.Swagger.SwaggerGenerator.CreateParameter(String location, ApiParameterDescription paramDesc, SchemaRegistry schemaRegistry)\r\n at Swashbuckle.Swagger.SwaggerGenerator.&lt;>c__DisplayClass12.b__11(ApiParameterDescription paramDesc)\r\n at System.Linq.Enumerable.WhereSelectEnumerableIterator<code>2.MoveNext()\r\n at System.Collections.Generic.List</code>1..ctor(IEnumerable<code>1 collection)\r\n at System.Linq.Enumerable.ToList[TSource](IEnumerable</code>1 source)\r\n at Swashbuckle.Swagger.SwaggerGenerator.CreateOperation(ApiDescription apiDesc, SchemaRegistry schemaRegistry)\r\n at Swashbuckle.Swagger.SwaggerGenerator.CreatePathItem(IEnumerable<code>1 apiDescriptions, SchemaRegistry schemaRegistry)\r\n at Swashbuckle.Swagger.SwaggerGenerator.&lt;&gt;c__DisplayClass7.&lt;GetSwagger&gt;b__4(IGrouping</code>2 group)\r\n at System.Linq.Enumerable.ToDictionary[TSource,TKey,TElement](IEnumerable<code>1 source, Func</code>2 keySelector, Func<code>2 elementSelector, IEqualityComparer</code>1 comparer)\r\n at Swashbuckle.Swagger.SwaggerGenerator.GetSwagger(String rootUrl, String apiVersion)\r\n at Swashbuckle.Application.SwaggerDocsHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)\r\n at System.Net.Http.HttpMessageInvoker.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)\r\n at System.Web.Http.Dispatcher.HttpRoutingDispatcher.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)\r\n at System.Net.Http.DelegatingHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)\r\n at System.Web.Http.HttpServer.d__0.MoveNext()""} <a href=""http://localhost:5352/swagger/docs/v1"" rel=""nofollow noreferrer"">http://localhost:5352/swagger/docs/v1</a></p>
+","","user8753842","","","","2019-05-23 15:04:42","Swagger not working have any recommerndation?","<swagger><swagger-ui>","1","3","0","","","CC BY-SA 4.0"
+"65110792","1","65111978","","2020-12-02 15:11:07","","-3","89","<p>I have a Swagger API on which, I had to send Lead Form Data From my Web Page. I Can't Get much data From internet. Form is Already Created on Swagger HUB on Which ,I can manually insert data and it's Working But I had to send data From my Webpage , I am Already sending Data From my Webpage to Google Sheets But I Can't insert same data into Swagger HUB API Dynamically Can Anyone Help me With it Thanks!</p>
+","12100361","","","","","2020-12-02 16:17:44","How to Send Lead Form Data to swaggerhub Api using php?","<php><html><web><postman><swaggerhub>","1","2","","2020-12-03 01:46:58","","CC BY-SA 4.0"

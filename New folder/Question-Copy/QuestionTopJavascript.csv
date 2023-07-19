@@ -1,0 +1,99 @@
+Id,PostTypeId,AcceptedAnswerId,ParentId,CreationDate,DeletionDate,Score,ViewCount,Body,OwnerUserId,OwnerDisplayName,LastEditorUserId,LastEditorDisplayName,LastEditDate,LastActivityDate,Title,Tags,AnswerCount,CommentCount,FavoriteCount,ClosedDate,CommunityOwnedDate,ContentLicense
+"5767325","1","5767357","","2011-04-23 22:17:18","","11206","11015895","<p>How do I remove a specific value from an array? Something like:</p>
+<pre class=""lang-js prettyprint-override""><code>array.remove(value);
+</code></pre>
+<p>I have to use <em>core</em> JavaScript. Frameworks are not allowed.</p>
+","364969","","365102","","2022-12-16 11:55:52","2022-12-19 10:07:30","How can I remove a specific item from an array?","<javascript><arrays>","141","8","0","","","CC BY-SA 4.0"
+"178325","1","178450","","2008-10-07 13:03:18","","8515","3082258","<p>How do I toggle the visibility of an element using  <code>.hide()</code>, <code>.show()</code>, or <code>.toggle()</code>?</p>
+<p>How do I test if an element is <code>visible</code> or <code>hidden</code>?</p>
+","21709","Toytown Mafia","365102","","2022-07-05 07:29:59","2022-07-05 07:29:59","How do I check if an element is hidden in jQuery?","<javascript><jquery><dom><visibility>","65","3","0","","","CC BY-SA 4.0"
+"1335851","1","1335881","","2009-08-26 16:10:13","","8335","1193688","<p>Recently, I ran some of my JavaScript code through Crockford's <a href=""http://www.jslint.com/"" rel=""noreferrer"">JSLint</a>, and it gave the following error:</p>
+<blockquote>
+<p>Problem at line 1 character 1: Missing &quot;use strict&quot; statement.</p>
+</blockquote>
+<p>Doing some searching, I realized that some people add <code>&quot;use strict&quot;;</code> into their JavaScript code. Once I added the statement, the error stopped appearing. Unfortunately, Google did not reveal much of the history behind this string statement. Certainly it must have something to do with how the JavaScript is interpreted by the browser, but I have no idea what the effect would be.</p>
+<p>So what is <code>&quot;use strict&quot;;</code> all about, what does it imply, and is it still relevant?</p>
+<p>Do any of the current browsers respond to the <code>&quot;use strict&quot;;</code> string or is it for future use?</p>
+","25847","","25847","","2022-07-05 13:59:21","2022-12-08 07:03:26","What does ""use strict"" do in JavaScript, and what is the reasoning behind it?","<javascript><syntax><jslint><use-strict>","30","2","0","","","CC BY-SA 4.0"
+"503093","1","506004","","2009-02-02 12:54:16","","7704","7475494","<p>How can I redirect the user from one page to another using jQuery or pure JavaScript?</p>
+","44984","venkatachalam","63550","strager","2018-02-06 12:40:14","2022-11-03 06:46:52","How do I redirect to another webpage?","<javascript><jquery><redirect>","58","0","0","","","CC BY-SA 3.0"
+"111102","1","111111","","2008-09-21 14:12:07","","7621","1597333","<p>How would you explain JavaScript closures to someone with a knowledge of the concepts they consist of (for example functions, variables and the like), but does not understand closures themselves?</p>
+
+<p>I have seen <a href=""http://en.wikipedia.org/wiki/Scheme_%28programming_language%29"" rel=""noreferrer"">the Scheme example</a> given on Wikipedia, but unfortunately it did not help.</p>
+","9951","e-satis","5423108","Oli","2017-04-09 13:55:17","2022-10-09 03:20:07","How do JavaScript closures work?","<javascript><function><variables><scope><closures>","86","0","0","","2013-06-06 10:22:55","CC BY-SA 3.0"
+"336859","1","336868","","2008-12-03 11:31:07","","7518","1186717","<p>I've recently started maintaining someone else's JavaScript code. I'm fixing bugs, adding features and also trying to tidy up the code and make it more consistent.</p>
+<p>The previous developer used two ways of declaring functions and I can't work out if there is a reason behind it or not.</p>
+<p>The two ways are:</p>
+<pre><code>var functionOne = function() {
+    // Some code
+};
+</code></pre>
+
+<pre><code>function functionTwo() {
+    // Some code
+}
+</code></pre>
+<p>What are the reasons for using these two different methods and what are the pros and cons of each? Is there anything that can be done with one method that can't be done with the other?</p>
+","31569","Richard","31569","Richard","2022-07-06 07:04:42","2022-07-06 07:04:42","var functionName = function() {} vs function functionName() {}","<javascript><function><syntax><idioms>","41","0","0","","","CC BY-SA 4.0"
+"1789945","1","1789952","","2009-11-24 13:04:29","","7412","7500279","<p>Usually I would expect a <code>String.contains()</code> method, but there doesn't seem to be one. </p>
+
+<p>What is a reasonable way to check for this?</p>
+","131679","","6451573","","2019-04-03 13:17:08","2022-10-18 06:47:43","How to check whether a string contains a substring in JavaScript?","<javascript><string><substring><string-matching>","3","0","0","","2013-12-30 00:31:30","CC BY-SA 3.0"
+"208105","1","208106","","2008-10-16 10:57:45","","7242","2954330","<p>Given an object:</p>
+<pre><code>let myObject = {
+  &quot;ircEvent&quot;: &quot;PRIVMSG&quot;,
+  &quot;method&quot;: &quot;newURI&quot;,
+  &quot;regex&quot;: &quot;^http://.*&quot;
+};
+</code></pre>
+<p>How do I remove the property <code>regex</code> to end up with the following <code>myObject</code>?</p>
+<pre><code>let myObject = {
+  &quot;ircEvent&quot;: &quot;PRIVMSG&quot;,
+  &quot;method&quot;: &quot;newURI&quot;
+};
+</code></pre>
+","27929","johnstok","7941251","","2022-08-29 10:25:21","2022-12-27 15:41:29","How do I remove a property from a JavaScript object?","<javascript><object><properties>","36","0","0","","","CC BY-SA 4.0"
+"14220321","1","14220323","","2013-01-08 17:06:14","","6513","2019868","<p>How do I return the response/result from a function <code>foo</code> that makes an asynchronous request?</p>
+<p>I am trying to return the value from the callback, as well as assigning the result to a local variable inside the function and returning that one, but none of those ways actually return the response — they all return <code>undefined</code> or whatever the initial value of the variable <code>result</code> is.</p>
+<p><strong>Example of an asynchronous function that accepts a callback</strong> (using jQuery's <code>ajax</code> function):</p>
+<pre><code>function foo() {
+    var result;
+
+    $.ajax({
+        url: '...',
+        success: function(response) {
+            result = response;
+            // return response; // &lt;- I tried that one as well
+        }
+    });
+
+    return result; // It always returns `undefined`
+}
+</code></pre>
+<p><strong>Example using Node.js:</strong></p>
+<pre><code>function foo() {
+    var result;
+
+    fs.readFile(&quot;path/to/file&quot;, function(err, data) {
+        result = data;
+        // return data; // &lt;- I tried that one as well
+    });
+
+    return result; // It always returns `undefined`
+}
+</code></pre>
+<p><strong>Example using the <code>then</code> block of a promise:</strong></p>
+<pre><code>function foo() {
+    var result;
+
+    fetch(url).then(function(response) {
+        result = response;
+        // return response; // &lt;- I tried that one as well
+    });
+
+    return result; // It always returns `undefined`
+}
+</code></pre>
+","218196","","3499595","","2022-07-06 21:29:59","2022-12-28 04:28:08","How do I return the response from an asynchronous call?","<javascript><ajax><asynchronous>","45","3","0","","","CC BY-SA 4.0"
+"950087","1","950146","","2009-06-04 11:59:50","","6145","4115550","<p>How do I include a JavaScript file inside another JavaScript file, similar to <code>@import</code> in CSS?</p>
+","426996","","365102","","2022-07-24 23:47:07","2022-12-31 18:16:33","How do I include a JavaScript file in another JavaScript file?","<javascript><file><import><include>","70","2","0","","","CC BY-SA 4.0"

@@ -1,0 +1,11 @@
+Id,PostId,Score,Text,CreationDate,UserDisplayName,UserId,ContentLicense
+"98156983","55734029","0","Yes. time out is not a solution. what i am saying is first we need understand what is happening, for that put a timeout and check whether you are getting u expected behavior. if so, we can assume that when fetch request going to the server file is not deleted it is being delete. that mean file is still available.","2019-04-18 05:54:15","","8465401","CC BY-SA 4.0"
+"98157086","55734029","0","You are sending a response for the delete request right?  can you wait for delete the file before sending that response. It will solve this issue I guess. (Sorry about my English)","2019-04-18 05:59:39","","8465401","CC BY-SA 4.0"
+"98157393","55736077","0","So you dynamically modify the template of already mounted Vue instance?","2019-04-18 06:16:12","","3629092","CC BY-SA 4.0"
+"98164341","55741799","0","@User28 added the picture in edit, this is only for one question","2019-04-18 10:10:32","","10552961","CC BY-SA 4.0"
+"98157662","55740057","0","[How to open the datepicker on focus and hide on blur #560](https://github.com/charliekassel/vuejs-datepicker/issues/560)","2019-04-18 06:28:31","","1763929","CC BY-SA 4.0"
+"98158844","55739783","0","Possible duplicate of [How to set up toolbar to be fixed in vuetify?](https://stackoverflow.com/questions/53217709/how-to-set-up-toolbar-to-be-fixed-in-vuetify)","2019-04-18 07:11:39","","1981247","CC BY-SA 4.0"
+"64048693","38305310","0","I mean as an API to another component. Content distribution https://vuejs.org/guide/components.html#Content-Distribution-with-Slots","2016-07-11 21:00:14","","440237","CC BY-SA 3.0"
+"98164717","55743567","0","Another thing I just found out is that if I replace sight.rating with a hard coded float, I don't get the error either.","2019-04-18 10:22:02","","8618818","CC BY-SA 4.0"
+"98164391","55743567","0","Added the data inside ""sight"". @RolandStarke Your code indeed does not reproduce the error. Weird thing is that the code is working and I'm seeing the stars, however, getting the error in the console is no bueno even if the code is working.","2019-04-18 10:12:16","","8618818","CC BY-SA 4.0"
+"98164544","55741799","0","Then you should do something like `this.$refs[this.$route.params.questionId].scrollIntoView()`.","2019-04-18 10:16:36","","2438933","CC BY-SA 4.0"

@@ -1,0 +1,185 @@
+Id,PostTypeId,AcceptedAnswerId,ParentId,CreationDate,DeletionDate,Score,ViewCount,Body,OwnerUserId,OwnerDisplayName,LastEditorUserId,LastEditorDisplayName,LastEditDate,LastActivityDate,Title,Tags,AnswerCount,CommentCount,FavoriteCount,ClosedDate,CommunityOwnedDate,ContentLicense
+"42133894","1","42134176","","2017-02-09 10:16:36","","670","525659","<p>I'm  trying to understand how to properly watch for some prop variation.
+I have a parent component (.vue files) that receive data from an ajax call, put the data inside an object and use it to render some child component through a v-for directive, below a simplification of my implementation:</p>
+<pre class=""lang-html prettyprint-override""><code>&lt;template&gt;
+  &lt;div&gt;
+    &lt;player v-for=&quot;(item, key, index) in players&quot;
+      :item=&quot;item&quot;
+      :index=&quot;index&quot;
+      :key=&quot;key&quot;&quot;&gt;
+    &lt;/player&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<p>... then inside <code>&lt;script&gt;</code> tag:</p>
+<pre><code> data(){
+     return {
+         players: {}
+ },
+ created(){
+        let self = this;
+        this.$http.get('../serv/config/player.php').then((response) =&gt; {
+            let pls = response.body;
+            for (let p in pls) {
+                self.$set(self.players, p, pls[p]);
+            }
+    });
+}
+</code></pre>
+<p>item objects are like this:</p>
+<pre><code>item:{
+   prop: value,
+   someOtherProp: {
+       nestedProp: nestedValue,
+       myArray: [{type: &quot;a&quot;, num: 1},{type: &quot;b&quot; num: 6} ...]
+    },
+}
+</code></pre>
+<p>Now, inside my child &quot;player&quot; component I'm trying to watch for any Item's property variation and I use:</p>
+<pre><code>...
+watch:{
+    'item.someOtherProp'(newVal){
+        //to work with changes in &quot;myArray&quot;
+    },
+    'item.prop'(newVal){
+        //to work with changes in prop
+    }
+}
+</code></pre>
+<p>It works but it seems a bit tricky to me and I was wondering if this is the right way to do it. My goal is to perform some action every time <code>prop</code> changes or <code>myArray</code> gets new elements or some variation inside existing ones. Any suggestion will be appreciated.</p>
+","2351052","","8816585","","2022-12-03 01:43:07","2022-12-03 01:43:07","Vue.js - How to properly watch for nested data","<javascript><vue.js><vue-component><vue-resource>","15","0","0","","","CC BY-SA 4.0"
+"35914069","1","35916241","","2016-03-10 10:38:32","","497","511153","<p>How can I fetch query parameters in Vue.js?</p>
+<p>E.g.</p>
+<pre><code>http://somesite.com?test=yay
+</code></pre>
+<p>Can’t find a way to fetch or do I need to use pure JS or some library for this?</p>
+","1200670","","6904888","","2022-07-04 05:15:47","2022-12-03 17:07:57","How can I get query parameters from a URL in Vue.js?","<javascript><vue.js><vue-router><url-parameters><query-string>","13","4","0","","","CC BY-SA 4.0"
+"52586965","1","58669550","","2018-10-01 08:10:13","","471","520825","<p>In my Nuxt application where ESlint and Prettier are installed and enabled, I switched to Visual Studio Code.</p>
+<p>When I open a <strong>.vue</strong> file and press <kbd>CMD</kbd>+ <kbd>Shift</kbd> + <kbd>P</kbd>  and choose <strong>Format Document</strong>, my file does not get <a href=""https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode"" rel=""noreferrer"">formatted</a> at all.</p>
+<p>My  <strong>.prettierrc</strong> <a href=""https://prettier.io/docs/en/configuration.html"" rel=""noreferrer"">settings</a>:</p>
+<pre><code>{
+  &quot;tabWidth&quot;: 2,
+  &quot;semi&quot;: false,
+  &quot;singleQuote&quot;: true
+}
+</code></pre>
+<p>I have so many source code lines, so I cannot format them manually. What am I doing wrong?</p>
+","3329664","","3050","","2021-04-09 08:04:20","2022-12-14 08:35:20","Why does Prettier not format code in VS Code?","<javascript><vue.js><visual-studio-code><nuxt.js><prettier>","43","8","0","","","CC BY-SA 4.0"
+"44584292","1","44584437","","2017-06-16 08:19:58","","464","466185","<p>In the <a href=""https://v2.vuejs.org/v2/guide/instance.html"" rel=""noreferrer"">VueJs 2.0 docs</a> I can't find any hooks that would listen on <code>props</code> changes.</p>
+<p>Does VueJs have such hooks like <code>onPropsUpdated()</code> or similar?</p>
+<p><strong>Update</strong></p>
+<p>As @wostex suggested, I tried to <code>watch</code> my property but nothing changed. Then I realized that I've got a special case:</p>
+<pre><code>&lt;template&gt;
+    &lt;child :my-prop=&quot;myProp&quot;&gt;&lt;/child&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+   export default {
+      props: ['myProp']
+   }
+&lt;/script&gt;
+</code></pre>
+<p>I am passing <code>myProp</code> that the parent component receives to the <code>child</code> component. Then the <code>watch: {myProp: ...}</code> is not working.</p>
+","1075289","","6277151","","2022-07-14 00:55:35","2022-12-21 08:51:23","How to listen for 'props' changes","<javascript><vue.js><vuejs2><vue-component>","21","2","0","","","CC BY-SA 4.0"
+"54126343","1","54614440","","2019-01-10 10:12:32","","421","640069","<p>I'm using VueJS and Laravel for my project. This issue started to show lately and it shows even in the old git branches.</p>
+<p>This error only shows in the Chrome browser.</p>
+","8124531","","8124531","","2022-04-06 07:42:36","2022-11-02 05:15:53","How to fix 'Unchecked runtime.lastError: The message port closed before a response was received' chrome issue?","<laravel><vue.js><google-chrome><google-experiments>","16","6","0","","","CC BY-SA 4.0"
+"38085180","1","38085541","","2016-06-28 19:54:36","","419","545899","<p>I have an input:</p>
+<pre class=""lang-html prettyprint-override""><code>&lt;input 
+  type=&quot;text&quot; 
+  id=&quot;name&quot; 
+  class=&quot;form-control&quot; 
+  name=&quot;name&quot;  
+  v-model=&quot;form.name&quot; 
+  :disabled=&quot;validated ? '' : disabled&quot;
+/&gt;
+</code></pre>
+<p>and in my Vue.js component, I have:</p>
+<pre class=""lang-js prettyprint-override""><code>..
+..
+ready() {
+  this.form.name = this.store.name;
+  this.form.validated = this.store.validated;
+},
+..
+</code></pre>
+<p><code>validated</code> being a <code>boolean</code>, it can be either <code>0</code> or <code>1</code>, but no matter what value is stored in the database, my input is always disabled.</p>
+<p>I need the input to be disabled if <code>false</code>, otherwise it should be enabled and editable.</p>
+<p>Update:</p>
+<p>Doing this always <strong>enables</strong> the input (no matter I have 0 or 1 in the database):</p>
+<pre class=""lang-js prettyprint-override""><code>&lt;input 
+  type=&quot;text&quot; 
+  id=&quot;name&quot; 
+  class=&quot;form-control&quot; 
+  name=&quot;name&quot; 
+  v-model=&quot;form.name&quot; 
+  :disabled=&quot;validated ? '' : disabled&quot;
+/&gt;
+</code></pre>
+<p>Doing this always <strong>disabled</strong> the input (no matter I have 0 or 1 in  the database):</p>
+<pre class=""lang-js prettyprint-override""><code>&lt;input 
+  type=&quot;text&quot; 
+  id=&quot;name&quot; 
+  class=&quot;form-control&quot; 
+  name=&quot;name&quot; 
+  v-model=&quot;form.name&quot; 
+  :disabled=&quot;validated ? disabled : ''&quot;
+/&gt;
+</code></pre>
+","1090463","","8172439","","2021-10-10 09:06:08","2022-12-03 01:42:14","Disable input conditionally (Vue.js)","<javascript><html><forms><vue.js><input>","15","0","0","","","CC BY-SA 4.0"
+"42749973","1","42753045","","2017-03-12 16:31:41","","411","142566","<p>I'm starting out a new vue.js project so I used the vue-cli tool to scaffold out a new webpack project (i.e. <code>vue init webpack</code>).</p>
+
+<p>As I was walking through the generated files I noticed the following imports in the <code>src/router/index.js</code> file:</p>
+
+<pre><code>import Vue from 'vue'
+import Router from 'vue-router'
+import Hello from '@/components/Hello' // &lt;- this one is what my qusestion is about
+
+Vue.use(Router)
+
+export default new Router({
+    routes: [
+        {
+            path: '/',
+            name: 'Hello',
+            component: Hello
+        }
+    ]
+})
+</code></pre>
+
+<p>I've not seen the at sign (<code>@</code>) in a path before. I suspect it allows for relative paths (maybe?) but I wanted to be sure I understand what it truly does. </p>
+
+<p>I tried searching around online but wasn't able to find an explanation (prob because searching for ""at sign"" or using the literal character <code>@</code> doesn't help as search criteria).</p>
+
+<p>What does the <code>@</code> do in this path (link to documentation would be fantastic) and is this an es6 thing? A webpack thing? A vue-loader thing?</p>
+
+<h1>UPDATE</h1>
+
+<p>Thanks Felix Kling for pointing me to another duplicate stackoverflow question/answer about this same question.</p>
+
+<p>While the comment on the other stackoverflow post isn't the exact answer to this question (it wasn't a babel plugin in my case) it did point me in the correct direction to find what it was. </p>
+
+<p>In in the scaffolding that vue-cli cranks out for you, part of the base webpack config sets up an alias for .vue files:</p>
+
+<p><a href=""https://i.stack.imgur.com/Nz1TS.png"" rel=""noreferrer""><img src=""https://i.stack.imgur.com/Nz1TS.png"" alt=""Alias location within project""></a></p>
+
+<p>This makes sense both in the fact that it gives you a relative path from the src file <em>and</em> it removes the requirement of the <code>.vue</code> at the end of the import path (which you normally need). </p>
+
+<p>Thanks for the help!</p>
+","1934903","","3257186","","2021-06-18 10:22:37","2022-12-08 19:22:07","What does the @ mean inside an import path?","<javascript><webpack><ecmascript-6><vue.js>","9","10","0","","","CC BY-SA 4.0"
+"32106155","1","40586872","","2015-08-19 21:43:52","","370","599387","<p>Just a quick question. </p>
+
+<p>Can you force <code>Vue.js</code> to <strong>reload</strong>/<strong>recalculate</strong> everything? If so, how?</p>
+","150094","","8172439","","2022-04-27 00:05:06","2022-11-14 08:47:06","Can you force Vue.js to reload/re-render?","<javascript><node.js><vue.js><reload><rerender>","22","7","0","","","CC BY-SA 4.0"
+"42260233","1","","","2017-02-15 21:17:16","","362","207767","<p>I'm learning Vue with an online course and the instructor gave me an exercise to make an input text with a default value. I completed it using <code>v-model</code> but, the instructor chose <code>v-bind:value</code> and I don't understand why.</p>
+<p>Can someone give me a simple explanation about the difference between these two and when it's better use each one?</p>
+","5721717","","792066","","2022-05-01 13:51:47","2022-07-15 19:35:46","Vue.js—Difference between v-model and v-bind","<vue.js>","5","4","0","","","CC BY-SA 4.0"
+"34623833","1","34624803","","2016-01-06 00:42:32","","354","199960","<p>How to remove hashbang <code>#!</code> from url?</p>
+<p>I found option to disable hashbang in vue router documentation ( <a href=""http://vuejs.github.io/vue-router/en/options.html"" rel=""noreferrer"">http://vuejs.github.io/vue-router/en/options.html</a> ) but this option removes <code>#!</code> and just put <code>#</code></p>
+<p>Is there any way to have clean url?</p>
+<p>Example:</p>
+<p>NOT: <code>#!/home</code></p>
+<p>BUT: <code>/home</code></p>
+<p>Thanks!</p>
+","3806764","","5918539","","2021-05-06 10:34:33","2022-10-11 08:22:33","Vue.js - How to remove hashbang #! from url?","<vue.js><vue-router>","15","0","0","","","CC BY-SA 4.0"

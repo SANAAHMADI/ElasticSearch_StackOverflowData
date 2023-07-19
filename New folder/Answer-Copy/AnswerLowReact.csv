@@ -1,0 +1,11 @@
+Id,PostId,Score,Text,CreationDate,UserDisplayName,UserId,ContentLicense
+"98154921","55738442","0","Well, you simply make sure `display()` sits inside `render()`, and `this.state.allProductsDummy` inside `display()`","2019-04-18 03:35:53","","3617380","CC BY-SA 4.0"
+"98154936","55738472","0","Hello, thanks for your reply. I actually tried that but when I did that, when I click, it doesn't check any :( I'll update the code to show you what I did @kenmistry","2019-04-18 03:38:33","","11093049","CC BY-SA 4.0"
+"98154932","55738442","0","Do you know that `render()` is auto called for you everytime `state` changed?","2019-04-18 03:37:44","","3617380","CC BY-SA 4.0"
+"64047734","38276462","0","With select2 there isn't an option element to the multiselect.","2016-07-11 20:29:50","","5094445","CC BY-SA 3.0"
+"98154907","55738472","0","instead of having the same state for both checkboxes, you'll need separate states for this. can you try adding states `checked1` and `checked2`, arranging them accordingly to their respective checkboxes?","2019-04-18 03:34:19","","5557220","CC BY-SA 4.0"
+"98155173","55737547","0","@hongdevelop Thank you so much!! Unfortunately, it is still not navigating to the order-details screen!","2019-04-18 04:00:15","","10520348","CC BY-SA 4.0"
+"98155502","55735299","0","Ok, after installing Redux DevTools i saw state is actually updated. But logging state in useEfect hook always show its initial value, don't really understands why.","2019-04-18 04:25:41","","11375789","CC BY-SA 4.0"
+"98163175","55742984","0","Will it appear if you move the return outside the try-catch block?","2019-04-18 09:34:18","","7194268","CC BY-SA 4.0"
+"98155641","55727497","0","@UtsavPatel can you give an example?","2019-04-18 04:35:29","","3102993","CC BY-SA 4.0"
+"98155063","55738472","0","oh. i shared my answer below and it's the exactly the same :P. can you take a look at the test link? i've got it working on my end. you can check the box individually.","2019-04-18 03:50:13","","5557220","CC BY-SA 4.0"

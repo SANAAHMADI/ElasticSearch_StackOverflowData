@@ -1,0 +1,97 @@
+Id,PostTypeId,AcceptedAnswerId,ParentId,CreationDate,DeletionDate,Score,ViewCount,Body,OwnerUserId,OwnerDisplayName,LastEditorUserId,LastEditorDisplayName,LastEditDate,LastActivityDate,Title,Tags,AnswerCount,CommentCount,FavoriteCount,ClosedDate,CommunityOwnedDate,ContentLicense
+"2025282","1","2025541","","2010-01-08 03:23:46","","6287","1437859","<p>What is the difference between the units of measure
+px, dip, dp, and sp?</p>
+","235885","","365102","","2022-07-11 05:53:25","2022-09-29 16:18:49","What is the difference between px, dip, dp, and sp?","<android><android-layout><user-interface><dimension><units-of-measurement>","32","7","0","","","CC BY-SA 4.0"
+"1109022","1","17789187","","2009-07-10 11:27:17","","4268","1772029","<p>I have an <code>EditText</code> and a <code>Button</code> in my layout.</p>
+<p>After writing in the edit field and clicking on the <code>Button</code>, I want to hide the virtual keyboard when touching outside the keyboard. I assume that this is a simple piece of code, but where can I find an example of it?</p>
+","133858","","133858","user6754053","2022-09-27 17:55:44","2022-12-06 11:02:25","How to close/hide the Android soft keyboard programmatically?","<android><android-edittext><android-softkeyboard><android-input-method><soft-keyboard>","126","6","0","","2013-10-24 11:01:18","CC BY-SA 4.0"
+"13375357","1","13375461","","2012-11-14 08:34:01","","3955","354310","<p>I was looking at the new APIs introduced in <a href=""http://en.wikipedia.org/wiki/Android_version_history#Android_4.1.2F4.2_Jelly_Bean"" rel=""noreferrer"">Android 4.2</a>.
+While looking at the <a href=""http://developer.android.com/reference/android/os/UserManager.html"" rel=""noreferrer""><code>UserManager</code></a> class I came across the following method:</p>
+
+<blockquote>
+<pre><code>public boolean isUserAGoat()
+</code></pre>
+  
+  <p>Used to determine whether the user making this call is subject to teleportations.</p>
+  
+  <p>Returns whether the user making this call is a goat.</p>
+</blockquote>
+
+<p>How and when should this be used?</p>
+","542091","","6634591","","2018-09-07 08:21:54","2022-06-08 16:10:09","Proper use cases for Android UserManager.isUserAGoat()?","<java><android><usermanager>","12","8","0","","","CC BY-SA 4.0"
+"1554099","1","","","2009-10-12 11:45:53","","3510","1114387","<p>I have got a <strong>2.67</strong>  GHz Celeron processor, and <strong>1.21</strong>  GB of RAM on a <strong>x86</strong> Windows <strong>XP</strong> Professional machine.</p>
+<p>My understanding is that the <strong>Android Emulator</strong> should start fairly quickly on such a machine, but for me, it doesn't. I have followed all the instructions in setting up the IDE, SDKs, JDKs and such and have had some success in starting the emulator quickly, but that is very rare. How can I, if possible, fix this problem?</p>
+<p>Even if it starts and loads the home screen, it is very sluggish. I have tried the <a href=""https://en.wikipedia.org/wiki/Eclipse_%28software%29"" rel=""noreferrer"">Eclipse IDE</a> in <a href=""https://en.wikipedia.org/wiki/Eclipse_%28software%29#Releases"" rel=""noreferrer"">version 3.5</a> (Galileo) and <a href=""https://en.wikipedia.org/wiki/Eclipse_%28software%29#Releases"" rel=""noreferrer"">3.4</a> (Ganymede).</p>
+","188383","","12478830","","2020-07-29 01:23:49","2021-01-11 08:48:12","Why is the Android emulator so slow? How can we speed up the Android emulator?","<android><performance><android-emulator><genymotion><qemu>","77","20","0","2018-03-15 13:15:57","2012-04-10 11:11:52","CC BY-SA 4.0"
+"1555109","1","1662088","","2009-10-12 15:03:22","","3127","812039","<p>I have an <code>Activity</code> in Android, with two elements:</p>
+<ol>
+<li><code>EditText</code></li>
+<li><code>ListView</code></li>
+</ol>
+<p>When my <code>Activity</code> starts, the <code>EditText</code> immediately has the input focus (flashing cursor). I don't want any control to have input focus at startup. I tried:</p>
+<pre><code>EditText.setSelected(false);
+EditText.setFocusable(false);
+</code></pre>
+<p>No luck. How can I convince the <code>EditText</code> to not select itself when the <code>Activity</code> starts?</p>
+","137193","","5152146","","2022-07-25 11:27:33","2022-09-27 16:54:05","How to stop EditText from gaining focus when an activity starts in Android?","<android><listview><android-activity><android-edittext><focus>","54","0","0","","","CC BY-SA 4.0"
+"2785485","1","2785493","","2010-05-07 00:47:28","","3035","1219104","<p>Do Android devices have a unique ID, and if so, what is a simple way to access it using Java?</p>
+","314994","","9080948","","2018-01-30 01:18:43","2022-10-04 06:08:03","Is there a unique Android device ID?","<android><uniqueidentifier>","54","1","0","","","CC BY-SA 3.0"
+"151777","1","151940","","2008-09-30 04:41:15","","2845","887741","<p>I've been working on the Android SDK platform, and it is a little unclear how to save an application's state. So given this minor re-tooling of the 'Hello, Android' example:</p>
+<pre class=""lang-java prettyprint-override""><code>package com.android.hello;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.TextView;
+
+public class HelloAndroid extends Activity {
+
+  private TextView mTextView = null;
+
+  /** Called when the activity is first created. */
+  @Override
+  public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+
+    mTextView = new TextView(this);
+
+    if (savedInstanceState == null) {
+       mTextView.setText(&quot;Welcome to HelloAndroid!&quot;);
+    } else {
+       mTextView.setText(&quot;Welcome back.&quot;);
+    }
+
+    setContentView(mTextView);
+  }
+}
+</code></pre>
+<p>I thought it would be enough for the simplest case, but it always responds with the first message, no matter how I navigate away from the app.</p>
+<p>I'm sure the solution is as simple as overriding <code>onPause</code> or something like that, but I've been poking away in the documentation for 30 minutes or so and haven't found anything obvious.</p>
+","61","Bernard","5152146","user10758159","2022-09-13 14:18:53","2022-09-13 14:21:57","How can I save an activity state using the save instance state?","<android><android-activity><application-state>","35","6","0","","","CC BY-SA 4.0"
+"6343166","1","6343299","","2011-06-14 12:02:00","","2675","1436770","<p>I got an error while running my Android project for RssReader. </p>
+
+<p>Code:</p>
+
+<pre><code>URL url = new URL(urlToRssFeed);
+SAXParserFactory factory = SAXParserFactory.newInstance();
+SAXParser parser = factory.newSAXParser();
+XMLReader xmlreader = parser.getXMLReader();
+RssHandler theRSSHandler = new RssHandler();
+xmlreader.setContentHandler(theRSSHandler);
+InputSource is = new InputSource(url.openStream());
+xmlreader.parse(is);
+return theRSSHandler.getFeed();
+</code></pre>
+
+<p>And it shows the below error:</p>
+
+<pre><code>android.os.NetworkOnMainThreadException
+</code></pre>
+
+<p>How can I fix this issue?</p>
+","797593","","63550","","2021-07-22 10:25:23","2022-05-10 08:46:03","How can I fix 'android.os.NetworkOnMainThreadException'?","<java><android><android-networking><networkonmainthread>","66","4","0","","","CC BY-SA 4.0"
+"432037","1","432155","","2009-01-11 00:27:55","","2287","1460390","<p>How do I center the text horizontally and vertically in a <code>TextView</code>, so that it appears exactly in the middle of the <code>TextView</code> in <code>Android</code>?</p>
+","6068","J. Pablo Fern&#225;ndez","3345644","","2018-04-06 14:40:14","2022-12-02 07:04:28","How do I center text horizontally and vertically in a TextView?","<android><textview>","73","2","0","","","CC BY-SA 3.0"
+"3572463","1","3572553","","2010-08-26 06:12:00","","2225","792027","<p>In Android programming, what exactly is a <code>Context</code> class and what is it used for?</p>
+
+<p>I read about it on the <a href=""https://d.android.com/reference/android/content/Context"" rel=""noreferrer"">developer site</a>, but I am unable to understand it clearly.</p>
+","431505","","1429387","","2018-11-04 11:11:01","2022-12-05 23:33:54","What is 'Context' on Android?","<android><android-context>","31","1","0","","","CC BY-SA 4.0"

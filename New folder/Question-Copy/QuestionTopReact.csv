@@ -1,0 +1,192 @@
+Id,PostTypeId,AcceptedAnswerId,ParentId,CreationDate,DeletionDate,Score,ViewCount,Body,OwnerUserId,OwnerDisplayName,LastEditorUserId,LastEditorDisplayName,LastEditDate,LastActivityDate,Title,Tags,AnswerCount,CommentCount,FavoriteCount,ClosedDate,CommunityOwnedDate,ContentLicense
+"31079081","1","42121109","","2015-06-26 17:38:51","","2158","1409371","<p>With <code>react-router</code> I can use the <code>Link</code> element to create links which are natively handled by react router. </p>
+
+<p>I see internally it calls <code>this.context.transitionTo(...)</code>.</p>
+
+<p>I want to do a navigation. Not from a link, but from a dropdown selection (as an example). How can I do this in code? What is <code>this.context</code>? </p>
+
+<p>I saw the <code>Navigation</code> mixin, but can I do this without <code>mixins</code>?</p>
+","5056","","2051142","","2021-01-27 07:11:46","2022-12-30 13:29:46","Programmatically navigate using React router","<reactjs><react-router>","41","2","0","","","CC BY-SA 4.0"
+"22876978","1","22877049","","2014-04-05 05:29:28","","1868","1650104","<p>I'm trying to do something like the following in React JSX (where ObjectRow is a separate component):</p>
+<pre><code>&lt;tbody&gt;
+    for (var i=0; i &lt; numrows; i++) {
+        &lt;ObjectRow/&gt;
+    } 
+&lt;/tbody&gt;
+</code></pre>
+<p>I realize and understand why this isn't valid JSX, since JSX maps to function calls. However, coming from template land and being new to JSX, I am unsure how I would achieve the above (adding a component multiple times).</p>
+","652693","","63550","","2021-02-14 15:36:11","2022-12-04 08:02:13","Loop inside React JSX","<javascript><reactjs><jsx>","82","9","0","","","CC BY-SA 4.0"
+"31048953","1","31049016","","2015-06-25 11:21:52","","1409","585992","<p>What does the <code>...</code> do in this React (using JSX) code and what is it called?</p>
+
+<pre><code>&lt;Modal {...this.props} title='Modal heading' animation={false}&gt;
+</code></pre>
+","5038178","","8113455","","2022-05-10 19:15:17","2022-11-06 23:54:46","What are these three dots in React doing?","<javascript><reactjs><spread-syntax>","22","5","0","","","CC BY-SA 4.0"
+"32370994","1","32371612","","2015-09-03 08:47:25","","1367","833545","<p>I'm trying to find the proper way to define some components which could be used in a generic way:</p>
+
+<pre><code>&lt;Parent&gt;
+  &lt;Child value=""1""&gt;
+  &lt;Child value=""2""&gt;
+&lt;/Parent&gt;
+</code></pre>
+
+<p>There is a logic going on for rendering between parent and children components of course, you can imagine <code>&lt;select&gt;</code> and <code>&lt;option&gt;</code> as an example of this logic.</p>
+
+<p>This is a dummy implementation for the purpose of the question:</p>
+
+<pre><code>var Parent = React.createClass({
+  doSomething: function(value) {
+  },
+  render: function() {
+    return (&lt;div&gt;{this.props.children}&lt;/div&gt;);
+  }
+});
+
+var Child = React.createClass({
+  onClick: function() {
+    this.props.doSomething(this.props.value); // doSomething is undefined
+  },
+  render: function() {
+    return (&lt;div onClick={this.onClick}&gt;&lt;/div&gt;);
+  }
+});
+</code></pre>
+
+<p>The question is whenever you use <code>{this.props.children}</code> to define a wrapper component, how do you pass down some property to all its children?</p>
+","709635","","3344111","","2015-09-03 09:23:59","2022-10-27 18:45:16","How to pass props to {this.props.children}","<javascript><reactjs>","32","1","0","","","CC BY-SA 3.0"
+"27928372","1","36623117","","2015-01-13 17:51:54","","1152","718125","<p>I'm using React-router and it works fine while I'm clicking on link buttons, but when I refresh my webpage it does not load what I want.</p>
+<p>For instance, I am in <code>localhost/joblist</code> and everything is fine because I arrived here pressing a link. But <em>if</em> I refresh the webpage I get:</p>
+<pre class=""lang-none prettyprint-override""><code>Cannot GET /joblist
+</code></pre>
+<p>By default, it didn't work like this. Initially I had my URL as <code>localhost/#/</code> and <code>localhost/#/joblist</code> and they worked perfectly fine. But I don't like this kind of URL, so trying to erase that <code>#</code>, I wrote:</p>
+<pre><code>Router.run(routes, Router.HistoryLocation, function (Handler) {
+ React.render(&lt;Handler/&gt;, document.body);
+});
+</code></pre>
+<p>This problem does not happen with <code>localhost/</code>, this one always returns what I want.</p>
+<p>This app is single-page, so <code>/joblist</code> doesn't need to ask anything to any server.</p>
+<p>My entire router.</p>
+<pre><code>var routes = (
+    &lt;Route name=&quot;app&quot; path=&quot;/&quot; handler={App}&gt;
+        &lt;Route name=&quot;joblist&quot; path=&quot;/joblist&quot; handler={JobList}/&gt;
+        &lt;DefaultRoute handler={Dashboard}/&gt;
+        &lt;NotFoundRoute handler={NotFound}/&gt;
+    &lt;/Route&gt;
+);
+
+Router.run(routes, Router.HistoryLocation, function (Handler) {
+  React.render(&lt;Handler/&gt;, document.body);
+});
+</code></pre>
+","4377851","","63550","","2022-05-06 13:49:05","2022-12-25 14:11:38","React-router URLs don't work when refreshing or writing manually","<javascript><reactjs><url><react-router>","55","5","0","","","CC BY-SA 4.0"
+"1028250","1","1030631","","2009-06-22 16:41:19","","1147","274757","<p>I've read the Wikipedia article on <a href=""http://en.wikipedia.org/wiki/Reactive_programming"" rel=""noreferrer"">reactive programming</a>. I've also read the small article on <a href=""http://en.wikipedia.org/wiki/Functional_reactive_programming"" rel=""noreferrer"">functional reactive programming</a>. The descriptions are quite abstract.</p>
+
+<ol>
+<li>What does functional reactive programming (FRP) mean in practice? </li>
+<li>What does reactive programming (as opposed to non-reactive programming?) consist of? </li>
+</ol>
+
+<p>My background is in imperative/OO languages, so an explanation that relates to this paradigm would be appreciated.</p>
+","30958","","442351","","2017-03-09 17:37:28","2018-04-10 12:31:22","What is (functional) reactive programming?","<functional-programming><terminology><reactive-programming><frp>","18","8","0","","","CC BY-SA 3.0"
+"32461229","1","32920459","","2015-09-08 15:05:14","","1124","279272","<p>I've read <a href=""https://stackoverflow.com/questions/32021763/what-could-be-the-downsides-of-using-redux-instead-of-flux"">this answer</a>, <a href=""http://redux.js.org/docs/recipes/ReducingBoilerplate.html"" rel=""noreferrer"">reducing boilerplate</a>, looked at few GitHub examples and even tried redux a little bit (todo apps). </p>
+
+<p>As I understand, <a href=""http://redux.js.org/docs/introduction/Motivation.html"" rel=""noreferrer"">official redux doc motivations</a> provide pros comparing to traditional MVC architectures. BUT it doesn't provide an answer to the question: </p>
+
+<p><strong>Why you should use Redux over Facebook Flux?</strong> </p>
+
+<p><em>Is that only a question of programming styles: functional vs non-functional? Or the question is in abilities/dev-tools that follow from redux approach? Maybe scaling? Or testing?</em></p>
+
+<p><em>Am I right if I say that redux is a flux for people who come from functional languages?</em> </p>
+
+<p><strong>To answer this question you may compare the complexity of implementation redux's motivation points on flux vs redux.</strong></p>
+
+<p>Here are motivation points from <a href=""http://redux.js.org/docs/introduction/Motivation.html"" rel=""noreferrer"">official redux doc motivations</a>:</p>
+
+<ol>
+<li>Handling optimistic updates (<em>as I understand, it hardly depends on 5th point. Is it hard to implement it in facebook flux?</em>)</li>
+<li>Rendering on the server (<em>facebook flux also can do this. Any benefits comparing to redux?</em>)</li>
+<li>Fetching data before performing route transitions (<em>Why it can't be achieved in facebook flux? What's the benefits?</em>)</li>
+<li>Hot reload (<em>It's possible with <a href=""http://gaearon.github.io/react-hot-loader/"" rel=""noreferrer"">React Hot Reload</a>. Why do we need redux?</em>)</li>
+<li>Undo/Redo functionality</li>
+<li>Any other points? Like persisting state...</li>
+</ol>
+","2761509","","9959912","","2018-07-05 03:59:35","2019-04-11 13:10:33","Why use Redux over Facebook Flux?","<javascript><reactjs><reactjs-flux><flux><redux>","8","4","0","2019-04-11 14:34:53","","CC BY-SA 4.0"
+"35411423","1","35415559","","2016-02-15 14:03:59","","1053","502753","<p>I have an action that updates the notification state of my application. Usually, this notification will be an error or info of some sort. I need to then dispatch another action after 5 seconds that will return the notification state to the initial one, so no notification. The main reason behind this is to provide functionality where notifications disappear automatically after 5 seconds.</p>
+
+<p>I had no luck with using <code>setTimeout</code> and returning another action and can't find how this is done online. So any advice is welcome.</p>
+","911930","","12160909","","2020-04-11 10:44:56","2022-07-01 16:48:49","How to dispatch a Redux action with a timeout?","<javascript><redux><react-redux><timeout>","14","3","0","","","CC BY-SA 4.0"
+"30626030","1","30626072","","2015-06-03 16:44:58","","1018","1398558","<p>I have an external (to the component), observable object that I want to listen for changes on. When the object is updated it emits change events, and then I want to rerender the component when any change is detected.</p>
+
+<p>With a top-level <code>React.render</code> this has been possible, but within a component it doesn't work (which makes some sense since the <code>render</code> method just returns an object).</p>
+
+<p>Here's a code example:</p>
+
+<pre class=""lang-js prettyprint-override""><code>export default class MyComponent extends React.Component {
+
+  handleButtonClick() {
+    this.render();
+  }
+
+  render() {
+    return (
+      &lt;div&gt;
+        {Math.random()}
+        &lt;button onClick={this.handleButtonClick.bind(this)}&gt;
+          Click me
+        &lt;/button&gt;
+      &lt;/div&gt;
+    )
+  }
+}
+</code></pre>
+
+<p>Clicking the button internally calls <code>this.render()</code>, but that's not what actually causes the rendering to happen (you can see this in action because the text created by <code>{Math.random()}</code> doesn't change). However, if I simply call <code>this.setState()</code> instead of <code>this.render()</code>, it works fine.</p>
+
+<p><strong>So I guess my question is:</strong> do React components <em>need</em> to have state in order to rerender? Is there a way to force the component to update on demand without changing the state?</p>
+","478460","","1434116","","2016-01-30 11:19:15","2022-09-29 02:23:11","Can you force a React component to rerender without calling setState?","<reactjs>","21","5","0","","","CC BY-SA 3.0"
+"28329382","1","28329550","","2015-02-04 19:06:11","","978","1131224","<p>I'm building a React component that accepts a JSON data source and creates a sortable table.<br>
+Each of the dynamic data rows has a unique key assigned to it but I'm still getting an error of: </p>
+
+<blockquote>
+  <p>Each child in an array should have a unique ""key"" prop.<br>
+  Check the render method of TableComponent.</p>
+</blockquote>
+
+<p>My <code>TableComponent</code> render method returns:</p>
+
+<pre><code>&lt;table&gt;
+  &lt;thead key=""thead""&gt;
+    &lt;TableHeader columns={columnNames}/&gt;
+  &lt;/thead&gt;
+  &lt;tbody key=""tbody""&gt;
+    { rows }
+  &lt;/tbody&gt;
+&lt;/table&gt;
+</code></pre>
+
+<p>The <code>TableHeader</code> component is a single row and also has a unique key assigned to it.</p>
+
+<p>Each <code>row</code> in <code>rows</code> is built from a component with a unique key:</p>
+
+<pre><code>&lt;TableRowItem key={item.id} data={item} columns={columnNames}/&gt;
+</code></pre>
+
+<p>And the <code>TableRowItem</code> looks like this:</p>
+
+<pre><code>var TableRowItem = React.createClass({
+  render: function() {
+
+    var td = function() {
+        return this.props.columns.map(function(c) {
+          return &lt;td key={this.props.data[c]}&gt;{this.props.data[c]}&lt;/td&gt;;
+        }, this);
+      }.bind(this);
+
+    return (
+      &lt;tr&gt;{ td(this.props.item) }&lt;/tr&gt;
+    )
+  }
+});
+</code></pre>
+
+<p>What is causing the unique key prop error? </p>
+","438581","","438581","","2015-02-04 20:16:03","2022-12-28 19:26:22","Understanding unique keys for array children in React.js","<javascript><reactjs>","25","4","0","","","CC BY-SA 3.0"

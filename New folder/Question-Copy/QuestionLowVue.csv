@@ -1,0 +1,446 @@
+Id,PostTypeId,AcceptedAnswerId,ParentId,CreationDate,DeletionDate,Score,ViewCount,Body,OwnerUserId,OwnerDisplayName,LastEditorUserId,LastEditorDisplayName,LastEditDate,LastActivityDate,Title,Tags,AnswerCount,CommentCount,FavoriteCount,ClosedDate,CommunityOwnedDate,ContentLicense
+"53852310","1","","","2018-12-19 13:30:51","","-8","1230","<p>someone can help me to loop using v-for statement the layout like this.</p>
+
+<p><a href=""https://i.stack.imgur.com/bfF5f.png"" rel=""nofollow noreferrer"">enter image description here</a></p>
+
+<p>how can i using v-for in this case ?</p>
+","8606746","","8305644","","2019-11-24 21:44:06","2019-11-24 21:44:06","Loop over different divs using v-for in vue js","<vuejs2><nuxt.js>","1","4","","","","CC BY-SA 4.0"
+"73753149","1","73753272","","2022-09-17 07:57:03","","-7","33","<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+        const btn = document.querySelector(&quot;#btn&quot;);
+        const btnText = document.querySelector(&quot;#btnText&quot;);
+
+        btn.onclick = () =&gt; {
+            btnText.innerHTML = &quot;Thanks&quot;;
+            btn.classList.add(&quot;active&quot;);
+        };
+    &lt;/script&gt;
+</code></pre>
+<p>I tried to change this content to vuejs 3. But iam unable to do and getting some error. Don't know how to convert this to Vue js</p>
+","20018191","","","","","2022-09-17 21:45:00","Need to convert js to vuejs","<javascript><vuejs3>","1","1","","2022-09-18 03:39:50","","CC BY-SA 4.0"
+"51325397","1","51337370","","2018-07-13 12:43:06","","-7","1411","<p>When I'm importing Echo in Vue.js' resouces/assets/js/bootstrap.js one of my components throws an error</p>
+
+<blockquote>
+  <p>Error in mounted hook: ""TypeError: $ is not a function""</p>
+</blockquote>
+
+<p>Everything works fine without Echo. What can I do to solve the problem?</p>
+
+<ol>
+<li><a href=""https://i.stack.imgur.com/ylT8H.jpg"" rel=""nofollow noreferrer"">Console error</a> </li>
+<li><a href=""https://i.stack.imgur.com/ljQ9n.jpg"" rel=""nofollow noreferrer"">Bootstrap.js</a> </li>
+<li><a href=""https://i.stack.imgur.com/ibbaU.jpg"" rel=""nofollow noreferrer"">DateRangePicker.vue</a></li>
+</ol>
+","9636158","","9636158","","2018-07-14 07:17:24","2018-07-14 09:59:48","Laravel Echo and JQuery","<javascript><jquery><laravel><vue.js>","1","5","","","","CC BY-SA 4.0"
+"55998889","1","","","2019-05-06 04:43:22","","-6","494","<p>how to make a maximum 1MB upload image?
+here are the program snippets</p>
+
+<p><img src=""https://i.stack.imgur.com/Kcqa1.png"" alt=""Form Item""></p>
+
+<p><img src=""https://i.stack.imgur.com/XBWEx.png"" alt=""Javascript Function""></p>
+","11424886","","6320039","","2019-06-17 08:44:03","2019-06-17 08:44:03","how to make a maximum 1MB upload image?","<vue.js><nuxt.js><element-ui>","1","2","","","","CC BY-SA 4.0"
+"58831263","1","58831361","","2019-11-13 06:11:51","","-6","1583","<p>I created a project using vue.js for the frontend and backend with laravel lumen framework and my question is how can I deploy my backend laravel/lumen to the production server ? </p>
+
+<p>is there any specific commands ? by the way my production server setup 
+running with Digitalocean Ubuntu droplet and I used Nginx as a web server </p>
+","12180387","","12180387","","2019-11-22 09:31:07","2019-11-22 09:31:07","How to deploy Laravel/Lumen Framework to the production server","<vue.js><laravel-5><lumen>","2","0","","2019-12-02 18:57:03","","CC BY-SA 4.0"
+"60503207","1","","","2020-03-03 08:42:38","","-6","144","<p>�PNG</p>
+
+<p>IHDR{{cM�PLTE�$���� %�~��y�$��� ������z{��������X[�����FI��������������<code>b�14����������pr�&lt;?�!��#� ���Ŏ���7XP������JJJ###rrr���@@@D
+)       �b222_]]���m�Z��ZIDATh�śk[�:�{I�jN�E����rTtAPq����ɥMR�1�v1���L&amp;�d�x�����ֿlt]��6.���߽�rK�U�5� l�q�&amp;%����Q�~e��V��p�0&amp;���8�F���|v�S������0�S��?�ݺnͨ�{(Q3h\�)o®T����A��)��Mд�J3��ͮ�C{rJ�:݋٭Z� ��?�͸^&lt;��n ��;�����%��kн*�n�%#�;9����Agh��I�(�L�|�UJ��´����%?�{�={vMP���*ߡE�N����P�GA͒ݺx�d6ߓ�)}&gt;s�?�9&amp;�fW��y2{�ȅ��&lt;�;�U�6%�ǜ����)�n�Ո#堫�W!j�</code>�e'��p���ɦ<code>��&amp;�?|����ʩN�_&amp;�_��9�F�~ʍ�.�� ���h36�ߏ</code>�@�v������,ӔM�Ǡ""  E�ؕ��?T(m����A��J���˟���l
+���q�U��.ş�-�FP�y�Ϯ&amp;h6��y����s;ܒ-t{�S������ɕfǦrl�Dq[��������T쓢�k��ê����]�,[��<em><code>�_��V�����H�5�k����������l�c��Ȯ�#�h^(ɞ��gV����g^��hK����&gt;����x96{��ño�ښ/Ŧ����
+0��NL)��gL��U�v�W9�=�W���h��c;xoe�k�Ҵ�]�
+�Yp}</code>��K�gH+��0�l�-j���S�:����tzg�f�F�^Fi6�㩵Qv���/d;���u��V�]>R�?�=q�N��̟�����l�</em>�z�V��l�KO��<code>G��iǱ_���=�l�Wү</code>ǲ�0ӓ�0ܚ���lo��t�������o�g��D|�����������*�~ٲ��c�&lt;�s������""�-�m�6;'4ϝ�݇]��MQ��vl�n�����<code>���ߙ��?�w�lT�a#�Zx�""p����f�ς�K
+�n��lD�����$�]����wf�-����1��T������7kN�M�̳�&gt;�vՓ�n�F9�S�f�-�;��d�:[����w#��if�</code>�ŗN���c�C+o��
+ވ͔N����y�p���P�6k�P݀�����[»N�O25k�-V]���y���!�l��&lt;�1ױ���|k�^�����5l^����wAvW�vДkϩ^��G:)��сM���\�G^��d�^�F�h�j;(kC��o��$�<code>�����=�b�.���5��J��Z���l�4�0W��l���|8�&amp;(u�yl����gϡ?��=�v2|U�V|�_�5��u��H27�����[��T����߽�m�(�a��,��-?�K�Íj�פ��N�1\N�����[Ҥ�^.���6�t����t!��&lt;mW�Ֆ����o��{�n�ޒ�gM�}*ܟ��%h_����\h�Z���98�||����Zz.�1}h�X��?��s(��_}�v�s(&lt;?��8-�f�ew��n�S���4�w</code>�20:��e�o�q&amp;��Gi6y��L��rlU|��+ޛ)�V�a��-povl�2���&lt;��u2ȇ[���Yn~���3��?ٰ9/���r7ol]����q���:s6��K(M�W�@�q��NƔ��. �Yq����G�ܐ��0aQ��'�+&amp;�,Ռ�񆫦�W�4](���&lt;��D��r""�
+���c
+�Sż\��\��ձ1�pU��r��E>2q7kHװ1�O�dh�|d)��G?@fpc�ތ��[�a������)YH?��?��{*q2G)>��d�ψ�7��{/IB�P�?�Ƀ����J�7��yU���l>^O$���lB��;�j�w��}���$)#ח?�}  -���]�a9�]����}�Rݿ��XR���\R��<code>Z���|��P���.��u�Ɛ���IEND�B</code>�</p>
+
+<p><div class=""snippet"" data-lang=""js"" data-hide=""false"" data-console=""true"" data-babel=""false"">
+<div class=""snippet-code"">
+<pre class=""snippet-code-js lang-js prettyprint-override""><code>   Nova.request().get('API',{responseType: 'blob'})
+                    .then(response =&gt; {
+                        console.log(""sa"", response)
+                        const url = window.URL.createObjectURL(new Blob([response.data]))
+                        const link = document.createElement('a')
+                        link.href = url
+                        link.setAttribute('download', file_name)
+                        document.body.appendChild(link)
+                        link.click()</code></pre>
+</div>
+</div>
+</p>
+","12997690","","12997690","","2020-03-03 09:55:47","2020-03-04 05:57:03","how to download the image in vuejs but i am getting the respone as this i am using the following below code","<vue.js>","1","6","","","","CC BY-SA 4.0"
+"41707313","1","41725327","","2017-01-17 21:27:38","","-6","474","<p>How to make Vuejs add in a table more than one data form when pressing a button? I can do it just with one form, I need to make it happen with input and select form and when I press a button to add it in a list. Thanks.</p>
+
+<p>Here is an example:
+<a href=""http://embed.plnkr.co/aax7vC/"" rel=""nofollow noreferrer"">http://embed.plnkr.co/aax7vC/</a></p>
+","6889795","","6889795","","2017-01-17 23:50:02","2017-01-18 17:04:40","How to insert data form into table when press a button?","<javascript><vue.js>","1","4","","","","CC BY-SA 3.0"
+"56958193","1","","","2019-07-09 17:54:15","","-6","2660","<p>I am uplifting a chat application from AngularJS to VueJS and I don't have much clue about how the AngularJS. There isn't really a great resources available on AngularJS right now to gain some insight.
+If someone could help me in this I'd really appreciate it.</p>
+
+<p>I wish to convert this below AngularJS code to VueJS completely.</p>
+
+<pre><code>var app = angular.module('IBMfinder', ['ngRoute']);
+
+app.config(['$routeProvider', 
+function($routeProvider, settings) {
+$routeProvider
+  .when('/main', {
+    templateUrl: 'welcome.html',
+    controller: 'welcomeCtrl',
+  })
+  .when('/find', {
+    templateUrl: 'find.html',
+    controller: 'findCtrl',
+  })
+  .when('/chat', {
+    templateUrl: 'chat.html',
+    controller: 'chatCtrl',
+  })
+
+  .otherwise({
+    templateUrl: 'welcome.html',
+    controller: 'welcomeCtrl',
+  })
+}])
+
+app.controller('userCount', ['$scope', 'socket', function($scope, 
+socket){
+  socket.on('userCount', function(amount){
+    $scope.online = amount;   
+  })
+}]);
+
+app.controller('welcomeCtrl', ['$scope', '$location', 'settings', 
+'socket', function($scope, $location, settings, socket){
+$scope.users = 13;
+if(settings.getUsername()!==""""){
+    socket.emit('delete');
+    settings.reset();
+}
+
+$scope.enter = function(){
+    settings.setUsername($scope.name);
+    $location.path('/find');
+}
+}]);
+
+app.controller('findCtrl', ['$scope', '$location', 'settings', 
+'socket', '$rootScope', function($scope, $location, settings, 
+socket, $rootScope){
+$scope.username = settings.getUsername();
+
+if(!$scope.username || $scope.username == """"){
+    location.href = ""index.html"";
+}
+if(settings.exists){
+    socket.emit('delete');
+    location.href = ""index.html"";
+
+}
+
+$scope.chatlog = [];
+
+if(!settings.exists){
+    var username = $scope.username;
+    settings.setExists(true);
+
+    socket.emit('new user', username );
+};
+
+socket.on('match', function (data) {
+    settings.setPartner(data['username'], data['id']);
+     $location.path('/chat');
+});
+
+}]);
+
+
+app.controller('chatCtrl', ['$scope', '$location', 'settings', 
+'socket', '$rootScope', '$timeout', '$window', '$interval', 
+function($scope, $location, settings, socket, $rootScope, $timeout, 
+$window, $interval){
+var typing = false;
+var focus = true;
+var titleTimer;
+var onFocus = function(){
+    focus = true;
+    $interval.cancel(titleTimer);
+    document.title = 'Chat-Box';
+}
+var onBlur = function(){
+    focus = false;
+}
+$window.onfocus = onFocus;
+$window.onblur = onBlur;   
+
+$scope.username = settings.getUsername();
+$scope.partnerTyping = false;
+
+if(!$scope.username || $scope.username == """"){
+    location.href = ""index.html"";
+}
+
+$scope.chatlog = [];
+
+if(!settings.exists){
+    var username = $scope.username;
+    settings.setExists(true);
+
+    socket.emit('new user', username );
+};
+
+socket.on('incoming message', function(data){
+    if($scope.chatlog[$scope.chatlog.length-1]){
+        if($scope.chatlog[$scope.chatlog.length-1].sentby == data.userID){
+            $scope.chatlog[ $scope.chatlog.length] = {
+                sentby:data.userID,
+                chatusername: '',
+                chatmessage: data.message
+            }
+        }else{
+            $scope.chatlog[ $scope.chatlog.length] = {
+                sentby:data.userID,
+                chatusername: data.user + "": "",
+                chatmessage: data.message
+            }
+
+        }
+    }else{
+        $scope.chatlog[ $scope.chatlog.length] = {
+            sentby:data.userID,
+            chatusername: data.user + "": "",
+            chatmessage: data.message
+        }
+    }
+
+    if(!focus){
+        document.title = 'New Message!';
+
+        $interval.cancel(titleTimer);
+        titleTimer = $interval(function(){
+            if(document.title == 'New Message!'){
+                document.title = 'Chat-Box';
+            }else{
+                document.title = 'New Message!';
+            }
+        }, 1000)
+    }
+
+});
+
+socket.on('aborted',  function(data){
+    alert('Your partner left, sorry!');
+    socket.emit('delete');
+    settings.reset();
+    location.href = ""index.html"";
+})
+
+$scope.typing = function(){
+    if(!typing){
+        socket.emit('typing', settings.getID());
+        typing = true;
+    var stop = $timeout(function() {
+        typing = false;
+        socket.emit('stop typing', settings.getID());
+    }, 2000);
+
+    }
+
+
+}
+
+socket.on('typing', function(data){
+    $scope.partnerTyping = true;
+    $('#chatbox').scrollTop(10000);
+
+})
+
+socket.on('stop typing', function(data){
+    $scope.partnerTyping = false;
+    $('#chatbox').scrollTop(10000);
+
+})
+
+
+$scope.sendMessage = function(){
+    if($scope.message==""""){
+
+    }else{
+        socket.emit( 'new message', {
+            message:$scope.message, 
+            partner:$scope.partner,
+            partnerID: settings.getID()
+        });
+    }
+
+    $scope.message = """";        
+}
+
+$scope.partner = settings.getPartner();
+
+}]);
+
+
+app.service('settings', function() {
+this.exists = false;
+this.username = """";
+this.partner = """";
+this.partnerID = """";
+this.userdata = {}
+
+
+this.setExists = function(bool){
+    this.exists = bool;
+}
+this.setUsername = function(uname){
+    this.username = uname;
+}
+this.getUsername = function(){
+    return(this.username);
+}
+this.setUserID = function(id){
+    this.userdata.id = id;
+}
+this.getuserdata = function(){
+    return(this.userdata);
+}
+this.setPartner = function(uname, id){
+    this.partner = uname;
+    this.partnerID = id;
+}
+this.getPartner = function(){
+    return(this.partner);
+}
+this.getID = function(){
+    return(this.partnerID);
+}
+this.reset = function(){
+    this.exists = false;
+    this.username = """";
+    this.partner = """";
+    this.partnerID = """";
+    this.userdata = {}
+}
+});
+
+app.factory('socket', function ($rootScope) {
+var socket = io.connect();
+return {
+on: function (eventName, callback) {
+  socket.on(eventName, function () {  
+    var args = arguments;
+    $rootScope.$apply(function () {
+      callback.apply(socket, args);
+    });
+  });
+},
+emit: function (eventName, data, callback) {
+  socket.emit(eventName, data, function () {
+    var args = arguments;
+    $rootScope.$apply(function () {
+      if (callback) {
+        callback.apply(socket, args);
+      }
+    });
+  })
+},
+disconnect: function(id){
+    socket.disconnect(id);
+}
+};
+});
+
+
+app.directive('myEnter', function () {
+return function (scope, element, attrs) {
+    element.bind(""keydown keypress"", function (event) {
+        if(event.which === 13) {
+            scope.$apply(function (){
+                scope.$eval(attrs.myEnter);
+            });
+
+            event.preventDefault();
+        }
+    });
+};
+});
+
+app.directive('schrollBottom', function () {
+return {
+scope: {
+  schrollBottom: ""=""
+},
+link: function (scope, element) {
+  scope.$watchCollection('schrollBottom', function (newValue) {
+    if (newValue)
+    {
+      $(element).scrollTop(100000);
+    }
+  });
+}
+}
+})
+</code></pre>
+
+<p>It'd be great if someone could point me to any great resources. I've not had any luck since past week regarding this.</p>
+","11598287","","","","","2019-07-09 20:49:40","Converting Angularjs to Vuejs","<javascript><angularjs><vue.js><socket.io>","1","2","","","","CC BY-SA 4.0"
+"58789250","1","","","2019-11-10 13:42:43","","-6","62","<p>I'm using the movies API and I want to make it that my page  shows specific movies only.
+I want to filter the API to show only latest/new movies that are going to come out. How can I filter API so that I grab only new movies out of all the fetch movies?</p>
+","12351135","","3394281","","2019-11-10 15:23:04","2019-11-10 23:47:24","How can I filter API?","<javascript><vue.js>","1","3","","","","CC BY-SA 4.0"
+"51949258","1","","","2018-08-21 12:59:18","","-6","51","<p>Im following a tutorial from a website called @coursetro (AdobeXD, Vue, React, Angular) and I'm trying to build my header component up and when I run the program, all my header elements I had spanned out within my header components just come out stacked on top of each other. I've attached my HTML code along with the sass and js im using in vue.js. I know its something simple but I've been 2 days trying to figure this out. (I'm using: Balma, Sass)</p>
+
+<pre><code>&lt;template&gt;
+&lt;div id=""app""&gt;
+&lt;div class=""nav has-shadow""&gt;
+  &lt;div class=""container""&gt;
+    &lt;div class=""nav-left""&gt;
+      &lt;a class=""nav-item""&gt;&lt;img src=""./assets/logo.png"" alt=""Bulma logo"" 
+    width=""354"" height=""101""&gt;&lt;/a&gt;
+    &lt;/div&gt;
+
+    &lt;span class=""nav-toggle""&gt;
+      &lt;span&gt;&lt;/span&gt;
+      &lt;span&gt;&lt;/span&gt;
+      &lt;span&gt;&lt;/span&gt;
+    &lt;/span&gt;
+
+    &lt;div class=""nav-right nav-menu""&gt;
+
+      &lt;router-link to=""/"" class=""nav-item r-item""&gt;Home&lt;/router-link&gt;
+      &lt;router-link to=""/faq"" class=""nav-item r-item""&gt;Features&lt;/router-link&gt;
+      &lt;router-link to=""/faq"" class=""nav-item r-item""&gt;About&lt;/router-link&gt;
+      &lt;router-link to=""/faq"" class=""nav-item r-item""&gt;FAQ&lt;/router-link&gt;
+
+      &lt;div class=""nav-item""&gt;
+        &lt;p class=""control""&gt;
+          &lt;a class=""button is-primary is-outlined""&gt;
+            &lt;span class=""icon""&gt;
+              &lt;i class=""fa fa-download""&gt;&lt;/i&gt;
+            &lt;/span&gt;
+            &lt;span&gt;Join Now&lt;/span&gt;
+          &lt;/a&gt;
+        &lt;/p&gt;
+      &lt;/div&gt;
+
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;router-view&gt;&lt;/router-view&gt;
+&lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+name: 'App'
+}
+&lt;/script&gt;
+&lt;style lang=""sass""&gt;
+@import '../node_modules/bulma/bulma.sass'
+@import 'mq'
+
+&lt;/style&gt;
+</code></pre>
+
+<p>Best Regards </p>
+","9689548","","","","","2018-08-21 15:43:37","My <span> tags are not working. elements are stacked instead of spanned out","<javascript><html><css><sass><vuejs2>","1","2","","","","CC BY-SA 4.0"

@@ -1,0 +1,199 @@
+Id,PostTypeId,AcceptedAnswerId,ParentId,CreationDate,DeletionDate,Score,ViewCount,Body,OwnerUserId,OwnerDisplayName,LastEditorUserId,LastEditorDisplayName,LastEditDate,LastActivityDate,Title,Tags,AnswerCount,CommentCount,FavoriteCount,ClosedDate,CommunityOwnedDate,ContentLicense
+"60814349","1","","","2020-03-23 13:20:23","","-15","1105","<p>I am creating similar to <a href=""https://snack.expo.io/"" rel=""nofollow noreferrer"">snack.exop.io</a> editor. like how are they showing phone preview on the right side? like we write something and it will show a preview of how it looks like in device, I don't even know what is this concept called, what to search really. I want to create something similar to this image.<a href=""https://i.stack.imgur.com/en06r.png"" rel=""nofollow noreferrer""><img src=""https://i.stack.imgur.com/en06r.png"" alt=""enter image description here""></a></p>
+
+<p>How can I add this emulator functionality in web-app. </p>
+","5895830","","5895830","","2020-03-28 10:13:01","2020-04-02 19:23:08","how to implement device preview in web-app","<javascript><html><reactjs><flutter>","2","1","","","","CC BY-SA 4.0"
+"55018149","1","55018697","","2019-03-06 07:56:20","","-12","97","<pre class=""lang-js prettyprint-override""><code>&lt;View style={styles.container}&gt;
+  &lt;SectionList
+    sections={[
+      { title: 'D', data: ['Devin'] },
+      {
+        title: 'J',
+        data: ['Jackson', 'James', 'Jillian', 'Jimmy', 'Joel', 'John', 'Julie'],
+      },
+    ]}
+    renderItem={({ item }) =&gt; &lt;Text style={styles.item}&gt;{item}&lt;/Text&gt;}
+    renderSectionHeader={({ section }) =&gt; (
+      &lt;Text style={styles.sectionHeader}&gt;{section.title}&lt;/Text&gt;
+    )}
+    keyExtractor={(item, index) =&gt; index}
+  /&gt;
+&lt;/View&gt;;
+</code></pre>
+<p>Can you tell me why the variable <code>data</code> suddenly changed to <code>item</code>, I've no idea what happened here.</p>
+","8700327","","13170636","","2021-09-16 12:57:09","2021-09-16 12:57:09","why the variable data suddenly changed to item","<android><react-native>","1","2","","2019-03-06 09:02:49","","CC BY-SA 4.0"
+"52987200","1","52987576","","2018-10-25 10:34:41","","-11","1170","<p>I don't have any idea.</p>
+
+<p>Suggest me code for disabling the back and refresh button in my application.</p>
+
+<p>Help me with code*</p>
+","10406956","","7979337","","2018-10-25 11:24:10","2018-10-25 11:24:10","Disabling the back button and refresh button using reactjs","<reactjs>","1","5","","2018-10-25 14:25:38","","CC BY-SA 4.0"
+"68364950","1","","","2021-07-13 15:04:13","","-10","129","<p>I am developing a festival image post app in react-native.</p>
+<p>I have a question regarding the possibility to uses react-native
+library for developing the app (ios/android) which will able to make festival image post app fantastic performance and UI.</p>
+<p>so how can I make a Festival Image Post app in react native?
+like brandsport app:</p>
+<p><a href=""https://i.stack.imgur.com/3breS.png"" rel=""nofollow noreferrer""><img src=""https://i.stack.imgur.com/3breS.png"" alt=""enter image description here"" /></a></p>
+","5734043","","5734043","","2021-07-13 15:25:11","2021-07-25 13:41:41","How can I make a festival image post app in react native?","<reactjs><react-native><mobile>","1","0","","2021-11-02 21:26:31","","CC BY-SA 4.0"
+"60500834","1","60501329","","2020-03-03 05:50:42","","-10","106","<p><a href=""https://i.stack.imgur.com/B3xIJ.jpg"" rel=""nofollow noreferrer"">How to create this ui with reactjs?</a></p>
+","12997439","","12997439","","2020-03-03 06:14:44","2020-03-03 06:34:29","How to create this ui with reactjs?","<css><reactjs><user-interface><user-experience>","1","3","0","2020-03-03 06:37:13","","CC BY-SA 4.0"
+"45302960","1","","","2017-07-25 12:13:26","","-10","2201","<p>Reading <a href=""https://medium.com/@blairanderson/you-probably-dont-need-redux-1b404204a07f"" rel=""nofollow noreferrer"">this</a> article I wonder: What are the advantages of using <code>Redux</code> over/with <code>React</code>? I am aware that Redux and React are two different things. I used <code>Redux</code> to keep the <code>state</code> of my Application. But reading the article, I can exchange the <code>state</code> (between <code>Components</code>) of the Application with <code>react</code> just as easy as I would with <code>Redux</code>.</p>
+
+<p>What are the advantages of using <code>Redux</code> oder <code>React</code> then?</p>
+","3935035","","3935035","","2018-07-24 07:54:49","2018-07-24 07:54:49","What are the advantages of using Redux with React?","<javascript><reactjs><react-native><redux><state>","3","1","","2017-07-25 20:03:30","","CC BY-SA 4.0"
+"55196094","1","","","2019-03-16 11:11:12","","-10","1707","<p>I need to register a new user with API. Back-end developer gave me screenshot how he implemented registration on PhP. Unfortunately, he doesn't know react so he can't help me. I already have input forms saving them in state. Could you please help me what's going on in the picture below and how make registration on React.</p>
+<p><a href=""https://i.stack.imgur.com/6SWFq.jpg"" rel=""nofollow noreferrer""><img src=""https://i.stack.imgur.com/6SWFq.jpg"" alt=""enter image description here"" /></a></p>
+<p>and my code. Let me know if I missing any field. I have url , but I dont know where to add user/create, company/create links:</p>
+<pre><code>signUp(event) {
+    event.preventDefault()
+    const formdata = new FormData()
+    formdata.append(&quot;email&quot;, this.state.userLogin.email)
+    formdata.append(&quot;password&quot;, this.state.userLogin.password)
+    formdata.append(&quot;name&quot;, this.state.userLogin.name)
+    formdata.append(&quot;companyName&quot;, this.state.userLogin.companyName)
+    formdata.append(&quot;region&quot;, this.state.userLogin.region)
+    axios
+      .post(&quot;http://dev.***********.com/&quot;, formdata)
+      .then(res =&gt; {
+        if (res.data) {
+          console.log('success')
+          this.props.history.push(&quot;/settings&quot;)
+        }
+      })
+      .catch(error =&gt; {
+        console.log(error)
+      })
+  }
+</code></pre>
+","7234678","","12358693","","2021-06-28 14:43:12","2021-06-28 14:43:12","User registration with React, Axios and PHP backend","<javascript><php><reactjs><axios><fetch>","1","8","","","","CC BY-SA 4.0"
+"59561452","1","","","2020-01-02 10:03:40","","-9","78","<p>I would like to write the code below in Reactjs how to do</p>
+<pre class=""lang-js prettyprint-override""><code>@foreach($slide as $item)
+  &lt;li data-target=&quot;#caImg&quot; data-slide-to=&quot;{{ $loop-&gt;index }}&quot; class=&quot;{{ ($loop-&gt;first)? 'active':'' }}&quot;&gt;&lt;/li&gt;
+@endforeach
+</code></pre>
+<p>and</p>
+<pre class=""lang-js prettyprint-override""><code>@foreach($slide as $item) 
+  &lt;div class=&quot;carousel-item {{ ($loop-&gt;first)? 'active':'' }}&quot;&gt; 
+      &lt;src={{$item-&gt;image}}/&gt; 
+  &lt;/div&gt;
+@endforeach
+</code></pre>
+<p>My code React.js</p>
+<pre class=""lang-js prettyprint-override""><code>{
+  slides.map((value, index) =&gt; {
+    return (
+      &lt;li
+        key={value.id}
+        data-target=&quot;#carouselHomeIndicators&quot;
+        data-slide-to={index}
+        className={index === 0 ? 'active' : ''}
+      /&gt;
+    );
+  });
+}
+</code></pre>
+","9911528","","13170636","","2021-09-17 09:38:23","2021-09-17 09:38:23","I would like to write this code with Reactjs how to do","<reactjs><react-native>","1","1","","2020-01-02 10:16:30","","CC BY-SA 4.0"
+"50467456","1","50521781","","2018-05-22 12:16:46","","-9","60","<p>const fields = {
+  {
+    id: 1,
+    type: 'group',
+  },
+  {
+    id: 2,
+    type: 'text',
+    label: 'Name',
+    group_id: 1
+  },
+  {
+    id: 3,
+    type: 'text',
+    label: 'Address',
+    group_id: 1
+  },
+  {
+    id: 4,
+    type: 'text',
+    label: 'City',
+    value: 'Lahore',
+    group_id: 1
+  },
+  {
+    id: 5,
+    type: 'text',
+    label: 'State',
+    value: 'Punjab',
+    group_id: 1
+  },
+  {
+    id: 6,
+    type: 'text',
+    label: 'Country',
+    value: 'Pakistan',
+    group_id: 1
+  },
+  {
+    id: 7,
+    type: 'group',
+  },
+  {
+    id: 8,
+    type: 'date',
+    label: 'Date of birth',
+    group_id: 7
+  },
+  {
+    id: 9,
+    type: 'email',
+    label: 'Email',
+    group_id: 7
+  },
+  {
+    id: 10,
+    type: 'phone',
+    label: 'Phone',
+    group_id: 7
+  },
+  {
+    id: 11,
+    type: 'color',
+    label: 'Color',
+    value: '#ff9900',
+    group_id: 7
+  },
+  {
+    id: 12,
+    type: 'number',
+    label: 'Age',
+    value: 22,
+    group_id: 7
+  },
+  {
+    id: 13,
+    type: 'number',
+    label: 'Friends',
+    value: 3,
+    group_id: 7
+  },
+  {
+    id: 14,
+    type: 'select_one',
+    label: 'Select One City',
+    value: 'karachi',
+    choices: ['lahore', 'karachi', 'multan', 'faisalabad', 'pishawar', 'queta', 'islamabad']
+    group_id: 7
+  },
+  {
+    id: 15,
+    type: 'select_one',
+    label: 'Select One Fruit',
+    value: 'peach',
+    choices: ['apple', 'banana', 'mango', 'peach', 'grapes', 'pine', 'strawberry']
+    group_id: 7
+  }
+}</p>
+","9828500","","9828500","","2018-05-25 10:32:11","2018-05-25 10:32:11","how to show 3 or more form accoring to the aarays of json type in react Js for building daynamic form","<json><reactjs><components>","2","5","","","","CC BY-SA 4.0"
+"44923602","1","45027568","","2017-07-05 10:25:38","","-9","82","<p>I have 2 buttons (type submit) and one form. </p>
+
+<p>How to realize submit form?
+the user can click on two different button and submit form.</p>
+","8009837","","","","","2017-07-11 07:02:13","How submit form with two buttons?","<javascript><reactjs>","1","6","","","","CC BY-SA 3.0"

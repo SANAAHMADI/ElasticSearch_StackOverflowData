@@ -1,0 +1,11 @@
+Id,PostId,Score,Text,CreationDate,UserDisplayName,UserId,ContentLicense
+"98200616","55762998","0","Are you sure you're using the latest version of the 12-series? See https://www.nuget.org/packages/Newtonsoft.Json/","2019-04-19 14:03:12","","1220550","CC BY-SA 4.0"
+"98257202","55794038","0","What version of Swashbuckle do you use?","2019-04-22 12:08:56","","113116","CC BY-SA 4.0"
+"98252625","55790845","0","Just to clarify - is this error produced **by** the generated Node.js server when you run it? It does not seem to be an error from the Swagger Codegen itself.","2019-04-22 08:49:54","","113116","CC BY-SA 4.0"
+"64227100","38322603","0","@disha Could you please add the full json response body?","2016-07-16 08:53:13","","5715934","CC BY-SA 3.0"
+"98200561","55762998","0","Have you reported this issue to `Newtonsoft`? Is this possibly a known issue with Version 12.0.0.0? Was there any benefit for updating to version 12.0.0.0? If not, just revert to version 11.0.0.0","2019-04-19 14:01:21","","4830196","CC BY-SA 4.0"
+"98340515","53942529","0","Did you manage to fix this? I have the same issue.","2019-04-24 20:41:50","","3820670","CC BY-SA 4.0"
+"98200630","55762998","0","may it's problem of compatiblity we need to know which technology you are using and his version also ?","2019-04-19 14:03:53","","5223540","CC BY-SA 4.0"
+"98345072","55836013","0","maybe this will help https://stackoverflow.com/questions/55256926/how-to-authorize-swagger-to-use-ms-graph-api","2019-04-25 02:20:07","","578334","CC BY-SA 4.0"
+"98279335","55793201","0","You cannot do this for query parameters in the rest-dsl with the `{xxx}` style, that is only for content-path. So just remove all of that after the `?` mark, and it should work.","2019-04-23 06:55:03","","406429","CC BY-SA 4.0"
+"98301145","55800431","0","@Helen Thank you :)","2019-04-23 18:22:16","","11396558","CC BY-SA 4.0"
